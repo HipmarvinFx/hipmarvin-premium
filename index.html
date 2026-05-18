@@ -7,196 +7,717 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --cream: #F5F0E8; --ink: #1A1410; --ink2: #2C2418;
-      --gold: #B8860B; --gold2: #D4A017; --muted: #7A6E5F;
-      --border: rgba(184,134,11,0.2); --red: #8B1A1A;
+      --cream: #F5F0E8;
+      --ink: #1A1410;
+      --ink2: #2C2418;
+      --gold: #B8860B;
+      --gold2: #D4A017;
+      --muted: #7A6E5F;
+      --border: rgba(184,134,11,0.2);
+      --red: #8B1A1A;
     }
+
     html { scroll-behavior: smooth; }
-    body { background: var(--cream); color: var(--ink); font-family: 'Montserrat', sans-serif; min-height: 100vh; overflow-x: hidden; cursor: none; }
-    .cursor { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transition: transform 0.15s ease; }
-    .cursor-ring { width: 32px; height: 32px; border: 1px solid var(--gold); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; transition: all 0.12s ease; opacity: 0.5; }
-    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1; opacity: 0.4; }
-    #lockScreen { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; background: var(--cream); transition: opacity 0.6s ease, transform 0.6s ease; }
-    #lockScreen.unlocking { opacity: 0; transform: translateY(-20px); pointer-events: none; }
-    .lock-box { max-width: 380px; width: 90%; text-align: center; animation: fadeUp 0.7s ease both; }
-    .lock-icon { font-size: 28px; margin-bottom: 24px; display: block; opacity: 0.6; }
-    .lock-brand { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; line-height: 0.9; color: var(--ink); margin-bottom: 6px; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    .cursor {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.15s ease;
+    }
+    .cursor-ring {
+      width: 32px; height: 32px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9998;
+      transition: all 0.12s ease;
+      opacity: 0.5;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.4;
+    }
+
+    /* ── LOCK SCREEN ── */
+    #lockScreen {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cream);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    #lockScreen.unlocking {
+      opacity: 0;
+      transform: translateY(-20px);
+      pointer-events: none;
+    }
+
+    .lock-box {
+      max-width: 380px;
+      width: 90%;
+      text-align: center;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .lock-icon {
+      font-size: 28px;
+      margin-bottom: 24px;
+      display: block;
+      opacity: 0.6;
+    }
+
+    .lock-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 300;
+      line-height: 0.9;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
     .lock-brand em { font-style: italic; color: var(--gold); }
-    .lock-sub { font-family: 'Cormorant Garamond', serif; font-size: 16px; letter-spacing: 6px; text-transform: uppercase; color: var(--muted); margin-bottom: 40px; }
-    .lock-ornament { display: flex; align-items: center; gap: 12px; margin-bottom: 36px; }
-    .lock-ornament-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
-    .lock-ornament-line.r { background: linear-gradient(270deg, transparent, var(--gold)); }
-    .lock-ornament-diamond { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
-    .lock-label { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 12px; text-align: left; }
-    .lock-input-wrap { position: relative; margin-bottom: 8px; }
-    .lock-input { width: 100%; padding: 16px 48px 16px 20px; background: transparent; border: 1px solid var(--border); color: var(--ink); font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 2px; outline: none; transition: border-color 0.3s; border-radius: 2px; }
+
+    .lock-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .lock-ornament {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .lock-ornament-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+
+    .lock-ornament-line.r {
+      background: linear-gradient(270deg, transparent, var(--gold));
+    }
+
+    .lock-ornament-diamond {
+      width: 5px; height: 5px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    .lock-label {
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    .lock-input-wrap {
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .lock-input {
+      width: 100%;
+      padding: 16px 48px 16px 20px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--ink);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      outline: none;
+      transition: border-color 0.3s;
+      border-radius: 2px;
+    }
+
     .lock-input:focus { border-color: var(--gold); }
+
     .lock-input.error { border-color: var(--red); animation: shake 0.4s ease; }
-    .toggle-pw { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--muted); font-size: 14px; padding: 0; line-height: 1; }
-    .lock-error { font-size: 10px; color: var(--red); letter-spacing: 2px; text-transform: uppercase; height: 16px; margin-bottom: 16px; text-align: left; font-weight: 500; opacity: 0; transition: opacity 0.3s; }
+
+    .toggle-pw {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 14px;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .lock-error {
+      font-size: 10px;
+      color: var(--red);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      height: 16px;
+      margin-bottom: 16px;
+      text-align: left;
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
     .lock-error.show { opacity: 1; }
-    .lock-btn { width: 100%; padding: 16px; background: var(--ink); color: var(--cream); border: none; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; cursor: pointer; transition: background 0.3s, transform 0.15s; border-radius: 2px; position: relative; overflow: hidden; }
-    .lock-btn::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateX(-101%); transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1); }
+
+    .lock-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--ink);
+      color: var(--cream);
+      border: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.15s;
+      border-radius: 2px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lock-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gold);
+      transform: translateX(-101%);
+      transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
     .lock-btn:hover::before { transform: translateX(0); }
     .lock-btn span { position: relative; z-index: 1; }
     .lock-btn:active { transform: scale(0.98); }
-    .lock-attempts { margin-top: 16px; font-size: 10px; color: var(--muted); letter-spacing: 1px; opacity: 0.6; }
-    #mainContent { display: none; opacity: 0; transition: opacity 0.6s ease; }
-    #mainContent.visible { display: block; opacity: 1; }
-    .page { position: relative; z-index: 2; min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; }
-    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 24px 40px; border-bottom: 1px solid var(--border); }
-    .topbar-left { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); font-weight: 500; }
-    .live-dot { width: 6px; height: 6px; background: #2ECC71; border-radius: 50%; animation: pulse 2s infinite; display: inline-block; margin-right: 8px; }
-    .live-text { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #2ECC71; font-weight: 600; }
-    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.3); } }
-    .main { padding: 60px 40px 40px; max-width: 600px; margin: 0 auto; width: 100%; }
+
+    .lock-attempts {
+      margin-top: 16px;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      opacity: 0.6;
+    }
+
+    /* ── MAIN CONTENT (hidden until unlocked) ── */
+    #mainContent {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    #mainContent.visible {
+      display: block;
+      opacity: 1;
+    }
+
+    .page {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-left {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .live-dot {
+      width: 6px; height: 6px;
+      background: #2ECC71;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    .live-text {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #2ECC71;
+      font-weight: 600;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .main {
+      padding: 60px 40px 40px;
+      max-width: 600px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
     .hero { margin-bottom: 56px; }
-    .eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
     .eyebrow-line { width: 32px; height: 1px; background: var(--gold); }
-    .eyebrow-text { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 600; }
-    .brand-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(64px, 16vw, 96px); font-weight: 300; line-height: 0.85; letter-spacing: -1px; color: var(--ink); }
+
+    .eyebrow-text {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(64px, 16vw, 96px);
+      font-weight: 300;
+      line-height: 0.85;
+      letter-spacing: -1px;
+      color: var(--ink);
+    }
+
     .brand-name em { font-style: italic; color: var(--gold); }
-    .brand-sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 4vw, 24px); font-weight: 300; letter-spacing: 8px; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
-    .hero-desc { margin-top: 28px; font-size: 13px; color: var(--muted); line-height: 1.8; font-weight: 300; max-width: 380px; }
+
+    .brand-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(18px, 4vw, 24px);
+      font-weight: 300;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .hero-desc {
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.8;
+      font-weight: 400;
+      max-width: 380px;
+    }
+
     .hero-desc strong { color: var(--ink); font-weight: 500; }
-    .ornament { display: flex; align-items: center; gap: 16px; margin: 40px 0 32px; }
+
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 40px 0 32px;
+    }
+
     .ornament-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); }
     .ornament-line.right { background: linear-gradient(270deg, var(--gold), transparent); }
     .ornament-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
-    .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; }
-    .section-title { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); font-weight: 500; }
-    .section-count { font-family: 'Cormorant Garamond', serif; font-size: 13px; color: var(--gold); font-style: italic; }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .section-count {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      color: var(--gold);
+      font-style: italic;
+    }
+
     .cards { display: flex; flex-direction: column; gap: 2px; }
-    .card { display: block; text-decoration: none; position: relative; padding: 28px 32px; background: var(--cream); border: 1px solid var(--border); overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-    .card-bg { position: absolute; inset: 0; background: var(--ink); transform: translateX(-101%); transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1); z-index: 0; }
+
+    .card {
+      display: block;
+      text-decoration: none;
+      position: relative;
+      padding: 28px 32px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .card-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--ink);
+      transform: translateX(-101%);
+      transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+      z-index: 0;
+    }
+
     .card:hover .card-bg { transform: translateX(0); }
-    .card-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
     .card-left { flex: 1; }
-    .card-tag { display: inline-block; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--border); color: var(--muted); margin-bottom: 10px; font-weight: 500; transition: all 0.4s; }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 8px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-weight: 500;
+      transition: all 0.4s;
+    }
+
     .card:hover .card-tag { border-color: rgba(212,160,23,0.4); color: var(--gold2); }
-    .card-num { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: var(--gold); letter-spacing: 2px; margin-bottom: 8px; font-style: italic; transition: color 0.4s; }
-    .card-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--ink); letter-spacing: 0.5px; line-height: 1.1; margin-bottom: 6px; transition: color 0.4s; }
-    .card-desc { font-size: 11px; color: var(--muted); font-weight: 300; letter-spacing: 0.5px; transition: color 0.4s; }
+
+    .card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      font-style: italic;
+      transition: color 0.4s;
+    }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+      margin-bottom: 6px;
+      transition: color 0.4s;
+    }
+
+    .card-desc {
+      font-size: 11px;
+      color: var(--ink2);
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      transition: color 0.4s;
+    }
+
     .card:hover .card-title { color: var(--cream); }
     .card:hover .card-desc { color: rgba(245,240,232,0.6); }
     .card:hover .card-num { color: var(--gold2); }
-    .card-arrow { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--border); transition: all 0.4s; flex-shrink: 0; margin-left: 16px; }
+
+    .card-arrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: var(--border);
+      transition: all 0.4s;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+
     .card:hover .card-arrow { color: var(--gold2); transform: translateX(6px); }
-    .footer { padding: 32px 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .disclaimer { font-size: 10px; color: var(--muted); line-height: 1.7; font-weight: 300; max-width: 420px; }
+
+    .footer {
+      padding: 32px 40px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .disclaimer {
+      font-size: 10px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 500;
+      max-width: 420px;
+    }
+
     .disclaimer strong { color: var(--gold); font-weight: 600; }
-    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--ink2); opacity: 0.3; white-space: nowrap; }
-    .vert-text { position: fixed; right: 24px; top: 50%; transform: translateY(-50%) rotate(90deg); font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); opacity: 0.3; font-weight: 500; white-space: nowrap; z-index: 2; }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes shake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-8px); } 40% { transform: translateX(8px); } 60% { transform: translateX(-5px); } 80% { transform: translateX(5px); } }
-    @media (max-width: 480px) { .topbar, .main, .footer { padding-left: 24px; padding-right: 24px; } .card { padding: 22px 24px; } .vert-text { display: none; } body { cursor: auto; } .cursor, .cursor-ring { display: none; } }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--ink2);
+      opacity: 0.3;
+      white-space: nowrap;
+    }
+
+    .vert-text {
+      position: fixed;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0.3;
+      font-weight: 500;
+      white-space: nowrap;
+      z-index: 2;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-5px); }
+      80% { transform: translateX(5px); }
+    }
+
+    @media (max-width: 480px) {
+      .topbar, .main, .footer { padding-left: 24px; padding-right: 24px; }
+      .card { padding: 22px 24px; }
+      .vert-text { display: none; }
+      body { cursor: auto; }
+      .cursor, .cursor-ring { display: none; }
+    }
   </style>
 </head>
 <body>
+
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
+  <!-- ── LOCK SCREEN ── -->
   <div id="lockScreen">
     <div class="lock-box">
       <span class="lock-icon">🔒</span>
+
       <div class="lock-brand">Hip<em>Marvin</em></div>
       <div class="lock-sub">FX &nbsp; Premium</div>
+
       <div class="lock-ornament">
         <div class="lock-ornament-line"></div>
         <div class="lock-ornament-diamond"></div>
         <div class="lock-ornament-line r"></div>
       </div>
+
       <div class="lock-label">Enter your access password</div>
+
       <div class="lock-input-wrap">
-        <input class="lock-input" id="pwInput" type="password" placeholder="••••••••••••••" autocomplete="off" spellcheck="false"/>
+        <input
+          class="lock-input"
+          id="pwInput"
+          type="password"
+          placeholder="••••••••••••••"
+          autocomplete="off"
+          spellcheck="false"
+        />
         <button class="toggle-pw" id="togglePw" tabindex="-1">👁</button>
       </div>
+
       <div class="lock-error" id="lockError">Incorrect password. Try again.</div>
-      <button class="lock-btn" id="unlockBtn"><span>Access Reports →</span></button>
+
+      <button class="lock-btn" id="unlockBtn">
+        <span>Access Reports →</span>
+      </button>
+
       <div class="lock-attempts" id="attemptsMsg"></div>
     </div>
   </div>
 
+  <!-- ── MAIN CONTENT ── -->
   <div id="mainContent">
     <div class="vert-text">Premium Members Only</div>
     <div class="page">
+
       <header class="topbar">
         <div class="topbar-left">Hipmarvin FX &nbsp;/&nbsp; Premium Portal</div>
-        <div><span class="live-dot"></span><span class="live-text">Reports Active</span></div>
+        <div>
+          <span class="live-dot"></span>
+          <span class="live-text">Reports Active</span>
+        </div>
       </header>
+
       <main class="main">
         <div class="hero">
-          <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Premium Access</span></div>
-          <div><div class="brand-name">Hip<em>Marvin</em></div><div class="brand-sub">FX &nbsp; Fundamentals</div></div>
-          <p class="hero-desc">Welcome back. Your <strong>institutional-grade</strong> analysis is ready — curated with precision, delivered with intent. Not for everyone. Made for you.</p>
+          <div class="eyebrow">
+            <div class="eyebrow-line"></div>
+            <span class="eyebrow-text">Premium Access</span>
+          </div>
+          <div>
+            <div class="brand-name">Hip<em>Marvin</em></div>
+            <div class="brand-sub">FX &nbsp; Fundamentals</div>
+          </div>
+          <p class="hero-desc">
+            Welcome back. Your <strong>institutional-grade</strong> analysis is ready — curated with precision, delivered with intent. Not for everyone. Made for you.
+          </p>
         </div>
+
         <div class="ornament">
-          <div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line right"></div>
+          <div class="ornament-line"></div>
+          <div class="ornament-diamond"></div>
+          <div class="ornament-line right"></div>
         </div>
+
         <div class="section-header">
           <span class="section-title">This Week's Reports</span>
           <span class="section-count">03 dispatches</span>
         </div>
+
         <div class="cards">
           <a class="card" href="PREMIUM_weekly_outlook.html">
             <div class="card-bg"></div>
             <div class="card-inner">
-              <div class="card-left"><div class="card-tag">Strategic</div><div class="card-num">01 —</div><div class="card-title">Weekly Outlook</div><div class="card-desc">Forward bias, key confluences & institutional positioning</div></div>
+              <div class="card-left">
+                <div class="card-tag">Strategic</div>
+                <div class="card-num">01 —</div>
+                <div class="card-title">Weekly Outlook</div>
+                <div class="card-desc">Forward bias, key confluences & institutional positioning</div>
+              </div>
               <div class="card-arrow">→</div>
             </div>
           </a>
+
           <a class="card" href="PREMIUM_postevent_daily.html">
             <div class="card-bg"></div>
             <div class="card-inner">
-              <div class="card-left"><div class="card-tag">Daily</div><div class="card-num">02 —</div><div class="card-title">Post Event Daily</div><div class="card-desc">Session breakdown, live trade logs & execution notes</div></div>
+              <div class="card-left">
+                <div class="card-tag">Daily</div>
+                <div class="card-num">02 —</div>
+                <div class="card-title">Post Event Daily</div>
+                <div class="card-desc">Session breakdown, live trade logs & execution notes</div>
+              </div>
               <div class="card-arrow">→</div>
             </div>
           </a>
+
           <a class="card" href="PREMIUM_weekly_review_pip_tracker.html">
             <div class="card-bg"></div>
             <div class="card-inner">
-              <div class="card-left"><div class="card-tag">Performance</div><div class="card-num">03 —</div><div class="card-title">Weekly Review & Pip Tracker</div><div class="card-desc">Full recap, pip accountability & lessons extracted</div></div>
+              <div class="card-left">
+                <div class="card-tag">Performance</div>
+                <div class="card-num">03 —</div>
+                <div class="card-title">Weekly Review & Pip Tracker</div>
+                <div class="card-desc">Full recap, pip accountability & lessons extracted</div>
+              </div>
               <div class="card-arrow">→</div>
             </div>
           </a>
         </div>
       </main>
+
       <footer class="footer">
-        <p class="disclaimer"><strong>⚠ Educational Use Only.</strong> Content is strictly for informational purposes and does not constitute financial advice. Premium members only — do not share or redistribute.</p>
+        <p class="disclaimer">
+          <strong>⚠ Educational Use Only.</strong> Content is strictly for informational purposes and does not constitute financial advice. Premium members only — do not share or redistribute.
+        </p>
         <div class="footer-brand">HipMarvin FX</div>
       </footer>
+
     </div>
   </div>
 
   <script>
+    // ── Password ──
     const PASSWORD = 'Hip$FX72@kWave';
     const MAX_ATTEMPTS = 5;
-    let attempts = 0, locked = false;
-    const lockScreen  = document.getElementById('lockScreen');
-    const mainContent = document.getElementById('mainContent');
-    const pwInput     = document.getElementById('pwInput');
-    const unlockBtn   = document.getElementById('unlockBtn');
-    const lockError   = document.getElementById('lockError');
-    const attemptsMsg = document.getElementById('attemptsMsg');
-    const togglePw    = document.getElementById('togglePw');
+    let attempts = 0;
+    let locked = false;
+
+    const lockScreen   = document.getElementById('lockScreen');
+    const mainContent  = document.getElementById('mainContent');
+    const pwInput      = document.getElementById('pwInput');
+    const unlockBtn    = document.getElementById('unlockBtn');
+    const lockError    = document.getElementById('lockError');
+    const attemptsMsg  = document.getElementById('attemptsMsg');
+    const togglePw     = document.getElementById('togglePw');
 
     function unlock() {
       if (locked) return;
-      if (pwInput.value === PASSWORD) {
+      const val = pwInput.value;
+
+      if (val === PASSWORD) {
+        // Success
         lockScreen.classList.add('unlocking');
         setTimeout(() => {
           lockScreen.style.display = 'none';
           mainContent.style.display = 'block';
           setTimeout(() => mainContent.classList.add('visible'), 20);
         }, 600);
+        // Remember for session
         sessionStorage.setItem('hm_auth', '1');
       } else {
+        // Fail
         attempts++;
         pwInput.classList.add('error');
         lockError.classList.add('show');
         setTimeout(() => pwInput.classList.remove('error'), 400);
         pwInput.value = '';
+
         const remaining = MAX_ATTEMPTS - attempts;
         if (remaining <= 0) {
           locked = true;
@@ -210,6 +731,7 @@
       }
     }
 
+    // Check session (so password isn't re-asked on same tab refresh within session)
     if (sessionStorage.getItem('hm_auth') === '1') {
       lockScreen.style.display = 'none';
       mainContent.style.display = 'block';
@@ -218,26 +740,42 @@
 
     unlockBtn.addEventListener('click', unlock);
     pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') unlock(); });
-    togglePw.addEventListener('click', () => { pwInput.type = pwInput.type === 'password' ? 'text' : 'password'; });
 
+    togglePw.addEventListener('click', () => {
+      pwInput.type = pwInput.type === 'password' ? 'text' : 'password';
+    });
+
+    // ── Cursor ──
     const cursor = document.getElementById('cursor');
     const ring   = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
+
     document.addEventListener('mousemove', e => {
       mx = e.clientX; my = e.clientY;
       cursor.style.left = mx - 4 + 'px';
       cursor.style.top  = my - 4 + 'px';
     });
+
     function animRing() {
-      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-      ring.style.left = rx - 16 + 'px'; ring.style.top = ry - 16 + 'px';
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx - 16 + 'px';
+      ring.style.top  = ry - 16 + 'px';
       requestAnimationFrame(animRing);
     }
     animRing();
+
     document.querySelectorAll('.card').forEach(c => {
-      c.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2)'; ring.style.transform = 'scale(1.5)'; });
-      c.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; ring.style.transform = 'scale(1)'; });
+      c.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'scale(2)';
+        ring.style.transform   = 'scale(1.5)';
+      });
+      c.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'scale(1)';
+        ring.style.transform   = 'scale(1)';
+      });
     });
   </script>
+
 </body>
 </html>
