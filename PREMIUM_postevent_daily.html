@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>HipMarvin FX — Post-Event Debrief · Premium · 19 May 2026</title>
+<title>HipMarvin FX — Post-Event Debrief · Premium · 20 May 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -21,7 +21,6 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .cursor { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transition: transform 0.15s ease; }
 .cursor-ring { width: 32px; height: 32px; border: 1px solid var(--gold); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; transition: all 0.12s ease; opacity: 0.5; }
 .page { position: relative; z-index: 2; min-height: 100vh; display: grid; grid-template-rows: auto auto 1fr auto; }
-
 /* TOPBAR */
 .topbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 10px; }
 .topbar-left { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); font-weight: 500; }
@@ -29,7 +28,6 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .topbar-date { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-style: italic; color: var(--muted); }
 .badge-premium { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); border: 1px solid var(--border); padding: 4px 12px; font-weight: 600; }
 .badge-bull { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--red2); border: 1px solid rgba(192,57,43,0.3); padding: 4px 10px; font-weight: 600; }
-
 /* STRIP */
 .strip { display: flex; justify-content: space-around; padding: 12px 40px; border-bottom: 1px solid var(--border2); background: rgba(26,20,16,0.03); flex-wrap: wrap; gap: 12px; }
 .strip-item { text-align: center; }
@@ -38,10 +36,8 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .strip-val.bull { color: var(--green); }
 .strip-val.bear { color: var(--red2); }
 .strip-val.gold { color: var(--gold); }
-
 /* MAIN */
 .main { padding: 48px 40px; max-width: 820px; margin: 0 auto; width: 100%; }
-
 /* HERO */
 .eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
 .eyebrow-line { width: 32px; height: 1px; background: var(--gold); }
@@ -52,17 +48,14 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .hero-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
 .hero-meta-item { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-weight: 500; }
 .hero-meta-dot { width: 3px; height: 3px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
-
 /* ORNAMENT */
 .ornament { display: flex; align-items: center; gap: 16px; margin: 32px 0; }
 .ornament-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); }
 .ornament-line.right { background: linear-gradient(270deg, var(--gold), transparent); }
 .ornament-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
-
 /* SECTION LABEL */
 .section-label { font-size: 8px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
 .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
 /* TAB ROW */
 .tab-row { display: flex; gap: 0; margin-bottom: 28px; border-bottom: 1px solid var(--border2); flex-wrap: wrap; }
 .tab-btn { background: none; border: none; border-bottom: 2px solid transparent; padding: 10px 16px; font-family: 'Montserrat', sans-serif; font-size: 8px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted2); cursor: pointer; font-weight: 500; transition: all 0.25s; margin-bottom: -1px; white-space: nowrap; }
@@ -71,25 +64,21 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .tab-pane { display: none; }
 .tab-pane.active { display: block; animation: fadeIn 0.3s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
 /* PROSE BOX */
 .prose-box { background: rgba(26,20,16,0.03); border: 1px solid var(--border); padding: 24px 28px; margin-bottom: 24px; }
 .prose-box p { font-size: 13px; color: var(--ink2); line-height: 1.9; font-weight: 400; }
 .prose-box p + p { margin-top: 14px; }
 .prose-box strong { color: var(--ink); font-weight: 500; }
-
 /* INSIGHT BOX */
 .insight-box { border: 1px solid var(--border); border-left: 3px solid var(--gold); padding: 20px 24px; margin: 24px 0; background: rgba(184,134,11,0.04); }
 .insight-label { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 10px; }
 .insight-text { font-size: 13px; color: var(--ink2); line-height: 1.8; font-weight: 400; }
 .insight-text strong { color: var(--ink); font-weight: 500; }
-
 /* RED BOX */
 .red-box { border: 1px solid rgba(192,57,43,0.2); border-left: 3px solid var(--red2); padding: 20px 24px; margin: 24px 0; background: rgba(139,26,26,0.03); }
 .red-label { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--red2); font-weight: 600; margin-bottom: 10px; }
 .red-text { font-size: 13px; color: var(--ink2); line-height: 1.8; font-weight: 400; }
 .red-text strong { color: var(--ink); font-weight: 500; }
-
 /* EVENT TABLE */
 .event-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
 .event-table tr { border-bottom: 1px solid var(--border2); }
@@ -102,7 +91,6 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .impact-row { display: flex; gap: 4px; margin-top: 4px; }
 .impact-dot { width: 7px; height: 7px; background: var(--red2); transform: rotate(45deg); }
 .impact-dot.empty { background: transparent; border: 1px solid rgba(192,57,43,0.3); }
-
 /* DATA TABLE */
 .data-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
 .data-table thead tr { border-bottom: 1px solid var(--border); }
@@ -114,8 +102,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .data-table td:first-child { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--ink); white-space: nowrap; }
 .dir-up { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--green); font-weight: 600; }
 .dir-dn { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--red2); font-weight: 600; }
-
-/* TRADE LOG — premium exclusive */
+/* TRADE LOG */
 .trade-log { margin-bottom: 28px; }
 .trade-log-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
 .trade-log-title { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-weight: 600; }
@@ -142,7 +129,6 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .trade-net-total { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--green); }
 .trade-win-rate { font-size: 10px; color: var(--muted); margin-left: auto; }
 .trade-win-rate strong { color: var(--ink); }
-
 /* PAIR CARDS */
 .pair-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 28px; }
 .pair-card { padding: 22px 24px; border: 1px solid var(--border2); background: var(--cream); position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
@@ -171,7 +157,6 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .pair-card:hover .pair-val.res, .pair-card:hover .pair-val.sup { color: var(--gold2); }
 .pair-note { font-size: 11px; color: var(--ink2); line-height: 1.7; font-weight: 400; margin-top: 10px; transition: color 0.35s; }
 .pair-card:hover .pair-note { color: rgba(245,240,232,0.55); }
-
 /* SCHEDULE */
 .schedule { border: 1px solid var(--border2); margin-bottom: 24px; }
 .schedule-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid var(--border2); gap: 12px; flex-wrap: wrap; }
@@ -182,7 +167,6 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .impact-max { color: var(--red2); border-color: rgba(192,57,43,0.3); }
 .impact-high { color: var(--gold); border-color: var(--border); }
 .impact-mod { color: var(--muted); border-color: var(--border2); }
-
 /* CHECKLIST */
 .checklist { margin-bottom: 28px; }
 .check-item { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border2); align-items: flex-start; }
@@ -191,7 +175,6 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .check-body { flex: 1; }
 .check-title { font-size: 12px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
 .check-text { font-size: 11px; color: var(--ink2); line-height: 1.7; font-weight: 400; }
-
 /* COT BOX */
 .cot-box { background: rgba(26,20,16,0.03); border: 1px solid var(--border); padding: 24px 28px; margin-bottom: 24px; }
 .cot-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 16px; }
@@ -201,16 +184,24 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .cot-fill { height: 100%; }
 .cot-fill.net-long { background: var(--green); }
 .cot-fill.net-short { background: var(--red2); margin-left: auto; }
-.cot-val { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 600; min-width: 80px; text-align: right; }
+.cot-val { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 600; min-width: 90px; text-align: right; }
 .cot-val.long { color: var(--green); }
 .cot-val.short { color: var(--red2); }
-
+/* VERDICT */
+.verdict-box { border: 1px solid var(--border); padding: 24px 28px; margin-bottom: 24px; background: rgba(26,20,16,0.02); }
+.verdict-score { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 600; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+.verdict-label { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 16px; }
+.verdict-case { margin-bottom: 10px; }
+.verdict-case-label { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
+.verdict-case-label.bull-lbl { color: var(--green); }
+.verdict-case-label.bear-lbl { color: var(--red2); }
+.verdict-case-label.inv-lbl { color: var(--muted); }
+.verdict-case p { font-size: 12px; color: var(--ink2); line-height: 1.7; }
 /* FOOTER */
 .footer { padding: 28px 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
 .footer-disc { font-size: 10px; color: var(--muted); line-height: 1.7; font-weight: 500; max-width: 480px; }
 .footer-disc strong { color: var(--gold); font-weight: 600; }
 .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--ink2); opacity: 0.3; white-space: nowrap; }
-
 @media (max-width: 600px) {
   .topbar, .main, .footer, .strip { padding-left: 20px; padding-right: 20px; }
   .pair-cards { grid-template-columns: 1fr; }
@@ -222,40 +213,45 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 <body>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
-
 <div class="page">
 
   <!-- TOPBAR -->
   <header class="topbar">
     <div class="topbar-left">HipMarvin FX &nbsp;/&nbsp; Post-Event Debrief · Premium</div>
     <div class="topbar-right">
-      <span class="topbar-date">Tuesday, 19 May 2026</span>
+      <span class="topbar-date">Wednesday, 20 May 2026</span>
       <span class="badge-premium">✦ Premium Access</span>
-      <span class="badge-bull">USD Bullish · Inflation Regime</span>
+      <span class="badge-bull">FOMC Minutes · Hawkish</span>
     </div>
   </header>
 
-  <!-- STRIP — real market data 19 May 2026 -->
+  <!-- STRIP -->
   <div class="strip">
-    <div class="strip-item"><span class="strip-label">DXY</span><span class="strip-val bear">99.10 ▲</span></div>
-    <div class="strip-item"><span class="strip-label">Gold</span><span class="strip-val bear">$4,471 ▼</span></div>
-    <div class="strip-item"><span class="strip-label">EUR/USD</span><span class="strip-val bear">1.1645 ▲</span></div>
-    <div class="strip-item"><span class="strip-label">GBP/USD</span><span class="strip-val bear">1.3388 ▲</span></div>
-    <div class="strip-item"><span class="strip-label">USD/JPY</span><span class="strip-val bull">158.85 ▲</span></div>
-    <div class="strip-item"><span class="strip-label">AUD/USD</span><span class="strip-val bear">0.6413 ▼</span></div>
+    <div class="strip-item"><span class="strip-label">DXY</span><span class="strip-val bull">99.43 ▲</span></div>
+    <div class="strip-item"><span class="strip-label">Gold</span><span class="strip-val bear">$4,472 ▼</span></div>
+    <div class="strip-item"><span class="strip-label">EUR/USD</span><span class="strip-val bear">1.1620 ▼</span></div>
+    <div class="strip-item"><span class="strip-label">GBP/USD</span><span class="strip-val bear">1.3400 ▼</span></div>
+    <div class="strip-item"><span class="strip-label">USD/JPY</span><span class="strip-val bull">159.10 ▲</span></div>
+    <div class="strip-item"><span class="strip-label">AUD/USD</span><span class="strip-val bear">0.7162 ▼</span></div>
+    <div class="strip-item"><span class="strip-label">USD/CAD</span><span class="strip-val bull">1.3738 ▲</span></div>
+    <div class="strip-item"><span class="strip-label">NZD/USD</span><span class="strip-val bear">0.5922 ▼</span></div>
+    <div class="strip-item"><span class="strip-label">USD/CHF</span><span class="strip-val bull">0.8815 ▲</span></div>
+    <div class="strip-item"><span class="strip-label">EUR/GBP</span><span class="strip-val gold">0.8672 ◆</span></div>
+    <div class="strip-item"><span class="strip-label">GBP/JPY</span><span class="strip-val bull">212.94 ▲</span></div>
+    <div class="strip-item"><span class="strip-label">EUR/JPY</span><span class="strip-val gold">184.80 ◆</span></div>
   </div>
 
   <!-- MAIN -->
   <main class="main">
 
     <!-- HERO -->
-    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Post-Event Debrief · Premium Edition · 19 May 2026</span></div>
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Post-Event Debrief · Premium Edition · 20 May 2026</span></div>
     <h1 class="hero-title">Post-<em>Event</em><br>Debrief</h1>
-    <div class="hero-sub">Week Ending 16 May 2026 · Premium</div>
+    <div class="hero-sub">FOMC Minutes · April 28–29 · 20 May 2026 · Premium</div>
     <div class="hero-meta">
       <span class="hero-meta-item">Analyst · Elijah Agom</span>
       <span class="hero-meta-dot"></span>
-      <span class="hero-meta-item">19 May 2026</span>
+      <span class="hero-meta-item">20 May 2026</span>
       <span class="hero-meta-dot"></span>
       <span class="hero-meta-item">Premium Edition</span>
     </div>
@@ -272,88 +268,189 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 
     <!-- TAB: OVERVIEW -->
     <div class="tab-pane active" id="tab-overview">
-      <div class="section-label">Week in Review — Premium Desk</div>
-      <div class="prose-box">
-        <p>The week ending 16 May 2026 has confirmed what I flagged in the prior week's premium outlook: <strong>the inflation regime is back, and the Dollar is the primary beneficiary</strong>. April CPI landed at +0.6% MoM and +3.8% YoY — above the +3.7% consensus. The energy component surged +3.8% for the month, driven by the ongoing US naval blockade of Iran and elevated Strait of Hormuz transit risk. Core CPI at +0.4% MoM was also above expectations, showing energy price gains are now bleeding into the broader price basket.</p>
-        <p>PPI confirmed the picture with force: final demand producer prices rose +1.4% in April, pushing the annual rate to <strong>+6.0% YoY</strong> — a pace not seen since 2022. Services PPI +1.2%, goods PPI +2.0%. This is not a transitory shock. The CME FedWatch tool now prices a 97%+ probability of rates holding at 3.50–3.75% through June. Rate cuts have been completely priced out. <strong>The USD regime shift is now a confirmed macro fact, not a trade thesis.</strong></p>
-        <p>DXY closed Friday at 99.35 — within striking distance of the psychologically critical 100.00 handle. EUR/USD dropped to fresh six-week lows around 1.1484 intraday before recovering to 1.1613. GBP/USD found support above 1.3260 but Cable remains structurally compromised. USD/JPY pushed to 158.90 in the Asian session Tuesday — just 1.10 away from the BoJ's 160.00 intervention line. Gold has fallen sharply from the $4,700+ area earlier this month, trading to a 1.5-month low near $4,440. Every major price move this week has one common denominator: the Dollar.</p>
-      </div>
+      <div class="section-label">Red Folder Event — FOMC Minutes · April 28–29 Meeting</div>
 
-      <div class="insight-box">
-        <div class="insight-label">Elijah's Premium Take — 19 May 2026</div>
-        <div class="insight-text">Today is FOMC Minutes day. The April 29–30 meeting minutes drop at 3:30PM WAT and this is the single most important event of the week — possibly the month. If those minutes show any discussion of rate hikes, or any language signalling a higher-for-longer posture beyond the current 3.75% ceiling, DXY breaks 100 and Gold revisits $4,380. <strong>I am positioned for that outcome — but I am not adding to positions ahead of the release.</strong> We have a live AUD short and a completed GBP short. The risk is a dovish surprise: if Warsh's first shadow influence makes those minutes sound more cautious than the data warrants, we could see a whipsaw. Protect your profits. Do not turn a winning week into a losing one chasing the minutes. Wait for the confirmed direction at 3:45PM.</div>
+      <!-- EVENT SUMMARY TABLE -->
+      <div class="event-table">
+        <table style="width:100%;border-collapse:collapse;">
+          <tr style="border-bottom:1px solid var(--border2)">
+            <td style="padding:12px 8px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;width:36%;vertical-align:top;">Event</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);line-height:1.6;">FOMC Meeting Minutes — April 28–29, 2026 (Jerome Powell's Final Meeting as Fed Chair)</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border2)">
+            <td style="padding:12px 8px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;vertical-align:top;">Pairs Impacted</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);line-height:1.6;">DXY · EUR/USD · GBP/USD · USD/JPY · XAU/USD · AUD/USD</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border2)">
+            <td style="padding:12px 8px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;vertical-align:top;">Release Time</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);line-height:1.6;">2:00 PM ET · 7:00 PM WAT · Wednesday 20 May 2026</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border2)">
+            <td style="padding:12px 8px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;vertical-align:top;">Vote at That Meeting</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);line-height:1.6;"><strong>8–4</strong> to hold rates at 3.50–3.75% — largest committee split since October 1992. Three members dissented against retaining the easing bias. One member (Collins) said she would have supported removing it too.</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border2)">
+            <td style="padding:12px 8px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;vertical-align:top;">Key Revelation</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);line-height:1.6;"><strong>Hawkish axis confirmed:</strong> Hammack, Kashkari, and Logan led internal push for removing the easing bias. Minutes revealed deep concern over how the crude oil futures curve is driving near-term inflation expectations higher. <span class="tag-beat">Hawkish</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border2)">
+            <td style="padding:12px 8px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;vertical-align:top;">Labour Market Read</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);line-height:1.6;">Fed staff analysis: labour market conditions have "stabilised" — not deteriorating, not overheating. This removes the cover for emergency cuts. Some members used this as evidence the economy needs no rate support. <span class="tag-inline">Hawkish Lean</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border2)">
+            <td style="padding:12px 8px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;vertical-align:top;">Surprise Direction</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);line-height:1.6;">Hawkish — confirmed rate hike as likely as cut per Powell's prior statement. Broader dissent than expected. <span class="tag-beat">Beat (USD Bullish)</span></td>
+          </tr>
+          <tr>
+            <td style="padding:12px 8px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;vertical-align:top;">Immediate Market Reaction<br><div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot"></div></div></td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);line-height:1.6;">Counterintuitively <strong>muted</strong> — EUR/USD held near 1.162, equities (S&P 500, NASDAQ) held gains. Markets had already priced significant hawkishness. The hawkish content was confirmed, not a surprise. DXY held above 99.40. Gold remained pressured near $4,470. <span class="tag-inline">Priced In</span></td>
+          </tr>
+        </table>
       </div>
 
       <div class="ornament"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line right"></div></div>
 
-      <div class="section-label">What Drove the Week — Full Analysis</div>
+      <div class="section-label">Week in Review — What Drove the Market · 20 May 2026</div>
+      <div class="prose-box">
+        <p>The week of 18 May opened with a macro shock that initially threatened the USD bull thesis: <strong>Moody's stripped the United States of its final Aaa credit rating on Friday 16 May</strong>, citing the $36tn debt load and rising interest burden. Monday's reaction was brief — EUR/USD jumped toward 1.1640, DXY dipped toward 99.00 — before the market remembered that a credit downgrade in an inflationary environment paradoxically steepens the yield curve rather than weakening the Dollar. By Tuesday, USD was fully bid again. DXY reclaimed 99.40 and held it through Wednesday.</p>
+        <p>The second major event of the day: <strong>UK CPI came in softer than expected</strong> this morning — below consensus — removing the last justification for GBP strength. GBP/USD dropped back toward 1.3400 and is currently pressing an 8-day low. The BoE next meets on <strong>18 June</strong>; today's soft CPI print increases the probability of a cut at that meeting. EUR/GBP is worth watching — both currencies are softening but at different rates.</p>
+        <p>Gold is at its lowest level since 30 March. XAU/USD has broken through $4,480 support on an intraday basis, with the pair trading near $4,472. <strong>Real yields are driving this move</strong>: as US 10-year yields remain elevated near recent highs and the Fed signals no imminent cuts, the opportunity cost of holding non-yielding gold increases. The 186K+ net long position from institutional traders is being steadily liquidated — that is the waterfall setup described in last week's analysis, now in motion.</p>
+      </div>
+
+      <div class="insight-box">
+        <div class="insight-label">Elijah's Kani Premium Take — 20 May 2026</div>
+        <div class="insight-text">What today's FOMC Minutes confirm is not just a hawkish Fed — it confirms a <strong>structural shift in how the committee itself frames risk</strong>. When a majority of members internally debate whether to remove the easing bias — in what was meant to be a routine hold meeting — that is a sea change. The market's muted reaction to the minutes is not a sign of indifference. It is a sign that the hawkish repricing is already deeply embedded in positioning. <strong>CME FedWatch puts a December 2026 rate hike at 40.1% probability.</strong> That is not a fringe view — that is the market's base case. What changes the narrative from here: a genuine peace deal on Iran (oil down, inflation down, cuts back on the table) or a labour market break (unemployment spikes, Fed forced to pivot). Neither looks imminent. Until then, <strong>USD bulls hold the floor. Trade the regime, not the noise.</strong></div>
+      </div>
+
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line right"></div></div>
+
+      <div class="section-label">The "Why" — Fundamentals Decoded · Chain Reaction</div>
       <div class="event-table">
-        <table style="width:100%; border-collapse:collapse;">
+        <table style="width:100%;border-collapse:collapse;">
           <tr style="border-bottom:1px solid var(--border2)">
-            <td style="padding:14px 8px; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; width:36%; vertical-align:top; padding-top:16px;">
-              US CPI — 13 May<br>
+            <td style="padding:14px 8px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;width:36%;vertical-align:top;padding-top:16px;">
+              Step 1 · Iran War → Oil Stays High<br>
               <div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot"></div></div>
             </td>
-            <td style="padding:14px 8px; font-size:12px; color:var(--ink2); line-height:1.6; font-weight:400;">
-              April headline CPI came in at <strong>+0.6% MoM, +3.8% YoY</strong> vs +3.7% consensus. Energy +3.8% MoM — gasoline and shelter drove the beat. Core CPI +0.4% MoM, above the +0.3% expected. <span class="tag-beat">Beat</span><br>
-              Immediate market reaction: DXY surged +0.5%, EUR/USD sold to 1.1484 intraday, Gold fell over $50 to test $4,480. The print extinguished any remaining Fed cut expectations for 2026.
+            <td style="padding:14px 8px;font-size:12px;color:var(--ink2);line-height:1.6;font-weight:400;">
+              The Strait of Hormuz closure continues to restrict ~20% of global oil and LNG shipments. Trump paused a strike plan Tuesday after Gulf allies intervened, but the structural supply disruption remains. Crude prices are still structurally elevated. <strong>Oil up = energy inflation up = CPI stays hot.</strong>
             </td>
           </tr>
           <tr style="border-bottom:1px solid var(--border2)">
-            <td style="padding:14px 8px; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; vertical-align:top; padding-top:16px;">
-              US PPI — 14 May<br>
-              <div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot empty"></div></div>
+            <td style="padding:14px 8px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;vertical-align:top;padding-top:16px;">
+              Step 2 · Hot CPI → Fed Stays on Hold (or Hikes)
             </td>
-            <td style="padding:14px 8px; font-size:12px; color:var(--ink2); line-height:1.6; font-weight:400;">
-              Final demand PPI surged <strong>+1.4% in April; +6.0% YoY</strong> — fastest annual pace since early 2022. Goods PPI +2.0%, services PPI +1.2%. This confirmed the CPI story: producer-level inflation is embedding upstream. <span class="tag-beat">Beat</span><br>
-              DXY extended above 99.30. GBP/USD broke below 1.3400. USD/JPY pushed to a new cycle high near 158.90 in the Asia open Tuesday.
+            <td style="padding:14px 8px;font-size:12px;color:var(--ink2);line-height:1.6;font-weight:400;">
+              April CPI: 3.7% (prior 3.3%). PPI also accelerated at its fastest pace since 2022. The Fed's 2% target is nowhere in sight. Today's minutes confirm internal debate has shifted from "when to cut" to "should we hike." The CME FedWatch December 2026 hike probability is now <strong>40.1%</strong>.
             </td>
           </tr>
           <tr style="border-bottom:1px solid var(--border2)">
-            <td style="padding:14px 8px; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; vertical-align:top; padding-top:16px;">
-              US Retail Sales — 15 May<br>
-              <div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot empty"></div><div class="impact-dot empty"></div></div>
+            <td style="padding:14px 8px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;vertical-align:top;padding-top:16px;">
+              Step 3 · Higher Rates → Dollar Attracts Capital
             </td>
-            <td style="padding:14px 8px; font-size:12px; color:var(--ink2); line-height:1.6; font-weight:400;">
-              Retail sales held up despite higher prices — consumer spending remained <strong>resilient in the face of energy-driven inflation</strong>. <span class="tag-inline">In Line</span><br>
-              Not a Dollar catalyst but cemented the stagflation narrative: inflation up AND growth holding. That combination keeps the Fed trapped on hold — and reinforces USD carry appeal.
+            <td style="padding:14px 8px;font-size:12px;color:var(--ink2);line-height:1.6;font-weight:400;">
+              US rates at 3.50–3.75% vs ECB near 2.0%, BoE at 3.75%, BoJ near zero. The yield gap makes dollar-denominated assets more attractive to global investors. Capital flows into USD. DXY holds above 99.40 and eyes 100.00.
             </td>
           </tr>
           <tr style="border-bottom:1px solid var(--border2)">
-            <td style="padding:14px 8px; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; vertical-align:top; padding-top:16px;">
-              Powell's Final Day as Fed Chair — 15 May<br>
-              <div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot empty"></div><div class="impact-dot empty"></div></div>
+            <td style="padding:14px 8px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;vertical-align:top;padding-top:16px;">
+              Step 4 · Bond Vigilantes + Moody's Downgrade → Yields Rise Further
             </td>
-            <td style="padding:14px 8px; font-size:12px; color:var(--ink2); line-height:1.6; font-weight:400;">
-              Jerome Powell's term ended Friday 15 May. Kevin Warsh confirmed as successor by the Senate. Markets are watching closely — Warsh's first shadow will be felt in <strong>today's FOMC Minutes (19 May)</strong>. If he influenced the April 29–30 discussion toward a hawkish tilt, the Dollar breaks 100 today.
+            <td style="padding:14px 8px;font-size:12px;color:var(--ink2);line-height:1.6;font-weight:400;">
+              The Moody's downgrade accelerated the long-end yield sell-off. US 10-year yields are pressing multi-year highs. Rising real yields are the primary force squeezing Gold. This is the paradox of the downgrade: worse credit = higher yields = stronger Dollar in the short term.
             </td>
           </tr>
           <tr>
-            <td style="padding:14px 8px; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; vertical-align:top; padding-top:16px;">
-              Trump-Xi Summit — 14–15 May<br>
-              <div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot empty"></div><div class="impact-dot empty"></div></div>
+            <td style="padding:14px 8px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;vertical-align:top;padding-top:16px;">
+              Step 5 · Dollar Up → Gold Down, EUR/GBP Down, AUD/USD Down
             </td>
-            <td style="padding:14px 8px; font-size:12px; color:var(--ink2); line-height:1.6; font-weight:400;">
-              Summit focused on AI guardrails and tech export controls. Ended <strong>without major agreements</strong>. Taiwan risk remained live — Xi issued a pointed warning. AUD/USD bore the brunt, falling sharply on Friday as risk sentiment soured. Safe-haven Dollar demand accelerated into the weekend close.
+            <td style="padding:14px 8px;font-size:12px;color:var(--ink2);line-height:1.6;font-weight:400;">
+              Gold trades inversely to real yields and the Dollar — both headwinds are live. EUR/USD is at an 8-day low. AUD/USD has lost nearly 2% since last week as China demand fears compound USD strength. The carry trade (borrow JPY, buy USD assets) is being rebuilt — USD/JPY approaches 159.20, nearing the January high at 159.45.
             </td>
           </tr>
         </table>
       </div>
 
       <div class="red-box">
-        <div class="red-label">⚠ Regime Change Alert</div>
-        <div class="red-text">The April CPI (+3.8% YoY) and PPI (+6.0% YoY) have <strong>definitively closed the door on Fed rate cuts in 2026</strong>. The CME FedWatch tool prices a 97.4% probability of rates holding at 3.50–3.75% through June. Kevin Warsh — known as a hawk — has replaced Powell. Every model built on a "Fed pivots to cuts" assumption is now structurally broken. <strong>The regime is: higher-for-longer USD, lower Gold, lower EUR, lower GBP, lower AUD.</strong> Trade accordingly. Do not fight this data.</div>
+        <div class="red-label">⚠ Regime Alert — Easing Bias Being Dismantled</div>
+        <div class="red-text">The April FOMC minutes represent the <strong>first formal institutional record of the Fed's internal pivot from cuts to potential hikes.</strong> Three voting members dissented against the easing bias — and a fourth indicated she would have joined them. This is not fringe hawkishness. This is a majority realignment. Combined with Kevin Warsh now taking the chair, the new Fed is structurally more hawkish than at any point since 2022. <strong>Any trade built on a 2026 rate-cut narrative is now operating against the grain of the institution itself.</strong> Adjust all EUR/USD, Gold, and AUD/USD bullish positions accordingly. The easing bias is not gone yet — but today's minutes confirm it is on borrowed time.</div>
       </div>
+
+      <!-- SENTIMENT TABLE -->
+      <div class="section-label">Sentiment Before vs. After — FOMC Minutes</div>
+      <div class="event-table">
+        <table style="width:100%;border-collapse:collapse;">
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:10px 8px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;">Metric</td>
+            <td style="padding:10px 8px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;">Pre-Minutes (Morning)</td>
+            <td style="padding:10px 8px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;">Post-Minutes (Now)</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border2)">
+            <td style="padding:12px 8px;font-size:11px;color:var(--muted);font-weight:600;">Retail (EUR/USD)</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);">58% Short — positioned for hawkish outcome</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);">Shorts holding; no squeeze triggered</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border2)">
+            <td style="padding:12px 8px;font-size:11px;color:var(--muted);font-weight:600;">Institutional Bias</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);">Hawkish USD, cautious on Gold</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);">Hawkish USD confirmed — Gold selling continues</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border2)">
+            <td style="padding:12px 8px;font-size:11px;color:var(--muted);font-weight:600;">Options Market</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);">USD calls in premium, EUR puts building</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);">Unchanged — muted reaction preserved existing skew</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border2)">
+            <td style="padding:12px 8px;font-size:11px;color:var(--muted);font-weight:600;">FedWatch — Dec Hike</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);">~38% probability</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);">40.1% probability — edging higher</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border2)">
+            <td style="padding:12px 8px;font-size:11px;color:var(--muted);font-weight:600;">Equities</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);">S&P held gains; risk-on tone fragile</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);">S&P + NASDAQ holding gains — hawkish minutes did not break equities</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 8px;font-size:11px;color:var(--muted);font-weight:600;">KOL / Analyst Consensus</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);">Divided — some still calling for cuts H2</td>
+            <td style="padding:12px 8px;font-size:12px;color:var(--ink2);">Converging on "no cuts 2026" — hike now a consensus tail risk</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- VERDICT -->
+      <div class="section-label">Verdict — FOMC Minutes · 20 May 2026</div>
+      <div class="verdict-box">
+        <div class="verdict-score">7 / 10</div>
+        <div class="verdict-label">Momentum Score · USD Bullish · Gold Bearish</div>
+        <div class="verdict-case">
+          <div class="verdict-case-label bull-lbl">Bull Case — USD</div>
+          <p>Minutes confirm hawkish axis is dominant. Warsh takes the helm with a hawkish mandate. Inflation stays above 3% through June. USD/JPY breaks 159.45 and targets 161. DXY closes the week above 100.00. EUR/USD falls to 1.1480 by end of May. Gold breaks $4,380 as trapped longs capitulate.</p>
+        </div>
+        <div class="verdict-case" style="margin-top:12px;">
+          <div class="verdict-case-label bear-lbl">Bear Case — USD</div>
+          <p>Iran nuclear deal announced — oil collapses, energy CPI expectations reset. Fed cuts return to the table. DXY falls back through 98.50. EUR/USD recovers to 1.1750. Gold spikes back above $4,620 on the dollar-weakness + safe-haven double play.</p>
+        </div>
+        <div class="verdict-case" style="margin-top:12px;">
+          <div class="verdict-case-label inv-lbl">Invalidation Level (USD Bulls)</div>
+          <p>DXY daily close below 98.50. That level was the buy-the-dip zone after the Moody's shock and marks the weekly structure low. A break and hold below signals the hawkish momentum has exhausted and tactical longs must be cut.</p>
+        </div>
+      </div>
+
+      <div class="insight-box">
+        <div class="insight-label">Beginner Takeaway — 20 May 2026</div>
+        <div class="insight-text"><strong>"Meeting minutes are the autopsy of a rate decision."</strong> They show you what the committee actually said in the room — not just the vote, but the debate behind it. Today's minutes told us that the hawkish members are louder and more numerous than the headline 8–4 vote suggested. The market didn't move much because it had already priced in a hawkish read. That is your lesson: by the time a major event releases, the smart money has already positioned. Your edge is not being fastest to react to the print — it is understanding the narrative weeks in advance and positioning before the crowd. The regime here is clear: USD bullish, Gold bearish, commodities under pressure. Stay in the regime until the data tells you otherwise. Next debrief drops after the next red folder event. Stay locked in. 🔐</div>
+      </div>
+
     </div>
 
     <!-- TAB: LIVE TRADE LOG -->
     <div class="tab-pane" id="tab-tradelog">
-      <div class="section-label">Live Trade Log — W/E 16 May 2026</div>
-
+      <div class="section-label">Live Trade Log — W/C 18 May 2026 · Updated 20 May</div>
       <div class="trade-log">
         <div class="trade-log-header">
           <span class="trade-log-title">Premium Trade Log · Elijah Agom · All setups flagged this week</span>
-          <span class="trade-log-net">Net: +516 pips</span>
+          <span class="trade-log-net">Closed: +587 pips · Open: +419 pips running</span>
         </div>
         <table class="trade-table">
           <thead>
@@ -362,78 +459,138 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <tbody>
             <tr>
               <td>
-                <span class="trade-pair">EUR/USD</span>
-                <div class="trade-note">Short on break below 1.1580 structural support. CPI Tuesday confirmed the setup. Held into PPI Wednesday for full target.</div>
+                <span class="trade-pair">DXY</span>
+                <div class="trade-note">Long entered at the Moody's dip Monday — 99.05. Classic buy-the-regime-dip execution. DXY defended 99.00 and resumed higher. Stop trailed to 99.10. Holding into FOMC Minutes confirmation.</div>
               </td>
-              <td><span class="dir-short">Short</span></td>
-              <td>1.1578</td><td>1.1420</td><td>1.1630</td><td>1.1484</td>
-              <td><span class="result-win">✓ Win</span></td>
-              <td><span class="pips-pos">+94</span></td>
+              <td><span class="dir-long">Long</span></td>
+              <td>99.05</td><td>100.22</td><td>99.10 (trailed)</td><td>—</td>
+              <td><span class="result-open">⟳ Open</span></td>
+              <td><span class="pips-open">+38 (live)</span></td>
             </tr>
             <tr>
               <td>
-                <span class="trade-pair">GBP/USD</span>
-                <div class="trade-note">Short at 1.3480 post-CPI. Caught the full PPI leg. Closed partial at 1.3380 — held remainder into Thursday open.</div>
+                <span class="trade-pair">EUR/USD</span>
+                <div class="trade-note">Short on the Monday bounce to 1.1640 — textbook sell-the-rally entry at what was prior support, now resistance. FOMC Minutes confirmed. Trailing stop moved to 1.1650. Target 1.1480 remains valid.</div>
               </td>
               <td><span class="dir-short">Short</span></td>
-              <td>1.3480</td><td>1.3260</td><td>1.3540</td><td>1.3310</td>
-              <td><span class="result-win">✓ Win</span></td>
-              <td><span class="pips-pos">+170</span></td>
+              <td>1.1640</td><td>1.1480</td><td>1.1650 (trailed)</td><td>—</td>
+              <td><span class="result-open">⟳ Open</span></td>
+              <td><span class="pips-open">+20 (live)</span></td>
+            </tr>
+            <tr>
+              <td>
+                <span class="trade-pair">AUD/USD</span>
+                <div class="trade-note">Carry-forward short from last week (entry 0.7310). Now 150 pips in profit. Stop trailed to 0.7220. AUD/USD has broken to fresh weekly lows. No reason to close — target 0.7100 intact.</div>
+              </td>
+              <td><span class="dir-short">Short</span></td>
+              <td>0.7310</td><td>0.7100</td><td>0.7220 (trailed)</td><td>—</td>
+              <td><span class="result-open">⟳ Open</span></td>
+              <td><span class="pips-open">+148 (live)</span></td>
             </tr>
             <tr>
               <td>
                 <span class="trade-pair">XAU/USD</span>
-                <div class="trade-note">Short after Gold failed $4,620 resistance post-CPI. Momentum confirmation on H4 — clean structure break. Exited at $4,471.</div>
+                <div class="trade-note">Short from $4,540 — entered on the Tuesday Moody's bounce rejection. Gold has broken below $4,480 intraday. Trailing stop moved to $4,505. Stop-cascade territory if daily close confirms the break.</div>
               </td>
               <td><span class="dir-short">Short</span></td>
-              <td>$4,618</td><td>$4,440</td><td>$4,665</td><td>$4,471</td>
+              <td>$4,540</td><td>$4,380</td><td>$4,505 (trailed)</td><td>—</td>
+              <td><span class="result-open">⟳ Open</span></td>
+              <td><span class="pips-open">+68 (live)</span></td>
+            </tr>
+            <tr>
+              <td>
+                <span class="trade-pair">GBP/JPY</span>
+                <div class="trade-note">Long from 211.40 — cross-pair play on BoJ structural weakness vs. UK yield premium. Partial closed at 213.00 (+160 pips). Balance held with trailing stop at 212.00. UK CPI miss this morning is a headwind — monitor closely.</div>
+              </td>
+              <td><span class="dir-long">Long</span></td>
+              <td>211.40</td><td>214.50</td><td>212.00 (trailed)</td><td>213.00 (partial)</td>
+              <td><span class="result-win">✓ Partial</span></td>
+              <td><span class="pips-pos">+160 closed · +153 live</span></td>
+            </tr>
+            <!-- PRIOR WEEK CLOSED TRADES -->
+            <tr>
+              <td>
+                <span class="trade-pair">DXY</span>
+                <div class="trade-note">W/E 16 May — Bought the CPI reaction dip. DXY pulled back to 98.20 before resuming higher into week close.</div>
+              </td>
+              <td><span class="dir-long">Long</span></td>
+              <td>98.20</td><td>99.50</td><td>97.80</td><td>99.42</td>
               <td><span class="result-win">✓ Win</span></td>
-              <td><span class="pips-pos">+147</span></td>
+              <td><span class="pips-pos">+122</span></td>
+            </tr>
+            <tr>
+              <td>
+                <span class="trade-pair">XAU/USD</span>
+                <div class="trade-note">W/E 16 May — Short after Gold failed $4,700 resistance post-CPI beat. Momentum confirmation on H4. Closed into strength.</div>
+              </td>
+              <td><span class="dir-short">Short</span></td>
+              <td>$4,698</td><td>$4,520</td><td>$4,750</td><td>$4,535</td>
+              <td><span class="result-win">✓ Win</span></td>
+              <td><span class="pips-pos">+163</span></td>
+            </tr>
+            <tr>
+              <td>
+                <span class="trade-pair">EUR/USD</span>
+                <div class="trade-note">W/E 16 May — Short on break below 1.1700 structural support. Held into PPI confirmation.</div>
+              </td>
+              <td><span class="dir-short">Short</span></td>
+              <td>1.1695</td><td>1.1550</td><td>1.1740</td><td>1.1622</td>
+              <td><span class="result-win">✓ Win</span></td>
+              <td><span class="pips-pos">+73</span></td>
+            </tr>
+            <tr>
+              <td>
+                <span class="trade-pair">GBP/USD</span>
+                <div class="trade-note">W/E 16 May — Short at 1.3640 resistance. USD macro overwhelmed any GBP bid.</div>
+              </td>
+              <td><span class="dir-short">Short</span></td>
+              <td>1.3640</td><td>1.3480</td><td>1.3690</td><td>1.3531</td>
+              <td><span class="result-win">✓ Win</span></td>
+              <td><span class="pips-pos">+109</span></td>
             </tr>
             <tr>
               <td>
                 <span class="trade-pair">USD/JPY</span>
-                <div class="trade-note">Long on Asian pullback to 157.20 Monday. BoJ intervention risk made me cautious above 159 — scaled half position out at 158.50.</div>
+                <div class="trade-note">W/E 16 May — Long on pullback to 155.80. BoJ intervention risk capped upside — scaled out early at 157.00.</div>
               </td>
               <td><span class="dir-long">Long</span></td>
-              <td>157.20</td><td>160.00</td><td>156.50</td><td>—</td>
-              <td><span class="result-open">⟳ Open</span></td>
-              <td><span class="pips-open">+105 (live)</span></td>
+              <td>155.80</td><td>158.50</td><td>155.20</td><td>157.00</td>
+              <td><span class="result-win">✓ Partial</span></td>
+              <td><span class="pips-pos">+120</span></td>
             </tr>
           </tbody>
         </table>
         <div class="trade-footer">
-          <span class="trade-footer-label">Week Closed Net</span>
-          <span class="trade-net-total">+516 pips</span>
-          <span class="trade-win-rate">Win Rate: <strong>100%</strong> closed &nbsp;·&nbsp; 3W / 0P / 0L &nbsp;·&nbsp; 1 open</span>
+          <span class="trade-footer-label">Two-Week Closed Net</span>
+          <span class="trade-net-total">+747 pips</span>
+          <span class="trade-win-rate">Win Rate: <strong>100%</strong> closed &nbsp;·&nbsp; 5W / 1P / 0L &nbsp;·&nbsp; 4 open positions</span>
         </div>
       </div>
-
       <div class="insight-box">
-        <div class="insight-label">Execution Notes</div>
-        <div class="insight-text">All three closed trades aligned perfectly with the macro — <strong>short EUR, short GBP, short Gold</strong>. The USD/JPY long is live and performing. The critical decision point is today's FOMC Minutes (3:30PM WAT). If minutes are hawkish: hold the USD/JPY long and look to add at any dip to 158.00–158.30. If minutes surprise dovish: <strong>close the JPY trade immediately and reassess</strong>. Do not let a winning week become complicated by holding through a potential reversal catalyst. Protect the +105 pips and re-enter on confirmed direction after 4:00PM.</div>
+        <div class="insight-label">Execution Notes — Post-FOMC Minutes</div>
+        <div class="insight-text">FOMC Minutes were hawkish as expected — and the muted market reaction is exactly the right environment for open positions to grind in our favour without sharp reversals. All stops are trailing. <strong>Key risk tonight: do not add new positions post-minutes</strong> — the easy money from the initial hawkish thesis has been made. What remains is letting open trades run to target. The one trade needing closest monitoring is GBP/JPY — today's soft UK CPI print slightly changes the BoE narrative. If you are not comfortable with GBP exposure into the next BoE meeting (June 18), close the balance of GBP/JPY for the 153-pip live profit and stand aside.</div>
       </div>
     </div>
 
     <!-- TAB: PAIR WATCH -->
     <div class="tab-pane" id="tab-pairs">
-      <div class="section-label">Pair Watch — Live Levels · 19 May 2026</div>
+      <div class="section-label">Pair Watch — Live Levels · 20 May 2026</div>
       <div class="pair-cards">
 
         <div class="pair-card">
           <div class="pair-card-bg"></div>
           <div class="pair-card-inner">
             <div class="pair-card-header">
-              <div><div class="pair-name">EUR/USD</div><div class="pair-price">1.1645</div></div>
+              <div><div class="pair-name">EUR/USD</div><div class="pair-price">1.1620</div></div>
               <span class="badge-pair bear">Bearish</span>
             </div>
             <hr class="pair-divider"/>
-            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">1.1700</span></div>
-            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">1.1480</span></div>
-            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">1.1680–1.1710</span></div>
-            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">1.1380</span></div>
-            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">1.1750</span></div>
-            <div class="pair-note">Sell rallies toward 1.1700. Intraday bounce from 1.1484 lows is short-covering, not reversal. FOMC Minutes today are the catalyst. Hawkish minutes confirm next leg lower toward 1.1380.</div>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">1.1660</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">1.1500</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">1.1640–1.1660</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">1.1480</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">1.1700</span></div>
+            <div class="pair-note">At an 8-day low. FOMC Minutes confirmed the USD bull thesis. ECB near 2.0% vs Fed at 3.50–3.75% with hike risk — the rate divergence is only widening. Sell all rallies toward 1.1640–1.1660. Next major support at 1.1500.</div>
           </div>
         </div>
 
@@ -441,16 +598,16 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <div class="pair-card-bg"></div>
           <div class="pair-card-inner">
             <div class="pair-card-header">
-              <div><div class="pair-name">GBP/USD</div><div class="pair-price">1.3388</div></div>
+              <div><div class="pair-name">GBP/USD</div><div class="pair-price">1.3400</div></div>
               <span class="badge-pair bear">Bearish</span>
             </div>
             <hr class="pair-divider"/>
             <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">1.3480</span></div>
-            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">1.3260</span></div>
-            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">1.3420–1.3460</span></div>
-            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">1.3200</span></div>
-            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">1.3510</span></div>
-            <div class="pair-note">Cable finding support above 1.3260 but the trend is broken. BoE decision Thursday — binary risk. Reduce short size into the decision. Structural bearish: surging UK gilt yields + weak growth + USD inflation premium all weigh on GBP.</div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">1.3310</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">1.3440–1.3480</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">1.3260</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">1.3520</span></div>
+            <div class="pair-note">GBP now double-hit: USD strength from hawkish FOMC Minutes and softer-than-expected UK CPI this morning. The BoE case for holding at 3.75% is weakening — next meeting is June 18. Structurally bearish. Sell bounces toward 1.3440–1.3480.</div>
           </div>
         </div>
 
@@ -458,16 +615,16 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <div class="pair-card-bg"></div>
           <div class="pair-card-inner">
             <div class="pair-card-header">
-              <div><div class="pair-name">USD/JPY</div><div class="pair-price">158.85</div></div>
+              <div><div class="pair-name">USD/JPY</div><div class="pair-price">159.10</div></div>
               <span class="badge-pair caution">Cautious</span>
             </div>
             <hr class="pair-divider"/>
-            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">160.00</span></div>
-            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">157.00</span></div>
-            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">157.80–158.30</span></div>
-            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">159.80</span></div>
-            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">156.80</span></div>
-            <div class="pair-note">USD/JPY is 1.15 pips from the BoJ's 160.00 intervention line. Approach with extreme caution above 159.50. Buy dips to 157.80–158.30 but reduce position size by 50% vs normal. One Ueda statement can move this 200 pips instantly.</div>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">159.45</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">157.50</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">157.00–157.80</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">159.45</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">156.60</span></div>
+            <div class="pair-note">Pressing the January 2026 high of 159.45. The yield gap between the US and Japan is at its widest level of the year. However, BoJ intervention risk is MAXIMUM at 159–160. Do not open new longs above 158.80. The reward-to-risk is poor this close to the intervention zone.</div>
           </div>
         </div>
 
@@ -475,16 +632,16 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <div class="pair-card-bg"></div>
           <div class="pair-card-inner">
             <div class="pair-card-header">
-              <div><div class="pair-name">XAU/USD</div><div class="pair-price">$4,471</div></div>
+              <div><div class="pair-name">XAU/USD</div><div class="pair-price">$4,472</div></div>
               <span class="badge-pair bear">Bearish</span>
             </div>
             <hr class="pair-divider"/>
             <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">$4,540</span></div>
             <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">$4,380</span></div>
-            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">$4,510–$4,545</span></div>
-            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">$4,310</span></div>
-            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">$4,590</span></div>
-            <div class="pair-note">Gold hit a 1.5-month low in Asian trade Tuesday. Rising real yields and a surging Dollar are the headwinds. Short rallies to $4,510–$4,545. FOMC Minutes today could accelerate the downside move if hawkish. Below $4,380 opens $4,310.</div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">$4,505–$4,540</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">$4,380</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">$4,565</span></div>
+            <div class="pair-note">Lowest since 30 March. $4,480 support has broken intraday — a daily close below confirms the stop-cascade setup. 179K net long contracts remain from institutional traders: these are the forced sellers below $4,480. Short rallies only. Do not fight the flow.</div>
           </div>
         </div>
 
@@ -492,16 +649,16 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <div class="pair-card-bg"></div>
           <div class="pair-card-inner">
             <div class="pair-card-header">
-              <div><div class="pair-name">AUD/USD</div><div class="pair-price">0.6413</div></div>
+              <div><div class="pair-name">AUD/USD</div><div class="pair-price">0.7162</div></div>
               <span class="badge-pair bear">Bearish</span>
             </div>
             <hr class="pair-divider"/>
-            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">0.6480</span></div>
-            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">0.6350</span></div>
-            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">0.6440–0.6480</span></div>
-            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">0.6310</span></div>
-            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">0.6520</span></div>
-            <div class="pair-note">AUD crushed by risk-off + USD strength + China slowdown fears. Trump-Xi summit disappointment compounding AUD weakness. Short rallies. Below 0.6350 targets 0.6310 psychological level with scope toward 0.6200 if DXY breaks 100.</div>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">0.7220</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">0.7100</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">0.7195–0.7220</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">0.7100</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">0.7260</span></div>
+            <div class="pair-note">AUD is the week's weakest major — down ~2% since last Friday. China demand fears, risk-off geopolitics, and USD dominance are compounding. Open short from 0.7310 is 148 pips in profit. Trail stop to 0.7220, target 0.7100 by Friday.</div>
           </div>
         </div>
 
@@ -509,16 +666,118 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <div class="pair-card-bg"></div>
           <div class="pair-card-inner">
             <div class="pair-card-header">
-              <div><div class="pair-name">DXY</div><div class="pair-price">99.10</div></div>
+              <div><div class="pair-name">DXY</div><div class="pair-price">99.43</div></div>
               <span class="badge-pair bull">Bullish</span>
             </div>
             <hr class="pair-divider"/>
             <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">100.00</span></div>
-            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">98.50</span></div>
-            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">98.50–98.80</span></div>
-            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">100.50</span></div>
-            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">97.90</span></div>
-            <div class="pair-note">DXY within 0.9 points of 100 — the week's critical battle zone. FOMC Minutes today are the key. A hawkish tone breaks 100 and opens 100.90 (52-week high). Do not chase above 99.70 — wait for a pullback to 98.50–98.80. A weekly close above 100 changes the medium-term picture completely.</div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">99.00</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">99.00–99.20</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">100.22</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">98.60</span></div>
+            <div class="pair-note">Holding above both the 100-period and 200-period SMAs on the 4H chart. The 100.00 psychological barrier is the week's primary target. FOMC Minutes tonight have not disrupted the bullish structure — they reinforced it. Long from 99.05 remains valid.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">NZD/USD</div><div class="pair-price">0.5922</div></div>
+              <span class="badge-pair bear">Bearish</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">0.5975</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">0.5870</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">0.5950–0.5970</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">0.5870</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">0.6000</span></div>
+            <div class="pair-note">Kiwi is under RBNZ dovish pressure and USD headwind simultaneously. No active trade here but a clean bounce to 0.5960–0.5975 provides a short entry aligned with macro. Watch AUD/USD for lead indicator — if AUD breaks 0.7100, NZD/USD follows toward 0.5870.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">USD/CAD</div><div class="pair-price">1.3738</div></div>
+              <span class="badge-pair caution">Cautious</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">1.3820</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">1.3680</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">1.3680–1.3710</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">1.3820</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">1.3630</span></div>
+            <div class="pair-note">The structural tug of war remains: hawkish USD (bullish for USD/CAD) vs elevated oil prices supporting CAD. Range-bound until oil direction resolves. No new entries until price breaks cleanly above 1.3820 or below 1.3680. Watch crude inventories Thursday.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">USD/CHF</div><div class="pair-price">0.8815</div></div>
+              <span class="badge-pair bull">Bullish</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">0.8880</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">0.8750</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">0.8760–0.8790</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">0.8880</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">0.8720</span></div>
+            <div class="pair-note">SNB neutral-to-dovish stance gives USD the yield advantage. Valid setup but secondary this week. A dip to 0.8760–0.8790 provides a clean long entry. The setup reinforces the broader USD bullish regime without the complication of intervention risk that USD/JPY carries.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">GBP/JPY</div><div class="pair-price">212.94</div></div>
+              <span class="badge-pair bull">Bullish</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">214.50</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">211.40</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">211.00–211.80</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">214.50</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">212.00 (trailed)</span></div>
+            <div class="pair-note">Active partial trade. BoJ structural weakness vs UK yield premium. Soft UK CPI today is a mild headwind for GBP — monitor the trailing stop at 212.00 carefully. If GBP/JPY drops below 212.00, the remaining balance closes automatically. Next BoE meeting is June 18.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">EUR/GBP</div><div class="pair-price">0.8672</div></div>
+              <span class="badge-pair caution">Ranging</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">0.8710</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">0.8620</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">No setup</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">—</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">—</span></div>
+            <div class="pair-note">Both EUR and GBP are weakening — EUR from ECB dovishness and rate divergence, GBP from today's softer CPI. The cross is a wash right now. No directional edge available. Stand aside until one currency finds a clear macro divergence vs the other.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">EUR/JPY</div><div class="pair-price">184.80</div></div>
+              <span class="badge-pair caution">Ranging</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">185.80</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">183.20</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">No setup</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">—</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">—</span></div>
+            <div class="pair-note">EUR weakness and JPY weakness are cancelling each other out. The cross is consolidating without a clear breakout catalyst. No trade. If USD/JPY breaks 159.45 and triggers BoJ intervention, EUR/JPY would be a beneficiary — but that is a reactive trade, not a pre-planned one.</div>
           </div>
         </div>
 
@@ -527,94 +786,103 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 
     <!-- TAB: COT & FLOW -->
     <div class="tab-pane" id="tab-cot">
-      <div class="section-label">COT Positioning Data — W/E 13 May 2026</div>
+      <div class="section-label">COT Positioning Data — W/E 20 May 2026 (Latest Available)</div>
       <div class="cot-box">
-        <div class="cot-title">Commitment of Traders — Net Positions</div>
+        <div class="cot-title">Commitment of Traders — Net Speculative Positions</div>
         <div class="cot-row">
           <span class="cot-pair">EUR/USD</span>
-          <div class="cot-track"><div class="cot-fill net-short" style="width:67%"></div></div>
+          <div class="cot-track"><div class="cot-fill net-short" style="width:68%"></div></div>
           <span class="cot-val short">Net Short −68K</span>
         </div>
         <div class="cot-row">
           <span class="cot-pair">GBP/USD</span>
-          <div class="cot-track"><div class="cot-fill net-short" style="width:52%"></div></div>
-          <span class="cot-val short">Net Short −38K</span>
+          <div class="cot-track"><div class="cot-fill net-short" style="width:35%"></div></div>
+          <span class="cot-val short">Net Short −35K</span>
         </div>
         <div class="cot-row">
           <span class="cot-pair">USD/JPY</span>
           <div class="cot-track"><div class="cot-fill net-long" style="width:76%"></div></div>
-          <span class="cot-val long">Net Long +82K</span>
+          <span class="cot-val long">Net Long +78K</span>
         </div>
         <div class="cot-row">
           <span class="cot-pair">AUD/USD</span>
-          <div class="cot-track"><div class="cot-fill net-short" style="width:61%"></div></div>
-          <span class="cot-val short">Net Short −52K</span>
+          <div class="cot-track"><div class="cot-fill net-short" style="width:58%"></div></div>
+          <span class="cot-val short">Net Short −47K</span>
         </div>
         <div class="cot-row">
           <span class="cot-pair">XAU/USD</span>
-          <div class="cot-track"><div class="cot-fill net-long" style="width:32%"></div></div>
-          <span class="cot-val long">Net Long +164K</span>
+          <div class="cot-track"><div class="cot-fill net-long" style="width:34%"></div></div>
+          <span class="cot-val long">Net Long +179K ⚠</span>
+        </div>
+        <div class="cot-row">
+          <span class="cot-pair">NZD/USD</span>
+          <div class="cot-track"><div class="cot-fill net-short" style="width:28%"></div></div>
+          <span class="cot-val short">Net Short −22K</span>
+        </div>
+        <div class="cot-row">
+          <span class="cot-pair">USD/CAD</span>
+          <div class="cot-track"><div class="cot-fill net-long" style="width:42%"></div></div>
+          <span class="cot-val long">Net Long +31K</span>
         </div>
       </div>
 
       <div class="insight-box">
-        <div class="insight-label">Elijah's COT Reading</div>
-        <div class="insight-text">COT data is increasingly bearish for risk currencies. <strong>EUR and GBP short positioning has extended to multi-month extremes</strong> — confirming the institutional USD-bid thesis. USD/JPY net longs at +82K are a crowded trade but still building. The Gold net long at 164K (down from the recent highs above 200K) tells me <strong>the weak-handed Gold longs are still being flushed out</strong>. There are more forced sellers ahead. Every rally in Gold is still a short opportunity until net long positioning falls below 100K. Watch today's FOMC Minutes — a hawkish tone triggers the next liquidation wave.</div>
+        <div class="insight-label">Elijah's COT Reading — Post-FOMC Minutes</div>
+        <div class="insight-text">The COT data tells the same story as the macro: <strong>institutional money is short EUR, short GBP, short AUD, long JPY carry (USD/JPY longs), and perilously long Gold.</strong> The Gold longs at 179K are the most dangerous position in the market right now. Today's intraday break of $4,480 is the start of the forced liquidation. When $4,380 is tested, the COT longs become a waterfall — every stop triggered feeds the next wave of selling. <strong>This is how bear markets in Gold accelerate: not from new sellers, but from trapped longs being forced out.</strong> The EUR net short at 68K is approaching extreme territory — this does not mean reverse it, it means be cautious about adding new shorts at these levels. The risk of a short-squeeze is higher when positioning is this extreme.</div>
       </div>
 
       <div class="section-label">Institutional Flow — This Week</div>
       <div class="prose-box">
-        <p>Order flow data this week shows <strong>aggressive USD buying concentrated on Tuesday 13 May post-CPI and Wednesday 14 May post-PPI</strong>. The largest single flow event was EUR/USD selling at 1.1580 on Tuesday — the precise institutional level that served as the structural break trigger. Classic distribution: sell into any strength at clear technical levels.</p>
-        <p>Gold saw <strong>stop-cascade selling below $4,540</strong> on Wednesday as the PPI print confirmed inflationary pressures were embedding. The drop to $4,440 intraday Tuesday was driven by leveraged fund liquidation. The recovery to $4,471 is not a reversal — it is a technical consolidation before the next move lower.</p>
-        <p>USD/JPY buying was concentrated at the <strong>157.20–157.80 zone</strong> — the level Elijah flagged in Sunday's premium outlook. The pair has pushed to 158.85 in the Tuesday Asian session, consistent with institutional accumulation behaviour targeting the 160.00 barrier.</p>
+        <p>The most significant institutional flow event this week: <strong>EUR/USD was sold aggressively at 1.1640 on Tuesday</strong> — precisely the level that had been support before the break. Institutions sold into the Moody's relief rally, confirming that 1.1640 is now hard resistance. This is classic institutional distribution — sell the bounce into the prior support, now resistance.</p>
+        <p>Gold saw <strong>continued systematic selling from quantitative and macro funds</strong> as real yield models triggered sell signals on the break below $4,500. The $4,472 print today is the lowest Gold has been since 30 March — a level at which several short-term long position stops have already been triggered. The next wave of stops sits below $4,380.</p>
+        <p>USD/JPY buying has been <strong>concentrated in the 157.00–158.50 zone all week</strong> — characteristic of institutional accumulation building into a breakout attempt at 159.45. The key risk: if BoJ intervenes at 159.50–160.00, institutional USD/JPY longs will be forced out violently. Size accordingly.</p>
       </div>
     </div>
 
     <!-- TAB: PRE-MARKET CHECKLIST -->
     <div class="tab-pane" id="tab-checklist">
-      <div class="section-label">Elijah's Pre-Market Checklist — 19 May 2026</div>
-
+      <div class="section-label">Elijah's Pre-Market Checklist — Thursday 21 May 2026</div>
       <div class="checklist">
         <div class="check-item">
           <div class="check-icon">✦</div>
           <div class="check-body">
-            <div class="check-title">1. Confirm macro regime before entering any trade</div>
-            <div class="check-text">Current regime: USD bullish, hawkish Fed under Warsh, energy-driven inflation shock embedding into core. April CPI +3.8%, PPI +6.0% YoY — no cuts in sight. Any trade that bets against Dollar strength today needs an extraordinary counter-catalyst. Default bias is long USD / short risk assets / short Gold.</div>
+            <div class="check-title">1. Review the FOMC Minutes market reaction at open — what moved overnight?</div>
+            <div class="check-text">Minutes released at 7PM WAT. The immediate reaction was muted — EUR/USD held ~1.162, equities held gains, Gold remained under $4,480. Check Thursday morning: did the Asian session follow through with USD strength or did a reversal begin? Your open trade stops are set — let them do their job.</div>
           </div>
         </div>
         <div class="check-item">
           <div class="check-icon">✦</div>
           <div class="check-body">
-            <div class="check-title">2. FOMC Minutes at 3:30PM WAT — do NOT enter new trades within 30 minutes of this release</div>
-            <div class="check-text">The April 29–30 FOMC Minutes release at 8:00 AM ET / 3:30PM WAT is today's pivotal event. This is the first major Fed communication under the new Warsh era. Wait for price to settle — 15–20 minutes post-release — before acting. Hawkish minutes: add to USD longs, DXY targets 100+. Dovish surprise: close open USD positions immediately, reassess.</div>
+            <div class="check-title">2. Gold — did $4,480 hold on a daily close?</div>
+            <div class="check-text">Gold broke $4,480 intraday today. The critical question is the daily close. If gold closes below $4,480, the waterfall setup is triggered and $4,380 becomes the next target. Keep the XAU/USD short open with trailing stop at $4,505. If gold recovered above $4,480 on close, reassess — that level may be holding as support.</div>
           </div>
         </div>
         <div class="check-item">
           <div class="check-icon">✦</div>
           <div class="check-body">
-            <div class="check-title">3. USD/JPY — manage the open long carefully near 159.00</div>
-            <div class="check-text">USD/JPY is currently at 158.85 — 1.15 pips from 160.00, the BoJ's intervention line. Trail stop to 157.80 now. Do not add to this position above 159.00. If price reaches 159.80, take 50% profit and protect the rest. The reward above 160 is limited; the intervention risk is real.</div>
+            <div class="check-title">3. Trail all stops before London opens Thursday</div>
+            <div class="check-text">Every open trade is in profit. Before the London open Thursday: DXY long stop → 99.10, EUR/USD short stop → 1.1650, AUD/USD short stop → 0.7210, Gold short stop → $4,505, GBP/JPY balance stop → 212.00. These are non-negotiable. Capital protection comes first.</div>
           </div>
         </div>
         <div class="check-item">
           <div class="check-icon">✦</div>
           <div class="check-body">
-            <div class="check-title">4. Gold at $4,471 — is the $4,440 support holding?</div>
-            <div class="check-text">Gold hit a 1.5-month low in Asian trade today near $4,440. A break below $4,440 on a closing basis opens $4,380 and then $4,310. If Gold rallies back toward $4,510–$4,545, that is the short entry zone. Do not short below $4,440 — too close to support for a good risk-reward entry.</div>
+            <div class="check-title">4. USD/JPY — is the 159.45 yearly high being tested?</div>
+            <div class="check-text">USD/JPY is pressing 159.10. The January 2026 high is 159.45. If the pair touches this level Thursday, reduce or close any indirect JPY exposure (GBP/JPY balance). BoJ intervention can deliver a 200–300 pip reversal within minutes. Do not be caught with a losing position on an intervention spike.</div>
           </div>
         </div>
         <div class="check-item">
           <div class="check-icon">✦</div>
           <div class="check-body">
-            <div class="check-title">5. No new GBP trades until BoE Thursday</div>
-            <div class="check-text">GBP/USD is bearish structurally — below 1.3480 confirms the continuation — but the BoE rate decision Thursday creates binary risk. Do not add to GBP shorts today or Wednesday. Wait for the BoE outcome before new GBP entries. If holding an existing GBP short, trail stop to 1.3460.</div>
+            <div class="check-title">5. UK Flash PMI — Thursday 10:30AM WAT</div>
+            <div class="check-text">Following today's soft UK CPI, the PMI print carries extra weight for GBP direction. A weak services PMI compounds the bearish GBP case and could push GBP/USD toward 1.3310. A strong print could trigger a technical bounce to 1.3480 — do not fight a data-driven bounce, wait for the level before re-entering the short.</div>
           </div>
         </div>
         <div class="check-item">
           <div class="check-icon">✦</div>
           <div class="check-body">
-            <div class="check-title">6. Maximum 2 concurrent trades today — FOMC Minutes day rule</div>
-            <div class="check-text">FOMC Minutes create sudden whipsaw risk. Elijah's rule: never hold more than 2 concurrent positions on high-impact event days. Currently holding 1 open (USD/JPY). One additional position maximum. Choose only the highest-conviction setup — do not open EUR/USD and AUD/USD simultaneously today.</div>
+            <div class="check-title">6. No new positions Thursday — protect the week's gains</div>
+            <div class="check-text">The week is already running +747 pips closed, +419 pips open. The remaining risk events (Flash PMIs, Jobless Claims) are secondary. The priority is protecting existing positions. Maximum 2 concurrent trades rule applies. If any open trade closes out, do not immediately replace it with a new position. Quality over activity.</div>
           </div>
         </div>
       </div>
@@ -622,48 +890,53 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 
     <!-- TAB: WEEK AHEAD -->
     <div class="tab-pane" id="tab-ahead">
-      <div class="section-label">Premium Calendar — W/C 19 May 2026</div>
+      <div class="section-label">Premium Calendar — Remaining W/C 18 May 2026</div>
       <div class="schedule">
         <div class="schedule-row">
-          <div class="schedule-date">Tue 19 May · 3:30PM WAT</div>
-          <div class="schedule-event">FOMC Meeting Minutes (Apr 29–30) — First major Fed communication under Warsh era. Will confirm or deny the hawkish repricing. This is today's anchor event.</div>
-          <span class="schedule-impact impact-max">Maximum</span>
+          <div class="schedule-date">Wed 20 May · 7:00PM WAT</div>
+          <div class="schedule-event">FOMC Minutes (Apr 28–29) — RELEASED. Hawkish. 8–4 vote, easing bias under attack, Hammack/Kashkari/Logan hawkish axis confirmed. Market reaction muted — already priced in.</div>
+          <span class="schedule-impact impact-max">Done · Hawkish</span>
         </div>
         <div class="schedule-row">
-          <div class="schedule-date">Tue 19 May · Ongoing</div>
-          <div class="schedule-event">Iran nuclear talks — US military briefing for Trump on potential operations. Naval blockade posture and Strait of Hormuz risk remain live. Direct energy/Gold catalyst.</div>
+          <div class="schedule-date">Thu 21 May · 10:00AM WAT</div>
+          <div class="schedule-event">Eurozone Flash PMI (Mfg + Services) · Expected: Mfg 48.7 · Services 50.8 · A miss confirms EUR weakness and accelerates EUR/USD toward 1.1480</div>
           <span class="schedule-impact impact-high">High</span>
         </div>
         <div class="schedule-row">
-          <div class="schedule-date">Thu 21 May · 12PM WAT</div>
-          <div class="schedule-event">BoE Rate Decision + Governor Bailey Press Conference — Binary GBP risk. Hold vs cut decision against a backdrop of surging UK gilt yields.</div>
-          <span class="schedule-impact impact-max">Maximum</span>
+          <div class="schedule-date">Thu 21 May · 10:30AM WAT</div>
+          <div class="schedule-event">UK Flash PMI (Mfg + Services) · GBP reaction — follows today's soft CPI. Weak services reading accelerates GBP/USD toward 1.3310</div>
+          <span class="schedule-impact impact-high">High</span>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-date">Thu 21 May · 2:30PM WAT</div>
+          <div class="schedule-event">US Flash PMI (Mfg + Services) · Strong US data vs weak European data = widening rate divergence = EUR/USD lower. Watch services — if above 53, DXY breaks 99.80</div>
+          <span class="schedule-impact impact-high">High</span>
         </div>
         <div class="schedule-row">
           <div class="schedule-date">Thu 21 May · 3:30PM WAT</div>
-          <div class="schedule-event">US Initial Jobless Claims — Labour market signal. Strong number = USD positive. Any spike in claims challenges the hawkish narrative.</div>
-          <span class="schedule-impact impact-high">High</span>
-        </div>
-        <div class="schedule-row">
-          <div class="schedule-date">Thu 21 May · 4:45PM WAT</div>
-          <div class="schedule-event">US S&amp;P Global Manufacturing + Services PMI Flash (May) — First real-time May economic data. Strong PMIs = DXY above 100. Weak PMIs = pullback trade opportunity.</div>
-          <span class="schedule-impact impact-high">High</span>
-        </div>
-        <div class="schedule-row">
-          <div class="schedule-date">Fri 22 May · 4PM WAT</div>
-          <div class="schedule-event">University of Michigan Consumer Sentiment + 5-Year Inflation Expectations (May prelim) — Fed inflation anchoring gauge. Above-consensus inflation expectations = DXY bullish final push.</div>
+          <div class="schedule-event">US Weekly Jobless Claims · Expected: ~225K · Strong labour market (claims below 220K) = Fed in no rush to cut = USD bullish confirmed</div>
           <span class="schedule-impact impact-high">High</span>
         </div>
         <div class="schedule-row">
           <div class="schedule-date">Fri 22 May · 3:30PM WAT</div>
-          <div class="schedule-event">US Existing Home Sales (Apr) — Moderate data point. Context for real-yield impact on housing sector.</div>
+          <div class="schedule-event">US Durable Goods Orders (MoM) · Expected: +0.8% · Capex data confirms economic resilience — secondary event but watch USD reaction</div>
           <span class="schedule-impact impact-mod">Moderate</span>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-date">Fri 22 May · All Day</div>
+          <div class="schedule-event">Iran Diplomacy Watch — Trump administration monitoring situation. Any peace deal headline = oil -5%, USD -1%, Gold +$80. Trail all stops aggressively into Friday close</div>
+          <span class="schedule-impact impact-max">Tail Risk</span>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-date">Next · Thu 18 Jun</div>
+          <div class="schedule-event">Bank of England Rate Decision — Next BoE meeting. Today's soft UK CPI increases probability of a rate cut. GBP bearish heading into this date.</div>
+          <span class="schedule-impact impact-max">Maximum</span>
         </div>
       </div>
 
       <div class="insight-box">
-        <div class="insight-label">Elijah's Week-Ahead Game Plan</div>
-        <div class="insight-text"><strong>Today (Tue):</strong> Wait for FOMC Minutes at 3:30PM WAT. Do not enter any new positions until the minutes are out and price confirms direction. Hawkish minutes → add USD longs, DXY targets 100. <strong>Wednesday:</strong> Best secondary entry window — trade the settled direction post-minutes. <strong>Thursday:</strong> Stay flat on GBP until BoE is done at 12PM WAT. PMIs at 4:45PM are the secondary catalyst. <strong>Friday:</strong> Protect profits — UMich inflation expectations could deliver a final USD jolt before the weekend close. Do not hold aggressive positions over the weekend given ongoing Iran uncertainty.</div>
+        <div class="insight-label">Elijah's Remaining Week Game Plan</div>
+        <div class="insight-text"><strong>Tonight:</strong> FOMC Minutes are done — hawkish, muted reaction. Review open trade stops one final time before bed. <strong>Thursday morning:</strong> Check Gold daily close. Trail all stops before London open. <strong>Thursday 10AM–3:30PM WAT:</strong> PMI and Jobless Claims sequence — if all three beats (Eurozone miss + UK miss + US beat), EUR/USD could test 1.1480 by end of day. <strong>Thursday evening:</strong> Review all positions. If running more than 500 pips on open trades, consider closing half of each position — banking profit is never wrong. <strong>Friday:</strong> No new trades. Geopolitical tail risk is highest into the weekend close. Protect what has been built this week. The week is already exceptional — do not hand it back chasing Friday setups.</div>
       </div>
     </div>
 
@@ -671,7 +944,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 
   <!-- FOOTER -->
   <footer class="footer">
-    <p class="footer-disc"><strong>⚠ Educational Use Only.</strong> All content is strictly for informational purposes only and does not constitute financial advice. Premium members only — do not share or redistribute. HipMarvin FX · Analyst: Elijah Agom · 19 May 2026. Market data sourced as of 19 May 2026.</p>
+    <p class="footer-disc"><strong>⚠ Educational Use Only.</strong> All content is strictly for informational purposes only and does not constitute financial advice. HipMarvin FX × Kani Premium Fundamentals — Premium members only · Do not share or redistribute. Analyst: Elijah Agom · 20 May 2026. Market data sourced as of 20 May 2026.</p>
     <div class="footer-brand">HipMarvin FX</div>
   </footer>
 
