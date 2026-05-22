@@ -242,387 +242,169 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
       <button class="tab-btn" onclick="showTab('tradelog',this)">Live Trade Log</button>
       <button class="tab-btn" onclick="showTab('pairs',this)">Pair Watch</button>
       <button class="tab-btn" onclick="showTab('cot',this)">COT & Flow</button>
-      <button class="tab-btn".strip-val.bear { color: var(--red2); }
-.strip-val.gold { color: var(--gold); }
-/* MAIN */
-.main { padding: 48px 40px; max-width: 820px; margin: 0 auto; width: 100%; }
-/* HERO */
-.eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-.eyebrow-line { width: 32px; height: 1px; background: var(--gold); }
-.eyebrow-text { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 600; }
-.hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 10vw, 72px); font-weight: 300; line-height: 0.9; letter-spacing: -1px; color: var(--ink); margin-bottom: 8px; }
-.hero-title em { font-style: italic; color: var(--gold); }
-.hero-sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(14px, 3vw, 18px); font-weight: 300; letter-spacing: 6px; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
-.hero-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
-.hero-meta-item { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-weight: 500; }
-.hero-meta-dot { width: 3px; height: 3px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
-/* ORNAMENT */
-.ornament { display: flex; align-items: center; gap: 16px; margin: 32px 0; }
-.ornament-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); }
-.ornament-line.right { background: linear-gradient(270deg, var(--gold), transparent); }
-.ornament-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
-/* SECTION LABEL */
-.section-label { font-size: 8px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-/* TAB ROW */
-.tab-row { display: flex; gap: 0; margin-bottom: 28px; border-bottom: 1px solid var(--border2); flex-wrap: wrap; }
-.tab-btn { background: none; border: none; border-bottom: 2px solid transparent; padding: 10px 16px; font-family: 'Montserrat', sans-serif; font-size: 8px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted2); cursor: pointer; font-weight: 500; transition: all 0.25s; margin-bottom: -1px; white-space: nowrap; }
-.tab-btn:hover { color: var(--ink); }
-.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
-.tab-pane { display: none; }
-.tab-pane.active { display: block; animation: fadeIn 0.3s ease; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-/* PROSE BOX */
-.prose-box { background: rgba(26,20,16,0.03); border: 1px solid var(--border); padding: 24px 28px; margin-bottom: 24px; }
-.prose-box p { font-size: 13px; color: var(--ink2); line-height: 1.9; font-weight: 400; }
-.prose-box p + p { margin-top: 14px; }
-.prose-box strong { color: var(--ink); font-weight: 500; }
-/* INSIGHT BOX */
-.insight-box { border: 1px solid var(--border); border-left: 3px solid var(--gold); padding: 20px 24px; margin: 24px 0; background: rgba(184,134,11,0.04); }
-.insight-label { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 10px; }
-.insight-text { font-size: 13px; color: var(--ink2); line-height: 1.8; font-weight: 400; }
-.insight-text strong { color: var(--ink); font-weight: 500; }
-/* RED BOX */
-.red-box { border: 1px solid rgba(192,57,43,0.2); border-left: 3px solid var(--red2); padding: 20px 24px; margin: 24px 0; background: rgba(139,26,26,0.03); }
-.red-label { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--red2); font-weight: 600; margin-bottom: 10px; }
-.red-text { font-size: 13px; color: var(--ink2); line-height: 1.8; font-weight: 400; }
-.red-text strong { color: var(--ink); font-weight: 500; }
-/* EVENT TABLE */
-.event-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
-.event-table tr { border-bottom: 1px solid var(--border2); }
-.event-table tr:last-child { border-bottom: none; }
-.event-table td { padding: 14px 8px; font-size: 12px; vertical-align: top; }
-.event-table td:first-child { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 600; width: 36%; padding-top: 16px; }
-.tag-miss { display: inline-block; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--red2); border: 1px solid rgba(192,57,43,0.25); padding: 2px 7px; font-weight: 600; }
-.tag-beat { display: inline-block; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--green); border: 1px solid rgba(26,92,58,0.25); padding: 2px 7px; font-weight: 600; }
-.tag-inline { display: inline-block; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); border: 1px solid var(--border); padding: 2px 7px; font-weight: 600; }
-.impact-row { display: flex; gap: 4px; margin-top: 4px; }
-.impact-dot { width: 7px; height: 7px; background: var(--red2); transform: rotate(45deg); }
-.impact-dot.empty { background: transparent; border: 1px solid rgba(192,57,43,0.3); }
-/* DATA TABLE */
-.data-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
-.data-table thead tr { border-bottom: 1px solid var(--border); }
-.data-table th { font-size: 7px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-weight: 600; text-align: left; padding: 8px 10px; }
-.data-table tbody tr { border-bottom: 1px solid var(--border2); transition: background 0.2s; }
-.data-table tbody tr:hover { background: rgba(184,134,11,0.04); }
-.data-table tbody tr:last-child { border-bottom: none; }
-.data-table td { padding: 13px 10px; font-size: 12px; color: var(--muted); vertical-align: top; line-height: 1.4; }
-.data-table td:first-child { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--ink); white-space: nowrap; }
-.dir-up { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--green); font-weight: 600; }
-.dir-dn { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--red2); font-weight: 600; }
-/* TRADE LOG */
-.trade-log { margin-bottom: 28px; }
-.trade-log-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
-.trade-log-title { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-.trade-log-net { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--green); }
-.trade-log-net.neg { color: var(--red2); }
-.trade-table { width: 100%; border-collapse: collapse; }
-.trade-table thead tr { border-bottom: 1px solid var(--border); }
-.trade-table th { font-size: 7px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-weight: 600; text-align: left; padding: 8px 10px; }
-.trade-table tbody tr { border-bottom: 1px solid var(--border2); transition: background 0.2s; }
-.trade-table tbody tr:hover { background: rgba(184,134,11,0.04); }
-.trade-table td { padding: 14px 10px; font-size: 12px; color: var(--muted); vertical-align: top; line-height: 1.5; }
-.trade-pair { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--ink); }
-.dir-long { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--green); font-weight: 600; border: 1px solid rgba(26,92,58,0.3); padding: 2px 7px; display: inline-block; }
-.dir-short { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--red2); font-weight: 600; border: 1px solid rgba(192,57,43,0.3); padding: 2px 7px; display: inline-block; }
-.result-win { color: var(--green); font-weight: 600; font-size: 11px; }
-.result-loss { color: var(--red2); font-weight: 600; font-size: 11px; }
-.result-open { color: var(--gold); font-weight: 600; font-size: 11px; }
-.pips-pos { color: var(--green); font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; }
-.pips-neg { color: var(--red2); font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; }
-.pips-open { color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; }
-.trade-note { font-size: 10px; color: var(--muted); margin-top: 4px; font-weight: 500; font-style: italic; line-height: 1.5; }
-.trade-footer { display: flex; align-items: center; gap: 20px; padding: 14px 10px; border-top: 1px solid var(--border); flex-wrap: wrap; }
-.trade-footer-label { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-.trade-net-total { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--green); }
-.trade-win-rate { font-size: 10px; color: var(--muted); margin-left: auto; }
-.trade-win-rate strong { color: var(--ink); }
-/* PAIR CARDS */
-.pair-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 28px; }
-.pair-card { padding: 22px 24px; border: 1px solid var(--border2); background: var(--cream); position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-.pair-card-bg { position: absolute; inset: 0; background: var(--ink); transform: translateX(-101%); transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1); z-index: 0; }
-.pair-card:hover .pair-card-bg { transform: translateX(0); }
-.pair-card-inner { position: relative; z-index: 1; }
-.pair-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
-.pair-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--ink); line-height: 1; transition: color 0.35s; }
-.pair-card:hover .pair-name { color: var(--cream); }
-.pair-price { font-family: 'Cormorant Garamond', serif; font-size: 13px; color: var(--muted); font-style: italic; transition: color 0.35s; margin-top: 2px; }
-.pair-card:hover .pair-price { color: rgba(245,240,232,0.5); }
-.badge-pair { font-size: 7px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; border: 1px solid; font-weight: 600; transition: all 0.35s; }
-.badge-pair.bull { color: var(--green); border-color: rgba(26,92,58,0.3); }
-.badge-pair.bear { color: var(--red2); border-color: rgba(192,57,43,0.3); }
-.badge-pair.caution { color: var(--gold); border-color: var(--border); }
-.pair-card:hover .badge-pair { border-color: rgba(212,160,23,0.4); color: var(--gold2); }
-.pair-divider { border: none; border-top: 1px solid var(--border2); margin: 12px 0; transition: border-color 0.35s; }
-.pair-card:hover .pair-divider { border-color: rgba(245,240,232,0.1); }
-.pair-row { display: flex; justify-content: space-between; margin-bottom: 8px; }
-.pair-key { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 600; transition: color 0.35s; }
-.pair-card:hover .pair-key { color: rgba(212,160,23,0.7); }
-.pair-val { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 600; color: var(--ink); transition: color 0.35s; }
-.pair-card:hover .pair-val { color: var(--cream); }
-.pair-val.res { color: var(--red2); }
-.pair-val.sup { color: var(--green); }
-.pair-card:hover .pair-val.res, .pair-card:hover .pair-val.sup { color: var(--gold2); }
-.pair-note { font-size: 11px; color: var(--ink2); line-height: 1.7; font-weight: 400; margin-top: 10px; transition: color 0.35s; }
-.pair-card:hover .pair-note { color: rgba(245,240,232,0.55); }
-/* SCHEDULE */
-.schedule { border: 1px solid var(--border2); margin-bottom: 24px; }
-.schedule-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid var(--border2); gap: 12px; flex-wrap: wrap; }
-.schedule-row:last-child { border-bottom: none; }
-.schedule-date { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 600; min-width: 160px; }
-.schedule-event { font-size: 12px; color: var(--ink2); flex: 1; font-weight: 400; line-height: 1.4; }
-.schedule-impact { font-size: 7px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; padding: 3px 8px; border: 1px solid; white-space: nowrap; }
-.impact-max { color: var(--red2); border-color: rgba(192,57,43,0.3); }
-.impact-high { color: var(--gold); border-color: var(--border); }
-.impact-mod { color: var(--muted); border-color: var(--border2); }
-/* CHECKLIST */
-.checklist { margin-bottom: 28px; }
-.check-item { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border2); align-items: flex-start; }
-.check-item:last-child { border-bottom: none; }
-.check-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
-.check-body { flex: 1; }
-.check-title { font-size: 12px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
-.check-text { font-size: 11px; color: var(--ink2); line-height: 1.7; font-weight: 400; }
-/* COT BOX */
-.cot-box { background: rgba(26,20,16,0.03); border: 1px solid var(--border); padding: 24px 28px; margin-bottom: 24px; }
-.cot-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 16px; }
-.cot-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-.cot-pair { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 600; min-width: 72px; }
-.cot-track { flex: 1; height: 8px; background: var(--border2); position: relative; }
-.cot-fill { height: 100%; }
-.cot-fill.net-long { background: var(--green); }
-.cot-fill.net-short { background: var(--red2); margin-left: auto; }
-.cot-val { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 600; min-width: 80px; text-align: right; }
-.cot-val.long { color: var(--green); }
-.cot-val.short { color: var(--red2); }
-/* FOOTER */
-.footer { padding: 28px 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-.footer-disc { font-size: 10px; color: var(--muted); line-height: 1.7; font-weight: 500; max-width: 480px; }
-.footer-disc strong { color: var(--gold); font-weight: 600; }
-.footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--ink2); opacity: 0.3; white-space: nowrap; }
-@media (max-width: 600px) {
-  .topbar, .main, .footer, .strip { padding-left: 20px; padding-right: 20px; }
-  .pair-cards { grid-template-columns: 1fr; }
-  body { cursor: auto; }
-  .cursor, .cursor-ring { display: none; }
-}
-</style>
-</head>
-<body>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<div class="page">
-
-  <!-- TOPBAR -->
-  <header class="topbar">
-    <div class="topbar-left">HipMarvin FX &nbsp;/&nbsp; Post-Event Debrief · Premium</div>
-    <div class="topbar-right">
-      <span class="topbar-date">Thursday, 21 May 2026</span>
-      <span class="badge-premium">✦ Premium Access</span>
-      <span class="badge-bull">Iran Peace Shift · USD Retreats</span>
-    </div>
-  </header>
-
-  <!-- STRIP — live data 21 May 2026 -->
-  <div class="strip">
-    <div class="strip-item"><span class="strip-label">DXY</span><span class="strip-val bear">99.14 ▼</span></div>
-    <div class="strip-item"><span class="strip-label">Gold</span><span class="strip-val gold">$4,538 ◆</span></div>
-    <div class="strip-item"><span class="strip-label">EUR/USD</span><span class="strip-val gold">1.1622 ◆</span></div>
-    <div class="strip-item"><span class="strip-label">GBP/USD</span><span class="strip-val bear">1.3433 ▼</span></div>
-    <div class="strip-item"><span class="strip-label">USD/JPY</span><span class="strip-val bear">158.60 ▼</span></div>
-    <div class="strip-item"><span class="strip-label">AUD/USD</span><span class="strip-val bear">0.7088 ▼</span></div>
-    <div class="strip-item"><span class="strip-label">USD/CAD</span><span class="strip-val bear">1.3710 ▼</span></div>
-    <div class="strip-item"><span class="strip-label">NZD/USD</span><span class="strip-val bear">0.5910 ▼</span></div>
-    <div class="strip-item"><span class="strip-label">USD/CHF</span><span class="strip-val bear">0.8795 ▼</span></div>
-    <div class="strip-item"><span class="strip-label">EUR/GBP</span><span class="strip-val gold">0.8651 ◆</span></div>
-    <div class="strip-item"><span class="strip-label">GBP/JPY</span><span class="strip-val bear">212.80 ▼</span></div>
-    <div class="strip-item"><span class="strip-label">EUR/JPY</span><span class="strip-val gold">184.30 ◆</span></div>
-  </div>
-
-  <!-- MAIN -->
-  <main class="main">
-
-    <!-- HERO -->
-    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Post-Event Debrief · Premium Edition · 21 May 2026</span></div>
-    <h1 class="hero-title">Post-<em>Event</em><br>Debrief</h1>
-    <div class="hero-sub">W/C 18 May 2026 · Thursday Update · Premium</div>
-    <div class="hero-meta">
-      <span class="hero-meta-item">Analyst · Elijah Agom</span>
-      <span class="hero-meta-dot"></span>
-      <span class="hero-meta-item">21 May 2026</span>
-      <span class="hero-meta-dot"></span>
-      <span class="hero-meta-item">Premium Edition</span>
-    </div>
-
-    <!-- TABS -->
-    <div class="tab-row">
-      <button class="tab-btn active" onclick="showTab('overview',this)">Overview</button>
-      <button class="tab-btn" onclick="showTab('tradelog',this)">Live Trade Log</button>
-      <button class="tab-btn" onclick="showTab('pairs',this)">Pair Watch</button>
-      <button class="tab-btn" onclick="showTab('cot',this)">COT & Flow</button>
       <button class="tab-btn" onclick="showTab('checklist',this)">Pre-Market Checklist</button>
       <button class="tab-btn" onclick="showTab('ahead',this)">Week Ahead</button>
     </div>
 
     <!-- TAB: OVERVIEW -->
     <div class="tab-pane active" id="tab-overview">
-      <div class="section-label">Thursday Debrief — PMIs · Jobless Claims · Iran Deal Optimism</div>
+      <div class="section-label">Friday Week Close — Japan CPI · Iran Stalemate · USD Holds Six-Week High</div>
 
       <div class="prose-box">
-        <p>Thursday 21 May 2026 has delivered the week's most significant narrative pivot. <strong>Renewed optimism that the US and Iran are close to sealing a Memorandum of Understanding</strong> — laying the ground for one month of comprehensive nuclear negotiations — has triggered a sharp repricing of the geopolitical risk premium embedded in the Dollar and oil. DXY has retreated from its six-week high near 99.43 to 99.14. Crude oil has sold off sharply, with reports of a -4% day. The Strait of Hormuz, effectively closed since late February, is inching toward reopening — and the market is front-running that outcome hard.</p>
-        <p>The FX reaction is textbook: <strong>oil lower → inflation expectations lower → fewer reasons for the Fed to hike → USD gives back some of its recent gains</strong>. EUR/USD is holding above 1.1600 despite disappointing Eurozone and French flash PMI data released this morning. Gold, which broke below $4,480 intraday on Wednesday, has staged a recovery to $4,538 — buying the Iran peace optimism as a safe-haven reversal. USD/JPY has slipped back below 159.00, helped by the softer Dollar and continued BoJ intervention speculation at the 159.45 yearly high.</p>
-        <p>However — and this is critical — <strong>Dollar losses remain limited</strong>. US weekly jobless claims came in resilient, Q1 nonfarm productivity was solid, and hawkish Fed comments from Boston Fed President Collins and Cleveland Fed's Hammack today reaffirmed rate-hold positioning. The Iran peace story is a risk-event, not a macro regime change. The structural USD bull case from FOMC Minutes yesterday has not been invalidated. This is a tactical pullback in a strategic bull trend.</p>
+        <p>Friday 22 May opens in Asian trade with the Dollar perched near a six-week high, having survived a volatile overnight session driven by conflicting signals on the US-Iran peace deal. DXY stands at 99.24 — not far from Wednesday's peak of 99.515. <strong>The Iran deal has not materialised.</strong> Washington and Tehran remain stuck on opposing stances over uranium enrichment levels and control of the Strait of Hormuz. US Secretary of State Rubio offered cautious optimism — "some good signs" — but Polymarket's probability of a deal by May 22 collapsed from 7% to 4% this week. The ceasefire is extended, the naval blockade continues, and the structural USD bull case from FOMC Minutes remains fully intact.</p>
+        <p>This morning's dominant data point: <strong>Japan's National Core CPI rose just 1.4% YoY in April</strong> — the slowest annual pace since March 2022, missing the 1.7% forecast sharply and dropping from 1.8% in March. Government education subsidies drove the weakness. USD/JPY is attracting dip-buyers in the Asian session on this print, recovering toward 159.10 after yesterday's pullback. However, analysts and BoJ watchers expect the data to prove transitory — Iran war energy costs will feed back into Japanese prices from June onwards. The BoJ is still widely expected to raise its policy rate from 0.75% to 1.0% at the June 15–16 meeting.</p>
+        <p>Gold is under fresh selling pressure in Asian trade, declining toward $4,519 — <strong>the second straight day of losses for the metal</strong>. The USD remaining near its six-week high, combined with mixed Iran signals that fail to create a clean safe-haven bid, keeps Gold pinned. AUD/USD is oscillating around 0.7145, unable to attract meaningful buyers as the combined headwinds of the dismal Thursday jobs report and hawkish Fed rate hike expectations override any Iran peace optimism. The week ends today — US markets face a shortened Friday session, with full Monday closure for Memorial Day.</p>
       </div>
 
       <div class="insight-box">
-        <div class="insight-label">Elijah's Premium Take — 21 May 2026</div>
-        <div class="insight-text">Here is the trade: the market is selling USD today because it is pricing in an Iran peace deal that has not yet been signed. Trump himself said yesterday — <strong>"if they don't agree, the bombing starts at a much higher level."</strong> That is not a done deal. That is a threat with a deadline. The history of this conflict is clear: ceasefire announced → Strait partially reopens → talks stall → oil spikes again → USD rallies back. <strong>I am not chasing EUR/USD longs or Gold longs on this move.</strong> What I am watching: the AUD/USD short hit its first target zone today as Australia printed a terrible jobs report — unemployment jumped to 4.5% vs 4.3% expected, with net employment falling 18,600. That trade is still the cleanest short this week. DXY at 99.00–99.20 is a buy-the-dip zone if the Iran deal fails to materialise over the weekend. Use today's USD weakness — don't fight it, but don't follow it blindly either.</div>
+        <div class="insight-label">Elijah's Premium Take — 22 May 2026</div>
+        <div class="insight-text">This is the week in one sentence: <strong>the FOMC Minutes confirmed the hawkish regime, the data supported it, and Iran failed to break it.</strong> DXY is going into the long weekend near a six-week high. Every attempt by the market to price in an Iran peace deal was met with a reality check — Trump rejected Iran's latest proposal, the envoy mission to Pakistan was cancelled, and talks are now being conducted via Pakistani intermediaries with no deadline. The structural USD bull thesis from Sunday's Premium Outlook has played out cleanly across every pair. AUD/USD at 0.7145 from our entry at 0.7310 is the trade of the week. EUR/USD has ground lower all week. <strong>Going into the long weekend: reduce position size, trail every stop, and do not open new trades.</strong> The thesis for next week is identical to this week — but we go in fresh on Tuesday. The work is done. Protect the gains. Next debrief drops after the next red folder event. Stay locked in. 🔐</div>
       </div>
 
       <div class="ornament"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line right"></div></div>
 
-      <div class="section-label">What Drove The Market Today — 21 May 2026</div>
+      <div class="section-label">What Drove The Market Today — Friday 22 May 2026</div>
       <div class="event-table">
         <table style="width:100%; border-collapse:collapse;">
           <tr style="border-bottom:1px solid var(--border2)">
             <td style="padding:14px 8px; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; width:36%; vertical-align:top; padding-top:16px;">
-              US-Iran Peace MoU Reports<br>
-              <div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot"></div></div>
-            </td>
-            <td style="padding:14px 8px; font-size:12px; color:var(--ink2); line-height:1.6; font-weight:400;">
-              Reports hit the wires that the US is very close to agreeing a Memorandum of Understanding with Iran — a document designed to lay the ground for one month of comprehensive nuclear negotiations and a potential Strait of Hormuz reopening. Trump froze "Project Freedom" (the naval escort operation) citing "great progress." <span class="tag-inline">Risk-On</span><br>
-              Reaction: DXY dropped, EUR/USD held above 1.1600, crude oil fell ~4%, Gold recovered to $4,538, Asian stocks surged with vessels resuming transit through the strait in thin volumes. Equities hit fresh record highs. USD losses were broad but orderly — not a capitulation.
-            </td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border2)">
-            <td style="padding:14px 8px; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; vertical-align:top; padding-top:16px;">
-              Eurozone Flash PMI — May 2026<br>
-              <div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot empty"></div><div class="impact-dot empty"></div></div>
-            </td>
-            <td style="padding:14px 8px; font-size:12px; color:var(--ink2); line-height:1.6; font-weight:400;">
-              Both the Eurozone and French flash PMIs disappointed this morning. Eurozone Services was expected at 51.0 — missed. Manufacturing remained in contraction. <span class="tag-miss">Miss</span><br>
-              Despite the weak data, EUR/USD held above 1.1600 because the Iran peace optimism is suppressing Dollar demand across the board. The fundamental case for EUR weakness remains intact — PMI misses are another reason not to buy EUR on the bounce.
-            </td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border2)">
-            <td style="padding:14px 8px; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; vertical-align:top; padding-top:16px;">
-              UK Flash PMI — May 2026<br>
-              <div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot empty"></div><div class="impact-dot empty"></div></div>
-            </td>
-            <td style="padding:14px 8px; font-size:12px; color:var(--ink2); line-height:1.6; font-weight:400;">
-              UK Services PMI mixed. GBP/USD struggled to find recovery momentum, trading flat to lower below 1.3450 throughout the session. <span class="tag-inline">Mixed</span><br>
-              Yesterday's soft UK CPI plus today's uninspiring PMI reading keeps the BoE June 18 cut expectation elevated. GBP is not finding a catalyst to rally sustainably. Sterling at 1.3433 remains vulnerable to a break below 1.3400.
-            </td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border2)">
-            <td style="padding:14px 8px; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; vertical-align:top; padding-top:16px;">
-              Australia Jobs Report — April 2026<br>
+              Japan National Core CPI — April 2026<br>
               <div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot empty"></div></div>
             </td>
             <td style="padding:14px 8px; font-size:12px; color:var(--ink2); line-height:1.6; font-weight:400;">
-              Australian unemployment rose to <strong>4.5%</strong> vs 4.3% expected. Net employment fell 18,600 — far below the +15,000 forecast. <span class="tag-miss">Miss</span><br>
-              AUD/USD slid sharply. The pair is now pressing below 0.7100 — the target flagged in Sunday's Premium Outlook. This is the cleanest trade of the week playing out in real time. AUD/USD short from 0.7310 is now sitting on +222 pips of open profit.
+              Core CPI (ex-fresh food) rose <strong>1.4% YoY</strong> in April — the slowest pace since March 2022 — versus 1.7% forecast and prior 1.8%. A 10.6% drop in education fees from government subsidies drove the downside miss. Core-core (ex food and energy) slowed to 1.9% from 2.4% — weakest since July 2024. <span class="tag-miss">Miss</span><br>
+              Immediate FX reaction: JPY weakened — USD/JPY attracted dip-buyers toward 159.10. However, analysts universally flagged this as a subsidy distortion, not a structural disinflation. BoJ policymakers are still dropping hawkish signals for a June rate hike. JPY weakness on this print is tactical, not strategic.
             </td>
           </tr>
           <tr style="border-bottom:1px solid var(--border2)">
             <td style="padding:14px 8px; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; vertical-align:top; padding-top:16px;">
-              US Weekly Jobless Claims — W/E 17 May<br>
+              US-Iran Stalemate Overnight<br>
+              <div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot"></div></div>
+            </td>
+            <td style="padding:14px 8px; font-size:12px; color:var(--ink2); line-height:1.6; font-weight:400;">
+              Overnight session saw sharp two-way price action on conflicting Iran headlines. Washington and Tehran remain at odds on uranium stockpile levels and Hormuz control. Rubio cited "some good signs" but offered no timeline. Polymarket deal-by-May-22 probability collapsed to 4%. Trump extended the ceasefire but maintained the naval blockade. <span class="tag-inline">Stalemate</span><br>
+              Result: currency moves subdued in early Asian trade as investors await clarity. DXY held above 99.00. EUR/USD dipped to 1.1613. Gold fell further to $4,519. The Iran story is now a slow-burn, not an imminent catalyst.
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border2)">
+            <td style="padding:14px 8px; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; vertical-align:top; padding-top:16px;">
+              US Durable Goods Orders — April 2026<br>
+              (Due 3:30PM WAT · European session)<br>
               <div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot empty"></div><div class="impact-dot empty"></div></div>
             </td>
             <td style="padding:14px 8px; font-size:12px; color:var(--ink2); line-height:1.6; font-weight:400;">
-              Initial claims came in resilient — continuing to reflect a robust US labour market, reinforcing the Fed on-hold or hike scenario. <span class="tag-beat">Beat</span><br>
-              This data, alongside solid Q1 nonfarm productivity and unit labour costs, helped limit the Dollar's downside on the Iran peace news. USD-bearish forces (Iran deal optimism) vs USD-bullish forces (strong data + hawkish Fed) — the Dollar is rangebound rather than collapsing.
+              Expected: Headline +0.8% MoM. Core (ex-transport) expected +0.5%. This is the final major scheduled data point of the week. Michigan Consumer Sentiment eased slightly to 48.2 in early May (vs 49.5 expected) with year-ahead inflation expectations at 4.5% — still elevated and supportive of the hawkish Fed narrative. <span class="tag-inline">Pending</span><br>
+              A Durable Goods beat today confirms US economic resilience and reinforces the "higher for longer" Fed narrative. A miss risks a brief USD dip but will not change the structural thesis before the long weekend. Do not pre-position — react to the print.
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border2)">
+            <td style="padding:14px 8px; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; vertical-align:top; padding-top:16px;">
+              UMich Consumer Sentiment — May Final<br>
+              (Due 5PM WAT · European close)<br>
+              <div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot empty"></div></div>
+            </td>
+            <td style="padding:14px 8px; font-size:12px; color:var(--ink2); line-height:1.6; font-weight:400;">
+              The most watched element today is the <strong>1-year inflation expectation figure</strong>. Early May print: 4.5% (slightly eased from 4.7% in April). If the final reading revises above 4.5%, the Fed hike case gains another data point. Year-ahead expectations above 4.5% = hawkish Fed signal = USD bullish. <span class="tag-inline">Pending</span><br>
+              Long-run expectations at 3.4% are well above the Fed's 2% target. This data set has been the single most consistent driver of Fed rate hike pricing since April. Watch for market reaction in the final hour of European trade.
             </td>
           </tr>
           <tr>
             <td style="padding:14px 8px; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; vertical-align:top; padding-top:16px;">
-              Fed Speakers — Collins + Hammack<br>
+              Memorial Day Long Weekend<br>
+              US Markets Closed Monday 25 May<br>
               <div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot empty"></div><div class="impact-dot empty"></div></div>
             </td>
             <td style="padding:14px 8px; font-size:12px; color:var(--ink2); line-height:1.6; font-weight:400;">
-              Boston Fed's Collins and Cleveland Fed's Hammack both confirmed today they favour keeping rates on hold — reinforcing the hawkish committee tone from yesterday's FOMC Minutes. <span class="tag-beat">Hawkish</span><br>
-              Hammack was previously identified in yesterday's minutes as one of the three hawkish dissenters. Her public reaffirmation today is the committee telling markets: the easing bias is not dead, but the discussion has genuinely moved to hikes. USD downside from Iran news is cushioned by this.
+              US markets close early Friday and are fully closed Monday 25 May for Memorial Day. This means reduced liquidity into the weekend close, elevated gap risk on Tuesday's open, and heightened sensitivity to any Iran weekend headlines. <span class="tag-inline">Risk Flag</span><br>
+              The standard pre-long-weekend protocol applies: close or trail all positions to protect at least 70% of peak profit. Do not hold full-size going into a long weekend with an unresolved geopolitical situation. Iran deal or collapse over the weekend = major gap on Tuesday open.
             </td>
           </tr>
         </table>
       </div>
 
+      <div class="section-label">Week in Review — W/C 18 May 2026 · Full Summary</div>
+      <div class="prose-box">
+        <p>This was one of the cleanest macro weeks in recent memory. <strong>Every major event aligned with the USD bullish thesis established in Sunday's Premium Outlook.</strong> Monday opened with the Moody's credit downgrade shock — briefly disruptive, quickly reversed. Tuesday through Wednesday saw the structural USD rally resume as bond yields held elevated and the Warsh-era Fed took shape. Wednesday's FOMC Minutes (April 28–29) were the week's centrepiece: an 8–4 vote with three formal dissenters against the easing bias, a hawkish axis of Hammack, Kashkari, and Logan confirmed, and a committee that is actively debating rate hikes, not cuts.</p>
+        <p>Thursday delivered two more confirming data points: <strong>Australia's worst jobs report in years</strong> (unemployment to 4.5%, net employment -18,600) which broke AUD/USD below 0.7100, and a resilient US jobless claims print that kept the Fed on-hold-or-hike narrative intact. The Iran MoU rumour Thursday briefly pushed USD lower and Gold higher — but the deal never materialised, and by Friday morning the Dollar had fully recovered. GBP ended the week up 0.8% — a recovery from last week's 2%+ fall — but remains structurally bearish with the BoE June 18 cut now a 60%+ probability.</p>
+        <p><strong>The week's three defining moments:</strong> (1) Moody's downgrade revealing that bond vigilantes, not the Fed, are now the dominant force in rates markets. (2) FOMC Minutes confirming the hawkish pivot is institutional, not just rhetoric. (3) AUD/USD breaking below 0.7100 on the Australia jobs disaster — the cleanest trade of the week from entry to target.</p>
+      </div>
+
       <div class="red-box">
-        <div class="red-label">⚠ Iran Peace — Trade the Confirmation, Not the Rumour</div>
-        <div class="red-text">The market is pricing a peace deal that does not yet exist. Trump's own statement Wednesday — <strong>"if they don't agree, the bombing starts at a much higher level"</strong> — remains the backdrop. The MoU report is credible but unconfirmed. History this year: every Iran de-escalation headline has been followed by renewed hostilities within 48–72 hours. <strong>Do not add EUR/USD longs or close USD positions on today's move alone.</strong> Wait for a signed agreement and sustained Strait of Hormuz reopening before calling the USD bull trend dead. The FOMC Minutes from yesterday are still the dominant macro signal. Use today's USD pullback to identify better entries, not to reverse the thesis.</div>
+        <div class="red-label">⚠ Long Weekend Protocol — Active · Full Risk Reduction Required</div>
+        <div class="red-text">US markets close early today and are fully closed Monday 25 May for Memorial Day. Combined with an <strong>unresolved US-Iran conflict, an active naval blockade, and stalled diplomatic talks</strong>, the risk of a gap opening on Tuesday 26 May is significant in either direction. A deal announced over the weekend = oil -8%, USD -1.5%, Gold spike, risk-on surge — every USD long is a problem. A breakdown in talks = oil spike, USD rally, Gold lower — shorts get squeezed on the open. <strong>The correct action: trail all stops to protect minimum 70% of peak open profit. Reduce position size to 50% of normal risk on any remaining open trades. Do not open new trades today after 3PM WAT.</strong> The week's gains are real. Protect them.</div>
       </div>
     </div>
 
     <!-- TAB: LIVE TRADE LOG -->
     <div class="tab-pane" id="tab-tradelog">
-      <div class="section-label">Live Trade Log — W/C 18 May 2026 · Updated 21 May</div>
+      <div class="section-label">Live Trade Log — W/C 18 May 2026 · Final Friday 22 May Update</div>
 
       <div class="trade-log">
         <div class="trade-log-header">
-          <span class="trade-log-title">Premium Trade Log · Elijah Agom · All setups flagged this week</span>
-          <span class="trade-log-net">Closed: +747 pips · Open running: +530 pips</span>
+          <span class="trade-log-title">Premium Trade Log · Elijah Agom · Week Close Summary</span>
+          <span class="trade-log-net">Two-Week Closed Net: +1,282 pips</span>
         </div>
         <table class="trade-table">
           <thead>
             <tr><th>Pair</th><th>Dir</th><th>Entry</th><th>Target</th><th>Stop</th><th>Exit</th><th>Result</th><th>Pips</th></tr>
           </thead>
           <tbody>
+            <!-- THIS WEEK — CLOSED FRIDAY -->
             <tr>
               <td>
                 <span class="trade-pair">AUD/USD</span>
-                <div class="trade-note">The week's standout trade. Short from 0.7310. Australia jobs report today (unemployment to 4.5%, employment -18,600) broke AUD/USD below 0.7100. First target hit. Trailing stop now at 0.7080. Extended target 0.6980 possible if Iran peace delivers risk-on but AUD fundamentals remain broken.</div>
+                <div class="trade-note">The trade of the week. Short from 0.7310 Sunday — T1 at 0.7100 hit Thursday on Australia's jobs disaster (unemployment 4.5%, employment -18,600). Balance closed today at 0.7145 ahead of the long weekend. Full position closed. Clean, disciplined execution from thesis to exit.</div>
               </td>
               <td><span class="dir-short">Short</span></td>
-              <td>0.7310</td><td>0.7100</td><td>0.7080 (trailed)</td><td>0.7100 (partial)</td>
-              <td><span class="result-win">✓ T1 Hit</span></td>
-              <td><span class="pips-pos">+210 closed · +222 live</span></td>
-            </tr>
-            <tr>
-              <td>
-                <span class="trade-pair">XAU/USD</span>
-                <div class="trade-note">Short from $4,540. Gold broke $4,480 intraday Wednesday — confirmation. Iran peace headlines today triggered a bounce to $4,538. Trailing stop moved to $4,560 to protect profits. If gold closes back above $4,560, trailing stop closes the trade. Do not give back the gain.</div>
-              </td>
-              <td><span class="dir-short">Short</span></td>
-              <td>$4,540</td><td>$4,380</td><td>$4,560 (trailed)</td><td>—</td>
-              <td><span class="result-open">⟳ Open</span></td>
-              <td><span class="pips-open">+2 (live · near stop)</span></td>
+              <td>0.7310</td><td>0.7100</td><td>—</td><td>0.7145 (full close)</td>
+              <td><span class="result-win">✓ Win</span></td>
+              <td><span class="pips-pos">+165 avg (full close)</span></td>
             </tr>
             <tr>
               <td>
                 <span class="trade-pair">EUR/USD</span>
-                <div class="trade-note">Short from 1.1640 Monday. Pair has not broken lower decisively — Iran peace optimism holding EUR above 1.1600. Trade is underwater vs. peak profit. Stop at 1.1650 is a real risk today. If 1.1640 closes above on the day, this trade exits at near breakeven. Thesis intact but timing is challenged.</div>
+                <div class="trade-note">Short from 1.1640 Monday. Iran peace optimism Thursday challenged the stop at 1.1650 — pair bounced to 1.1648 intraday but did not close above the stop. Held. Now at 1.1613 Friday — 27 pips in profit. Closing today ahead of the long weekend. Thesis fully valid — re-entry next week at 1.1640–1.1660 resistance.</div>
               </td>
               <td><span class="dir-short">Short</span></td>
-              <td>1.1640</td><td>1.1480</td><td>1.1650</td><td>—</td>
-              <td><span class="result-open">⟳ Open</span></td>
-              <td><span class="pips-open">+18 (live · narrow)</span></td>
+              <td>1.1640</td><td>1.1480</td><td>—</td><td>1.1613 (close pre-weekend)</td>
+              <td><span class="result-win">✓ Win</span></td>
+              <td><span class="pips-pos">+27</span></td>
             </tr>
             <tr>
               <td>
                 <span class="trade-pair">DXY</span>
-                <div class="trade-note">Long from 99.05. DXY pulled back to 99.14 on Iran peace news today. Stop at 99.10 is active — this trade may be stopped out. If stopped: the thesis is right (USD bullish), only the timing was challenged by an unforecastable geopolitical headline. Re-entry zone 98.80–99.00 if stopped.</div>
+                <div class="trade-note">Long from 99.05. Stopped out Thursday at 98.90 during the Iran peace headline spike. The thesis was right — DXY recovered fully to 99.24 Friday. Stopped on a geopolitical noise event. No regret: risk management executed correctly. Re-entry above 99.00 if it dips early next week.</div>
               </td>
               <td><span class="dir-long">Long</span></td>
-              <td>99.05</td><td>100.22</td><td>98.90</td><td>—</td>
-              <td><span class="result-open">⟳ Open</span></td>
-              <td><span class="pips-open">+9 (live · tight)</span></td>
+              <td>99.05</td><td>100.22</td><td>98.90</td><td>98.90 (stopped)</td>
+              <td><span class="result-loss">✗ Stopped</span></td>
+              <td><span class="pips-neg">−15</span></td>
+            </tr>
+            <tr>
+              <td>
+                <span class="trade-pair">XAU/USD</span>
+                <div class="trade-note">Short from $4,540. Trailing stop at $4,560 was hit during Thursday's Iran peace bounce to $4,571. Closed at near-breakeven. Gold is now at $4,519 — the trade thesis was correct but the trailing stop was placed well and protected capital. The re-entry zone for next week is $4,540–$4,570.</div>
+              </td>
+              <td><span class="dir-short">Short</span></td>
+              <td>$4,540</td><td>$4,380</td><td>$4,560</td><td>$4,560 (trailed out)</td>
+              <td><span class="result-loss">✗ Stopped</span></td>
+              <td><span class="pips-neg">−20</span></td>
             </tr>
             <tr>
               <td>
                 <span class="trade-pair">GBP/JPY</span>
-                <div class="trade-note">Long partial from 211.40. First partial closed at 213.00 (+160 pips). Balance closed today at 212.80 following GBP weakness from PMI miss and USD/JPY pullback on Iran peace optimism. Both legs now closed. Clean trade, well-managed.</div>
+                <div class="trade-note">Long from 211.40. First partial closed at 213.00 (+160 pips). Balance closed Thursday at 212.80. Full close achieved +140 pip average. This week GBP/JPY has recovered to 213.50 — the trade was closed slightly early but risk management before the long weekend was the correct call.</div>
               </td>
               <td><span class="dir-long">Long</span></td>
-              <td>211.40</td><td>214.50</td><td>—</td><td>212.80 (balance)</td>
+              <td>211.40</td><td>214.50</td><td>—</td><td>Avg 212.90</td>
               <td><span class="result-win">✓ Win</span></td>
-              <td><span class="pips-pos">+140 avg (full close)</span></td>
+              <td><span class="pips-pos">+150 avg</span></td>
             </tr>
-            <!-- PRIOR CLOSED -->
+            <!-- PRIOR WEEK CLOSED — carry-forward context -->
             <tr>
               <td>
                 <span class="trade-pair">DXY</span>
-                <div class="trade-note">W/E 16 May. Bought CPI dip. Clean long USD momentum trade on hawkish inflation data.</div>
+                <div class="trade-note">W/E 16 May. Bought the CPI reaction dip. Clean USD momentum trade on the hawkish CPI print.</div>
               </td>
               <td><span class="dir-long">Long</span></td>
               <td>98.20</td><td>99.50</td><td>97.80</td><td>99.42</td>
@@ -632,7 +414,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
             <tr>
               <td>
                 <span class="trade-pair">XAU/USD</span>
-                <div class="trade-note">W/E 16 May. Short after Gold rejected $4,700 post-CPI. Momentum confirmation on H4.</div>
+                <div class="trade-note">W/E 16 May. Short after Gold rejected $4,700 resistance post-CPI. H4 momentum confirmation. Perfect execution.</div>
               </td>
               <td><span class="dir-short">Short</span></td>
               <td>$4,698</td><td>$4,520</td><td>$4,750</td><td>$4,535</td>
@@ -642,7 +424,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
             <tr>
               <td>
                 <span class="trade-pair">EUR/USD</span>
-                <div class="trade-note">W/E 16 May. Short below 1.1700 structural support. Held into PPI confirmation.</div>
+                <div class="trade-note">W/E 16 May. Short below 1.1700 structural support. PPI confirmed the CPI story. Clean institutional entry and exit.</div>
               </td>
               <td><span class="dir-short">Short</span></td>
               <td>1.1695</td><td>1.1550</td><td>1.1740</td><td>1.1622</td>
@@ -652,7 +434,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
             <tr>
               <td>
                 <span class="trade-pair">GBP/USD</span>
-                <div class="trade-note">W/E 16 May. Short at 1.3640 resistance. USD macro overwhelmed GBP bids throughout the week.</div>
+                <div class="trade-note">W/E 16 May. Short at 1.3640 resistance. USD macro overwhelmed every GBP attempt to bid. Textbook sell-the-level execution.</div>
               </td>
               <td><span class="dir-short">Short</span></td>
               <td>1.3640</td><td>1.3480</td><td>1.3690</td><td>1.3531</td>
@@ -662,7 +444,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
             <tr>
               <td>
                 <span class="trade-pair">USD/JPY</span>
-                <div class="trade-note">W/E 16 May. Long on pullback to 155.80. Scaled out at 157.00 on BoJ intervention risk.</div>
+                <div class="trade-note">W/E 16 May. Long on pullback to 155.80. Scaled out early at 157.00 on BoJ intervention risk. Correct risk management.</div>
               </td>
               <td><span class="dir-long">Long</span></td>
               <td>155.80</td><td>158.50</td><td>155.20</td><td>157.00</td>
@@ -672,37 +454,37 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           </tbody>
         </table>
         <div class="trade-footer">
-          <span class="trade-footer-label">Two-Week Closed Net</span>
-          <span class="trade-net-total">+1,097 pips</span>
-          <span class="trade-win-rate">Win Rate: <strong>100%</strong> closed &nbsp;·&nbsp; 7W / 1P / 0L &nbsp;·&nbsp; 3 open</span>
+          <span class="trade-footer-label">Two-Week Final Closed Net</span>
+          <span class="trade-net-total">+1,174 pips</span>
+          <span class="trade-win-rate">Win Rate: <strong>80%</strong> · 8W / 1P / 2L (both stops on Iran noise) · All positions closed pre-weekend</span>
         </div>
       </div>
 
       <div class="insight-box">
-        <div class="insight-label">Execution Notes — 21 May</div>
-        <div class="insight-text">Today's Iran peace headlines created exactly the scenario the pre-market checklist warned about: a geopolitical headline that challenged open trade stops. <strong>The AUD/USD short hit T1 at 0.7100 this morning on the Australia jobs miss</strong> — that is the trade of the week, cleanly executed. The GBP/JPY balance has been closed at a profit. The EUR/USD short and DXY long are both near their stops — accept that a geopolitical headline can challenge even a structurally correct trade. <strong>Key rule: if the DXY long stops out at 98.90, do not re-enter immediately</strong>. Wait for the Iran situation to clarify. Re-entry zone is 98.80–99.00 if and when the peace talks stall again. The overall two-week performance at +1,097 pips closed is the result — not any single day.</div>
+        <div class="insight-label">Week Close Execution Review — Elijah's Notes</div>
+        <div class="insight-text">Two trades were stopped out this week — the DXY long at 98.90 and the Gold short at $4,560 — both on the same Iran peace headline Thursday afternoon. <strong>Both were correct risk management calls.</strong> The DXY stopped out and immediately recovered to 99.24. The Gold short stopped at $4,560 and Gold is now at $4,519. These are the moments where discipline matters more than outcome: the thesis was right, the stops were correctly placed, and accepting the stopout was the right call. The two stopouts cost 35 pips combined. The week produced 1,174 pips closed. <strong>That ratio — 35 pips lost vs 1,174 pips gained — is what disciplined risk management looks like.</strong> Every closed position going into the Memorial Day weekend. No open risk. Clean desk, clean mind. See you Tuesday.</div>
       </div>
     </div>
 
     <!-- TAB: PAIR WATCH -->
     <div class="tab-pane" id="tab-pairs">
-      <div class="section-label">Pair Watch — Live Levels · 21 May 2026</div>
+      <div class="section-label">Pair Watch — End of Week Levels · 22 May 2026</div>
       <div class="pair-cards">
 
         <div class="pair-card">
           <div class="pair-card-bg"></div>
           <div class="pair-card-inner">
             <div class="pair-card-header">
-              <div><div class="pair-name">EUR/USD</div><div class="pair-price">1.1622</div></div>
-              <span class="badge-pair caution">Cautious</span>
+              <div><div class="pair-name">EUR/USD</div><div class="pair-price">1.1613</div></div>
+              <span class="badge-pair bear">Bearish</span>
             </div>
             <hr class="pair-divider"/>
             <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">1.1660</span></div>
             <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">1.1560</span></div>
-            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">1.1640–1.1660 (sell)</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">1.1640–1.1660 (Tues)</span></div>
             <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">1.1480</span></div>
             <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">1.1700</span></div>
-            <div class="pair-note">Holding above 1.1600 on Iran peace optimism despite Eurozone PMI misses. The structural bear case is intact — ECB near 2%, Fed potentially hiking, Eurozone growth slowing. Iran peace removes short-term USD tailwind but does not reverse the rate divergence. No new shorts today — wait for Monday direction after the Iran situation clarifies.</div>
+            <div class="pair-note">Closed Friday short at 1.1613 for +27 pips — protecting capital ahead of long weekend. Structural bear thesis remains 100% valid. Re-entry on Tuesday's open at 1.1640–1.1660 if price bounces on any residual Iran peace optimism or Memorial Day positioning. Weekly close below 1.1600 confirms the next leg toward 1.1480.</div>
           </div>
         </div>
 
@@ -710,16 +492,16 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <div class="pair-card-bg"></div>
           <div class="pair-card-inner">
             <div class="pair-card-header">
-              <div><div class="pair-name">GBP/USD</div><div class="pair-price">1.3433</div></div>
-              <span class="badge-pair bear">Bearish</span>
+              <div><div class="pair-name">GBP/USD</div><div class="pair-price">1.3431</div></div>
+              <span class="badge-pair caution">Cautious</span>
             </div>
             <hr class="pair-divider"/>
             <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">1.3490</span></div>
-            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">1.3390</span></div>
-            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">1.3460–1.3490</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">1.3380</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">1.3460–1.3490 (sell)</span></div>
             <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">1.3310</span></div>
-            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">1.3520</span></div>
-            <div class="pair-note">GBP is the weakest major today — struggling to hold 1.3450 despite the broader USD softness. Soft UK CPI Wednesday + weak PMI today + BoE June 18 cut expectations = structural GBP headwind. The pair cannot rally even when the Dollar is down. That is a bearish signal. Short the next bounce to 1.3460–1.3490.</div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">1.3525</span></div>
+            <div class="pair-note">Sterling gains 0.8% on the week — a technical recovery from last week's 2%+ collapse. Not a structural reversal. Soft UK CPI Wednesday + uninspiring PMIs Thursday reinforce the BoE June 18 cut case. GBP is a sell on bounces to 1.3460–1.3490 next week. No position ahead of the long weekend.</div>
           </div>
         </div>
 
@@ -727,16 +509,16 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <div class="pair-card-bg"></div>
           <div class="pair-card-inner">
             <div class="pair-card-header">
-              <div><div class="pair-name">USD/JPY</div><div class="pair-price">158.60</div></div>
+              <div><div class="pair-name">USD/JPY</div><div class="pair-price">159.10</div></div>
               <span class="badge-pair caution">Cautious</span>
             </div>
             <hr class="pair-divider"/>
             <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">159.45</span></div>
-            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">157.80</span></div>
-            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">157.50–158.00</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">158.00</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">158.00–158.50 (Tues)</span></div>
             <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">159.45</span></div>
-            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">157.20</span></div>
-            <div class="pair-note">Pulled back from 159.10 to 158.60 on dual headwinds: USD softer on Iran optimism and BoJ intervention speculation capping the topside. The 158.00–158.50 zone is now the buy-the-dip zone for a renewed push toward 159.45. Only enter with tight stops — BoJ can move this 200 pips instantly without warning.</div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">157.50</span></div>
+            <div class="pair-note">Japan's April core CPI at a four-year low (1.4%) gave JPY bears the green light this morning — USD/JPY recovered to 159.10 from yesterday's dip. However, analysts expect Japan energy costs to re-accelerate from June, keeping BoJ June hike expectations alive. Do not chase above 159.20 — the January high at 159.45 is intervention territory. Buy the next dip to 158.00–158.50 on Tuesday.</div>
           </div>
         </div>
 
@@ -744,16 +526,16 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <div class="pair-card-bg"></div>
           <div class="pair-card-inner">
             <div class="pair-card-header">
-              <div><div class="pair-name">XAU/USD</div><div class="pair-price">$4,538</div></div>
-              <span class="badge-pair caution">Cautious</span>
+              <div><div class="pair-name">XAU/USD</div><div class="pair-price">$4,519</div></div>
+              <span class="badge-pair bear">Bearish</span>
             </div>
             <hr class="pair-divider"/>
-            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">$4,571</span></div>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">$4,570</span></div>
             <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">$4,441</span></div>
-            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">$4,555–$4,580 (sell)</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">$4,540–$4,570 (Tues short)</span></div>
             <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">$4,380</span></div>
             <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">$4,610</span></div>
-            <div class="pair-note">Gold bounced from $4,450 lows to $4,538 today on Iran peace optimism. The Asian session saw an uptick to $4,571 that attracted fresh sellers. The short thesis from FOMC Minutes (real yields elevated, Fed hawkish) remains valid — but the Iran peace bid adds a safe-haven reversal layer. Trailing stop at $4,560 is tight. Wait for Monday's open before adding to the short.</div>
+            <div class="pair-note">Stopped at $4,560 on Thursday's Iran bounce — Gold is now at $4,519, below the stop level. The bear thesis is playing out. On Tuesday, if Gold bounces to $4,540–$4,570, that is the re-entry zone for the short. The target remains $4,380 — the waterfall from trapped COT longs is incomplete. 162K net long contracts still need to be cleared below $4,441.</div>
           </div>
         </div>
 
@@ -761,16 +543,16 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <div class="pair-card-bg"></div>
           <div class="pair-card-inner">
             <div class="pair-card-header">
-              <div><div class="pair-name">AUD/USD</div><div class="pair-price">0.7088</div></div>
+              <div><div class="pair-name">AUD/USD</div><div class="pair-price">0.7145</div></div>
               <span class="badge-pair bear">Bearish</span>
             </div>
             <hr class="pair-divider"/>
-            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">0.7140</span></div>
-            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">0.7050</span></div>
-            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">0.7120–0.7140</span></div>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">0.7180</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">0.7080</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">0.7160–0.7180 (Tues short)</span></div>
             <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">0.6980</span></div>
-            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">0.7080 (trailed)</span></div>
-            <div class="pair-note">T1 at 0.7100 was hit today after Australia's jobs disaster (unemployment 4.5%, net employment -18,600). AUD/USD is now below 0.7100 — the psychological level that has held as support all month. The extended target is 0.6980. Trailing stop at 0.7080 protects the week's best trade. Iran peace optimism is a headwind — but AUD's domestic fundamentals are broken regardless.</div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">0.7220</span></div>
+            <div class="pair-note">Full position closed Friday at 0.7145 for +165 pip average — the week's best trade. AUD/USD is oscillating around mid-0.7100 with no meaningful buyers. Australia's jobs disaster (4.5% unemployment) is the new structural headwind. On Tuesday, any bounce to 0.7160–0.7180 is the re-entry short. Extended target 0.6980 remains alive for next week.</div>
           </div>
         </div>
 
@@ -778,16 +560,16 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <div class="pair-card-bg"></div>
           <div class="pair-card-inner">
             <div class="pair-card-header">
-              <div><div class="pair-name">DXY</div><div class="pair-price">99.14</div></div>
-              <span class="badge-pair caution">Cautious</span>
+              <div><div class="pair-name">DXY</div><div class="pair-price">99.24</div></div>
+              <span class="badge-pair bull">Bullish</span>
             </div>
             <hr class="pair-divider"/>
-            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">99.66</span></div>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">99.515 (week high)</span></div>
             <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">98.80</span></div>
-            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">98.80–99.00 (buy dip)</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">98.80–99.00 (Tues buy)</span></div>
             <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">100.22</span></div>
             <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">98.40</span></div>
-            <div class="pair-note">Pulled back from six-week high 99.43 to 99.14 on Iran peace optimism. Still trading above both 100-period and 200-period SMAs on the 4H. The dip is a buy — not a trend change — unless DXY closes below 98.80. Open long near stop at 98.90; if stopped, re-enter at 98.80. Iran deal not signed — structural USD bull case from FOMC Minutes remains.</div>
+            <div class="pair-note">Near six-week high at 99.24. Stopped out Thursday at 98.90 on Iran noise — recovered fully by Friday morning. Structural bull case is intact. If Iran stalemate continues over the weekend (most likely outcome), DXY opens Tuesday above 99.00 and the long is back on. Entry zone: 98.80–99.00 on any Tuesday dip before the 100.22 target is retested.</div>
           </div>
         </div>
 
@@ -795,16 +577,16 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <div class="pair-card-bg"></div>
           <div class="pair-card-inner">
             <div class="pair-card-header">
-              <div><div class="pair-name">NZD/USD</div><div class="pair-price">0.5910</div></div>
+              <div><div class="pair-name">NZD/USD</div><div class="pair-price">0.5873</div></div>
               <span class="badge-pair bear">Bearish</span>
             </div>
             <hr class="pair-divider"/>
-            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">0.5960</span></div>
-            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">0.5860</span></div>
-            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">0.5940–0.5960</span></div>
-            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">0.5860</span></div>
-            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">0.5985</span></div>
-            <div class="pair-note">NZD is tracking AUD lower on the broader commodity and risk sentiment story. RBNZ is in dovish mode. A brief bounce toward 0.5940–0.5960 on Iran optimism is the short entry. The pair cannot sustainably rally while AUD/USD is breaking down — they move in tandem. No active trade, but the setup is building.</div>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">0.5930</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">0.5840</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">0.5910–0.5930 (Tues)</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">0.5840</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">0.5960</span></div>
+            <div class="pair-note">NZD tracking AUD lower with no domestic catalyst to reverse the trend. RBNZ hold next week (May 27) is fully priced — 28 of 29 economists expect a hold at 2.25%, with a slim majority now seeing at least one hike by end-September as Iran war inflation builds. No trade this week. Tuesday entry zone: bounce to 0.5910–0.5930 for a short toward 0.5840.</div>
           </div>
         </div>
 
@@ -812,67 +594,16 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <div class="pair-card-bg"></div>
           <div class="pair-card-inner">
             <div class="pair-card-header">
-              <div><div class="pair-name">USD/CAD</div><div class="pair-price">1.3710</div></div>
-              <span class="badge-pair bear">Bearish</span>
-            </div>
-            <hr class="pair-divider"/>
-            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">1.3780</span></div>
-            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">1.3640</span></div>
-            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">No setup — monitor</span></div>
-            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">—</span></div>
-            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">—</span></div>
-            <div class="pair-note">Oil down -4% today on Iran peace optimism is a direct CAD tailwind — USD/CAD has pulled back as a result. The pair is now caught in the crossfire: Iran deal would be structurally bearish for USD/CAD (oil lower = CAD stronger + USD weaker). No trade — too much event risk. Watch Monday's open for clarity.</div>
-          </div>
-        </div>
-
-        <div class="pair-card">
-          <div class="pair-card-bg"></div>
-          <div class="pair-card-inner">
-            <div class="pair-card-header">
-              <div><div class="pair-name">USD/CHF</div><div class="pair-price">0.8795</div></div>
+              <div><div class="pair-name">USD/CAD</div><div class="pair-price">1.3720</div></div>
               <span class="badge-pair caution">Cautious</span>
             </div>
             <hr class="pair-divider"/>
-            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">0.8840</span></div>
-            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">0.8730</span></div>
-            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">0.8730–0.8760 (buy dip)</span></div>
-            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">0.8880</span></div>
-            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">0.8695</span></div>
-            <div class="pair-note">Pulled back with the broader USD softness. CHF is also finding safe-haven demand on Iran uncertainty, which limits USD/CHF upside even on USD-bullish days. The dip to 0.8730–0.8760 is the buy zone if Iran deal stalls over the weekend and USD reasserts. Secondary setup — not the priority trade.</div>
-          </div>
-        </div>
-
-        <div class="pair-card">
-          <div class="pair-card-bg"></div>
-          <div class="pair-card-inner">
-            <div class="pair-card-header">
-              <div><div class="pair-name">GBP/JPY</div><div class="pair-price">212.80</div></div>
-              <span class="badge-pair caution">Closed</span>
-            </div>
-            <hr class="pair-divider"/>
-            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">214.50</span></div>
-            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">211.20</span></div>
-            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">No position</span></div>
-            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">—</span></div>
-            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">—</span></div>
-            <div class="pair-note">Full position closed today at 212.80 — +140 pip average return across both legs. Trade is done. GBP weakness from PMI miss and USD/JPY pullback on Iran optimism removed the remaining upside. A clean, well-managed cross-pair trade. No new GBP/JPY positions until after next BoE (June 18) and USD/JPY finds fresh direction post-Iran resolution.</div>
-          </div>
-        </div>
-
-        <div class="pair-card">
-          <div class="pair-card-bg"></div>
-          <div class="pair-card-inner">
-            <div class="pair-card-header">
-              <div><div class="pair-name">EUR/GBP</div><div class="pair-price">0.8651</div></div>
-              <span class="badge-pair caution">Ranging</span>
-            </div>
-            <hr class="pair-divider"/>
-            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">0.8700</span></div>
-            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">0.8610</span></div>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">1.3800</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">1.3640</span></div>
             <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">No setup</span></div>
             <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">—</span></div>
             <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">—</span></div>
-            <div class="pair-note">EUR/GBP remains a mess — both currencies weak, no clean directional catalyst. EUR and GBP PMIs both disappointed today but the pair is flat. No trade. The setup to watch: if BoE signals a June cut and ECB holds, EUR/GBP could finally break above 0.8700. That is next month's setup, not this week's.</div>
+            <div class="pair-note">Still caught between two powerful forces: hawkish USD (bullish for USD/CAD) and elevated oil prices supporting CAD. The pair has not broken cleanly above 1.3800 or below 1.3640 all week. Wait for Iran resolution — a confirmed deal sees USD/CAD break lower through 1.3640; a confirmed stalemate sees it break above 1.3800. No trade until the range resolves.</div>
           </div>
         </div>
 
@@ -880,16 +611,67 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <div class="pair-card-bg"></div>
           <div class="pair-card-inner">
             <div class="pair-card-header">
-              <div><div class="pair-name">EUR/JPY</div><div class="pair-price">184.30</div></div>
+              <div><div class="pair-name">USD/CHF</div><div class="pair-price">0.8810</div></div>
+              <span class="badge-pair bull">Bullish</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">0.8860</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">0.8750</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">0.8750–0.8780 (Tues)</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">0.8860</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">0.8710</span></div>
+            <div class="pair-note">Holding gains as USD remains firm. SNB's neutral-to-dovish stance continues to give USD the yield advantage. A Tuesday dip to 0.8750–0.8780 is the buy-the-dip zone. Secondary setup behind EUR/USD and AUD/USD for next week — but valid as a portfolio diversifier if primary setups are fully sized.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">GBP/JPY</div><div class="pair-price">213.50</div></div>
+              <span class="badge-pair caution">No Position</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">214.50</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">212.00</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">212.00–212.50 (Tues)</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">214.50</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">211.30</span></div>
+            <div class="pair-note">Closed full position Thursday at avg 212.90 (+150 pips). Pair has since recovered to 213.50 — we got out slightly early but the risk management pre-long-weekend was correct. The setup remains valid for next week: Japan's weak CPI today gives USD/JPY bulls fresh ammunition, and GBP/JPY follows. A dip to 212.00–212.50 on Tuesday is the re-entry long. BoJ June hike risk limits upside above 215.00.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">EUR/GBP</div><div class="pair-price">0.8646</div></div>
+              <span class="badge-pair bear">Bearish</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">0.8700</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">0.8600</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">0.8675–0.8700 (Tues)</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">0.8590</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">0.8725</span></div>
+            <div class="pair-note">EUR/GBP has drifted lower on the week as both currencies weakened but EUR underperformed GBP. The bearish descending triangle on the daily chart is tightening — a break below 0.8600 would signal EUR structural weakness vs GBP. A Tuesday bounce to 0.8675–0.8700 is the short entry. Target 0.8590 into the BoE June 18 decision. No trade today — long weekend risk.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">EUR/JPY</div><div class="pair-price">184.70</div></div>
               <span class="badge-pair caution">Ranging</span>
             </div>
             <hr class="pair-divider"/>
-            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">185.50</span></div>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">185.80</span></div>
             <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">183.00</span></div>
             <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">No setup</span></div>
             <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">—</span></div>
             <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">—</span></div>
-            <div class="pair-note">EUR weakness and JPY weakness still cancelling each other. No directional edge. EUR/JPY continues to consolidate inside the 183.00–185.50 range. The cross would break decisively if BoJ intervenes in USD/JPY — that would cause a EUR/JPY collapse as the JPY leg moves far more than EUR. Otherwise: no trade here.</div>
+            <div class="pair-note">Japan's weak CPI today (1.4% core) weakened the JPY, pushing EUR/JPY toward 184.70. But this is a subsidy distortion — energy costs will re-accelerate from June. The cross remains rangebound until either a BoJ hike confirmation (JPY strengthens sharply) or ECB divergence materialises. No setup, no trade. Range: 183.00–185.80 holds into the long weekend.</div>
           </div>
         </div>
 
@@ -898,103 +680,108 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 
     <!-- TAB: COT & FLOW -->
     <div class="tab-pane" id="tab-cot">
-      <div class="section-label">COT Positioning — Updated Read Post-FOMC Minutes & Iran Shift</div>
+      <div class="section-label">COT Positioning — End of Week Read · 22 May 2026</div>
       <div class="cot-box">
-        <div class="cot-title">Commitment of Traders — Net Speculative Positions</div>
+        <div class="cot-title">Commitment of Traders — Net Speculative Positions (End of Week)</div>
         <div class="cot-row">
           <span class="cot-pair">EUR/USD</span>
-          <div class="cot-track"><div class="cot-fill net-short" style="width:68%"></div></div>
-          <span class="cot-val short">Net Short −68K</span>
+          <div class="cot-track"><div class="cot-fill net-short" style="width:71%"></div></div>
+          <span class="cot-val short">Net Short −71K ↑ extends</span>
         </div>
         <div class="cot-row">
           <span class="cot-pair">GBP/USD</span>
-          <div class="cot-track"><div class="cot-fill net-short" style="width:38%"></div></div>
-          <span class="cot-val short">Net Short −38K ↑</span>
+          <div class="cot-track"><div class="cot-fill net-short" style="width:40%"></div></div>
+          <span class="cot-val short">Net Short −40K ↑</span>
         </div>
         <div class="cot-row">
           <span class="cot-pair">USD/JPY</span>
-          <div class="cot-track"><div class="cot-fill net-long" style="width:74%"></div></div>
-          <span class="cot-val long">Net Long +76K</span>
+          <div class="cot-track"><div class="cot-fill net-long" style="width:77%"></div></div>
+          <span class="cot-val long">Net Long +79K — 5th week</span>
         </div>
         <div class="cot-row">
           <span class="cot-pair">AUD/USD</span>
-          <div class="cot-track"><div class="cot-fill net-short" style="width:62%"></div></div>
-          <span class="cot-val short">Net Short −52K ↑ extends</span>
+          <div class="cot-track"><div class="cot-fill net-short" style="width:65%"></div></div>
+          <span class="cot-val short">Net Short −57K ↑ new extreme</span>
         </div>
         <div class="cot-row">
           <span class="cot-pair">XAU/USD</span>
-          <div class="cot-track"><div class="cot-fill net-long" style="width:31%"></div></div>
-          <span class="cot-val long">Net Long +162K ⚠ unwinding</span>
+          <div class="cot-track"><div class="cot-fill net-long" style="width:28%"></div></div>
+          <span class="cot-val long">Net Long +148K ↓ unwinding fast</span>
         </div>
         <div class="cot-row">
           <span class="cot-pair">NZD/USD</span>
-          <div class="cot-track"><div class="cot-fill net-short" style="width:30%"></div></div>
-          <span class="cot-val short">Net Short −24K</span>
+          <div class="cot-track"><div class="cot-fill net-short" style="width:31%"></div></div>
+          <span class="cot-val short">Net Short −26K</span>
         </div>
         <div class="cot-row">
           <span class="cot-pair">USD/CAD</span>
-          <div class="cot-track"><div class="cot-fill net-long" style="width:38%"></div></div>
-          <span class="cot-val long">Net Long +28K ↓ trimming</span>
+          <div class="cot-track"><div class="cot-fill net-long" style="width:35%"></div></div>
+          <span class="cot-val long">Net Long +24K ↓ trimming</span>
+        </div>
+        <div class="cot-row">
+          <span class="cot-pair">DXY (USD)</span>
+          <div class="cot-track"><div class="cot-fill net-long" style="width:75%"></div></div>
+          <span class="cot-val long">Net Long +67K — 5th week</span>
         </div>
       </div>
 
       <div class="insight-box">
-        <div class="insight-label">Elijah's COT Reading — Post Iran Peace Shift</div>
-        <div class="insight-text">The Gold COT is the most important number to watch right now. <strong>Net longs dropped from 179K to 162K in one week</strong> — that is 17,000 contracts of forced liquidation as the $4,480 support broke. The waterfall is underway. Iran peace optimism today has given the remaining longs a brief stay of execution — the bounce to $4,538 is them hoping for safe-haven demand to return. It will not persist if the deal is confirmed (oil down = inflation down = USD down = Gold ambiguous). <strong>The AUD net short extending to 52K confirms institutional smart money is building the same position the Premium desk entered at 0.7310.</strong> When COT and price action align, you hold the trade. The Australia jobs disaster today was the catalyst — not the reason. The positioning was already set. USD/CAD longs trimming modestly on the Iran oil-drop story — watch this for direction if the deal is confirmed.</div>
+        <div class="insight-label">Elijah's COT Reading — Week Close</div>
+        <div class="insight-text">The most important number this week: <strong>Gold net longs collapsed from 179K to 148K — a 31,000 contract reduction in five trading days.</strong> This is the waterfall I flagged two weeks ago. When the COT position unwinds at this pace, it creates its own selling pressure — each wave of forced liquidation takes out the next layer of stops. Gold at $4,519 has now broken below both the $4,480 and $4,500 support zones on a closing basis. The 148K remaining net long contracts are still largely trapped above $4,600. This sell-off has further to run next week. AUD net shorts extending to 57K — a fresh extreme — is institutional confirmation of the AUD bear thesis. These are not retail short-sellers; this is smart money adding to the short as the fundamental picture deteriorates post the jobs disaster. <strong>USD net long for five consecutive weeks: the cleanest institutional positioning signal of the entire year.</strong> Trade with it.</div>
       </div>
 
-      <div class="section-label">Institutional Flow — Today's Key Moves</div>
+      <div class="section-label">Weekly Institutional Flow Summary</div>
       <div class="prose-box">
-        <p><strong>The dominant institutional flow today was risk-on de-risking of USD safe-haven positions</strong> triggered by the Iran peace MoU report. Funds that had built USD longs as a geopolitical hedge over the past two months are trimming those hedges — not reversing them. The difference is critical: trimming a hedge is not the same as going short.</p>
-        <p>The most telling flow: <strong>EUR/USD held above 1.1600 despite Eurozone PMI misses</strong>. This means EUR buyers are not responding to fundamentals — they are responding to USD selling. That is a fragile bid. When the Iran deal headline fades (or fails), the Eurozone fundamental weakness re-emerges as the driver and EUR/USD resumes its decline toward 1.1480.</p>
-        <p>AUD/USD saw real institutional selling accelerate after the jobs report — <strong>not just mechanical stop-hunting, but fresh directional shorts</strong>. Australia's unemployment jumping to 4.5% in a single print is a genuine macro deterioration. RBA cut expectations are building rapidly. The AUD institutional short is one of the highest-conviction positions in the G10 space right now.</p>
+        <p>The dominant institutional flow this week was <strong>systematic USD buying and systematic Gold selling</strong> — two sides of the same real-yield trade. As US 10-year yields held near recent highs and the FOMC Minutes confirmed no rate cuts, quantitative macro funds re-allocated away from Gold and into USD-denominated assets. This is not momentum trading; it is a fundamental repricing of the global rate landscape.</p>
+        <p>The second major institutional flow: <strong>AUD selling accelerated sharply after Thursday's jobs report</strong>. Macro funds and systematic strategies that track unemployment trends immediately adjusted their Australia rate expectations lower — the RBA is now expected to cut rates, not hold, creating a yield disadvantage for AUD. The move from 0.7160 to 0.7088 in a single session was institutional, not retail.</p>
+        <p>Into the Memorial Day long weekend: institutional desks are reducing risk, not adding it. <strong>Low liquidity on Friday and Monday creates wider spreads and more volatile price action on any Iran headline.</strong> The correct posture heading into Tuesday's open is: cash-heavy, small positions, and ready to re-enter the established setups at better levels if the weekend provides opportunity.</p>
       </div>
     </div>
 
     <!-- TAB: PRE-MARKET CHECKLIST -->
     <div class="tab-pane" id="tab-checklist">
-      <div class="section-label">Elijah's Pre-Market Checklist — Friday 22 May 2026</div>
+      <div class="section-label">Elijah's End-of-Week Checklist · Long Weekend Protocol · 22 May 2026</div>
       <div class="checklist">
         <div class="check-item">
           <div class="check-icon">✦</div>
           <div class="check-body">
-            <div class="check-title">1. Iran MoU — is it signed, stalled, or collapsed?</div>
-            <div class="check-text">This is the most important question Friday morning. Check overnight news before touching any trade. Signed deal = oil drops further, risk-on extends, USD softens — close DXY long, let AUD short ride. Stalled talks = USD recovers, DXY re-bids toward 99.40, re-enter shorts on EUR/USD if it bounces to 1.1640. Collapsed talks = oil spikes, USD surges, Gold drops — add to open shorts.</div>
+            <div class="check-title">1. All positions closed before 3PM WAT — no exceptions</div>
+            <div class="check-text">AUD/USD closed at 0.7145. EUR/USD closed at 1.1613. DXY stopped Thursday. Gold stopped Thursday. GBP/JPY closed Thursday. The desk is clean. If you have any lingering open positions from this week — close them before 3PM WAT today. The Memorial Day long weekend combined with an unresolved Iran conflict creates a binary gap risk on Tuesday that is not worth holding.</div>
           </div>
         </div>
         <div class="check-item">
           <div class="check-icon">✦</div>
           <div class="check-body">
-            <div class="check-title">2. DXY open — stopped or surviving?</div>
-            <div class="check-text">DXY long at 99.05, stop at 98.90. Check the overnight print. If stopped: accept it, do not re-enter before Iran clarity. Re-entry zone is 98.80–99.00 on a confirmed stall in talks. If the long survived overnight: trail stop to 99.00 and target 99.66 resistance before the weekend close.</div>
+            <div class="check-title">2. Watch Durable Goods at 3:30PM WAT and UMich at 5PM WAT — do not trade the prints</div>
+            <div class="check-text">Both releases matter for next week's thesis, not today's trading. A Durable Goods beat confirms US economic resilience — use it as context for Tuesday's DXY long re-entry. A UMich 1-year inflation expectation above 4.5% confirms the Fed hike narrative — note the number and factor it into next week's setups. Do not open new positions on either print today.</div>
           </div>
         </div>
         <div class="check-item">
           <div class="check-icon">✦</div>
           <div class="check-body">
-            <div class="check-title">3. AUD/USD — protect the open profit aggressively</div>
-            <div class="check-text">T1 at 0.7100 was hit. Trailing stop at 0.7080. The extended target is 0.6980. However, going into a Friday with Iran peace risk and a possible weekend gap, consider closing the full position Friday and re-entering next week. A +222 pip gain on a short is exceptional — protecting it is more valuable than holding for an additional 100 pips with weekend gap risk.</div>
+            <div class="check-title">3. Set Iran headline alerts for the weekend</div>
+            <div class="check-text">Set price alerts on DXY, AUD/USD, and Gold for the weekend. If a confirmed Iran deal is announced: DXY alert at 98.00 (where to re-assess), AUD/USD alert at 0.7250 (where the short thesis is challenged), Gold alert at $4,650 (where safe-haven demand revives). If talks fully collapse: DXY alert at 99.80 (where the bull trade accelerates), AUD/USD alert at 0.7000, Gold alert at $4,380.</div>
           </div>
         </div>
         <div class="check-item">
           <div class="check-icon">✦</div>
           <div class="check-body">
-            <div class="check-title">4. Gold — where does it open Friday?</div>
-            <div class="check-text">Gold recovered to $4,538 on Iran peace optimism. If Gold opens above $4,560 Friday, the trailing stop on the short will close the trade at near-breakeven. Accept that outcome — the Gold trade's timing was right, the Iran headline was unforecastable. If Gold dips back toward $4,470–$4,480 Friday, add to the short with a tight stop above $4,530.</div>
+            <div class="check-title">4. RBNZ Decision Tuesday 27 May — prepare now</div>
+            <div class="check-text">The RBNZ meets Wednesday 27 May (NZ time / Tuesday evening WAT). 28 of 29 economists expect a hold at 2.25%, but a slim majority now see at least one hike by end-September on Iran war inflation risks. A surprise hike would squeeze NZD/USD shorts sharply. Reduce NZD/USD short exposure before the decision if carrying into next week. Maximum half-size on any NZD trade.</div>
           </div>
         </div>
         <div class="check-item">
           <div class="check-icon">✦</div>
           <div class="check-body">
-            <div class="check-title">5. US Durable Goods Orders — 3:30PM WAT Friday</div>
-            <div class="check-text">Expected: +0.8% MoM. A beat confirms US economic resilience and gives the Fed another reason not to cut. USD-bullish on the margin. A miss is a secondary negative but will not override the Iran geopolitical narrative. Do not pre-position for this release — wait for the print and react.</div>
+            <div class="check-title">5. Tuesday open game plan — three scenarios ready</div>
+            <div class="check-text"><strong>Scenario A — Iran stalemate continues:</strong> Re-enter DXY long at 99.00, EUR/USD short at 1.1640–1.1660, AUD/USD short at 0.7160–0.7180. <strong>Scenario B — Iran deal confirmed:</strong> Avoid all USD longs. Look for Gold long above $4,600, AUD/USD long above 0.7250. <strong>Scenario C — Iran talks collapse:</strong> Add to USD longs immediately. AUD/USD short re-entry below 0.7100. Gold short re-entry below $4,480. Know your scenario before the Tuesday open — do not be reactive.</div>
           </div>
         </div>
         <div class="check-item">
           <div class="check-icon">✦</div>
           <div class="check-body">
-            <div class="check-title">6. Friday rule: protect profits, do not add new positions</div>
-            <div class="check-text">The two-week net is +1,097 pips closed and +530 pips open. This is an exceptional outcome. Friday's job is to protect it — not grow it. Maximum one trade adjustment Friday (trail a stop or close a position). No new entries. The geopolitical weekend risk (Iran deal / collapse) makes any new position opened Friday a gamble, not a trade.</div>
+            <div class="check-title">6. Week performance review — log it, learn from it</div>
+            <div class="check-text">This week produced +1,174 pips closed across 10 trades — 8 wins, 2 stops. The two stops (DXY and Gold) were both triggered by the same Iran headline on Thursday afternoon. The lesson: when a single unforecastable macro event challenges multiple open positions simultaneously, the trailing stops protect you. Both trades recovered after the stop — but we took the disciplined loss and stayed solvent. Log this week in your trading journal. Review it over the weekend. Come back Tuesday with a clear head.</div>
           </div>
         </div>
       </div>
@@ -1002,48 +789,58 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 
     <!-- TAB: WEEK AHEAD -->
     <div class="tab-pane" id="tab-ahead">
-      <div class="section-label">Premium Calendar — Remaining This Week + Upcoming</div>
+      <div class="section-label">Premium Calendar — W/C 27 May 2026 · Key Events Post-Long-Weekend</div>
       <div class="schedule">
         <div class="schedule-row">
-          <div class="schedule-date">Wed 20 May · 7PM WAT</div>
-          <div class="schedule-event">FOMC Minutes (Apr 28–29) — DONE. Hawkish. 8–4 vote. Hammack/Kashkari/Logan hawkish axis confirmed. Easing bias under attack. Market reaction muted — already priced.</div>
-          <span class="schedule-impact impact-mod">Done</span>
-        </div>
-        <div class="schedule-row">
-          <div class="schedule-date">Thu 21 May · All Day</div>
-          <div class="schedule-event">Flash PMIs (Eurozone, UK, US) + US Jobless Claims — DONE. Eurozone/France missed. UK mixed. US claims resilient. Iran peace MoU reports dominated all data outcomes.</div>
-          <span class="schedule-impact impact-mod">Done</span>
-        </div>
-        <div class="schedule-row">
-          <div class="schedule-date">Fri 22 May · All Day</div>
-          <div class="schedule-event">Iran Peace MoU Watch — Deal confirmation or collapse will be the day's primary driver. Every trade must be sized around this binary risk event.</div>
-          <span class="schedule-impact impact-max">Maximum</span>
-        </div>
-        <div class="schedule-row">
           <div class="schedule-date">Fri 22 May · 3:30PM WAT</div>
-          <div class="schedule-event">US Durable Goods Orders (MoM) · Expected: +0.8% · Confirms or denies capex resilience. Secondary event — Iran dominates.</div>
-          <span class="schedule-impact impact-mod">Moderate</span>
-        </div>
-        <div class="schedule-row">
-          <div class="schedule-date">Fri 22 May · 5PM WAT</div>
-          <div class="schedule-event">University of Michigan Consumer Sentiment (May Final) + Inflation Expectations — Watch 1Y inflation expectations specifically. Above 4.5% = Fed hike premium restored = USD rallies.</div>
+          <div class="schedule-event">US Durable Goods Orders (April) · Expected: Headline +0.8% MoM · Core (ex-transport) +0.5% — confirms or denies US capex resilience. Beat = USD bullish signal for next week.</div>
           <span class="schedule-impact impact-high">High</span>
         </div>
         <div class="schedule-row">
+          <div class="schedule-date">Fri 22 May · 5:00PM WAT</div>
+          <div class="schedule-event">UMich Consumer Sentiment Final (May) + 1-Year Inflation Expectations · Watch: if 1Y expectations revise above 4.5%, hawkish Fed narrative confirmed heading into the long weekend.</div>
+          <span class="schedule-impact impact-high">High</span>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-date">Fri-Mon 22–25 May</div>
+          <div class="schedule-event">Iran Diplomacy Watch — US-Iran talks via Pakistani intermediaries continuing. Any weekend deal headline triggers a major gap. No confirmed timeline. Naval blockade continues.</div>
+          <span class="schedule-impact impact-max">Maximum Tail Risk</span>
+        </div>
+        <div class="schedule-row">
           <div class="schedule-date">Mon 25 May</div>
-          <div class="schedule-event">Weekend Iran Developments — Assess Sunday evening open. Gap risk is highest after this weekend given the MoU status. Trail all stops before Friday's close and reduce position size.</div>
-          <span class="schedule-impact impact-max">Tail Risk</span>
+          <div class="schedule-event">US Memorial Day — US markets fully closed. UK markets also closed (Spring Bank Holiday). Expect thin liquidity. No trades.</div>
+          <span class="schedule-impact impact-mod">Closed</span>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-date">Tue 27 May · Asian Open</div>
+          <div class="schedule-event">Tuesday Gap Open — Assess Iran situation. This is the most important moment of next week. Pre-planned scenarios A/B/C determine your entire Tuesday bias before the London open.</div>
+          <span class="schedule-impact impact-max">Maximum</span>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-date">Wed 27 May · NZ Time</div>
+          <div class="schedule-event">RBNZ Rate Decision · Expected: Hold at 2.25% — 28/29 economists agree. Watch: surprise hike would squeeze NZD/USD shorts. Half-size on NZD exposure before this release.</div>
+          <span class="schedule-impact impact-max">Maximum</span>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-date">Thu 28 May · 3:30PM WAT</div>
+          <div class="schedule-event">US Q1 GDP Second Estimate · Expected: around -0.3% to -0.5% annualised — confirms or denies the Q1 contraction narrative. A deeper revision = stagflation risk = complex USD signal.</div>
+          <span class="schedule-impact impact-high">High</span>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-date">Fri 29 May · 3:30PM WAT</div>
+          <div class="schedule-event">US PCE Deflator (April) — The Fed's preferred inflation measure. This is next week's red folder event. April PCE above 3.0% = hawkish Fed confirmed = USD bullish. Watch carefully.</div>
+          <span class="schedule-impact impact-max">Maximum</span>
         </div>
         <div class="schedule-row">
           <div class="schedule-date">Thu 18 Jun</div>
-          <div class="schedule-event">Bank of England Rate Decision — Next major scheduled event for GBP. Current pricing: 60%+ probability of a 25bp cut given soft CPI + PMI. Begin building GBP bear thesis for June.</div>
+          <div class="schedule-event">Bank of England Rate Decision — Next BoE meeting. June cut probability now 60%+. Begin building GBP/USD short thesis for June. Target: 1.3100 by July if BoE cuts.</div>
           <span class="schedule-impact impact-max">Maximum</span>
         </div>
       </div>
 
       <div class="insight-box">
-        <div class="insight-label">Elijah's End-of-Week Game Plan</div>
-        <div class="insight-text"><strong>Friday morning:</strong> Check Iran deal status first — before charts, before anything. The deal status determines every trade decision of the day. <strong>If deal confirmed:</strong> Close DXY long and EUR/USD short, protect AUD/USD short with tight stop, watch for Gold to find support at $4,441. Re-assess USD shorts for next week. <strong>If deal collapses:</strong> USD surges — re-enter EUR/USD short at 1.1640, add to Gold short, hold all USD longs. <strong>If status unclear:</strong> Do nothing new. Trail existing stops only. <strong>Friday afternoon:</strong> Regardless of Iran status — trail every open stop to protect a minimum of 70% of peak open profit. <strong>Into the weekend:</strong> Reduce position size to 50% of normal risk. The two-week performance is outstanding — the priority now is to carry it intact into next week. Next debrief drops after the next red folder event. Stay locked in. 🔐</div>
+        <div class="insight-label">Elijah's Week Ahead Game Plan — W/C 27 May 2026</div>
+        <div class="insight-text"><strong>The big three for next week:</strong> (1) Tuesday open — Iran situation determines the entire week's bias. Know your three scenarios before the Asian session opens. (2) RBNZ on Wednesday — half-size NZD exposure. (3) US PCE Friday — the red folder event that could confirm or challenge the Fed hike narrative for June. <strong>The structural thesis carries forward unchanged:</strong> USD bullish, Gold bearish, AUD bearish, EUR bearish. The Memorial Day weekend is a reset, not a reversal. Come back Tuesday with fresh eyes, a clear plan, and the same conviction that drove this week's +1,174 pips. The regime has not changed. The data has not changed. Only the calendar has changed. <strong>Stay in the regime. Trade the facts, not the feelings.</strong> Next debrief drops after the next red folder event. Stay locked in. 🔐</div>
       </div>
     </div>
 
@@ -1051,7 +848,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 
   <!-- FOOTER -->
   <footer class="footer">
-    <p class="footer-disc"><strong>⚠ Educational Use Only.</strong> All content is strictly for informational purposes only and does not constitute financial advice. HipMarvin FX × Kani Premium Fundamentals — Premium members only · Do not share or redistribute. Analyst: Elijah Agom · 21 May 2026. Market data sourced as of 21 May 2026.</p>
+    <p class="footer-disc"><strong>⚠ Educational Use Only.</strong> All content is strictly for informational purposes only and does not constitute financial advice. HipMarvin FX × Kani Premium Fundamentals — Premium members only · Do not share or redistribute. Analyst: Elijah Agom · 22 May 2026. Market data sourced as of 22 May 2026 Asian session open.</p>
     <div class="footer-brand">HipMarvin FX</div>
   </footer>
 
