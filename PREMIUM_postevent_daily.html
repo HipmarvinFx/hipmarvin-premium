@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HipMarvin FX — Post-Event Debrief · Premium · 29 May 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream: #F5F0E8; --ink: #1A1410; --ink2: #2C2418;
+  --gold: #B8860B; --gold2: #D4A017;
+  --muted: #7A6E5F; --muted2: #9A8E7F;
+  --border: rgba(184,134,11,0.18); --border2: rgba(26,20,16,0.08);
+  --red: #8B1A1A; --red2: #C0392B;
+  --green: #1A5C3A; --green2: #27AE60;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--ink); font-family: 'Montserrat', sans-serif; min-height: 100vh; overflow-x: hidden; cursor: none; }
+body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1; opacity: 0.4; }
+.cursor { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transition: transform 0.15s ease; }
+.cursor-ring { width: 32px; height: 32px; border: 1px solid var(--gold); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; transition: all 0.12s ease; opacity: 0.5; }
+.page { position: relative; z-index: 2; min-height: 100vh; display: grid; grid-template-rows: auto auto 1fr auto; }
+
+/* TOPBAR */
+.topbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 10px; }
+.topbar-left { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.topbar-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.topbar-date { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-style: italic; color: var(--muted); }
+.badge-premium { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); border: 1px solid var(--border); padding: 4px 12px; font-weight: 600; }
+.badge-bull { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--red2); border: 1px solid rgba(192,57,43,0.3); padding: 4px 10px; font-weight: 600; }
+
+/* STRIP */
+.strip { display: flex; justify-content: space-around; padding: 12px 40px; border-bottom: 1px solid var(--border2); background: rgba(26,20,16,0.03); flex-wrap: wrap; gap: 12px; }
+.strip-item { text-align: center; }
+.strip-label { display: block; font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 2px; }
+.strip-val { display: block; font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 600; }
+.strip-val.bull { color: var(--green); }
+.strip-val.bear { color: var(--red2); }
+.strip-val.gold { color: var(--gold); }
+
+/* MAIN */
+.main { padding: 48px 40px; max-width: 820px; margin: 0 auto; width: 100%; }
+
+/* HERO */
+.eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.eyebrow-line { width: 32px; height: 1px; background: var(--gold); }
+.eyebrow-text { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 10vw, 72px); font-weight: 300; line-height: 0.9; letter-spacing: -1px; color: var(--ink); margin-bottom: 8px; }
+.hero-title em { font-style: italic; color: var(--gold); }
+.hero-sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(14px, 3vw, 18px); font-weight: 300; letter-spacing: 6px; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+.hero-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+.hero-meta-item { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.hero-meta-dot { width: 3px; height: 3px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+
+/* ORNAMENT */
+.ornament { display: flex; align-items: center; gap: 16px; margin: 32px 0; }
+.ornament-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); }
+.ornament-line.right { background: linear-gradient(270deg, var(--gold), transparent); }
+.ornament-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+
+/* SECTION LABEL */
+.section-label { font-size: 8px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* TAB ROW */
+.tab-row { display: flex; gap: 0; margin-bottom: 28px; border-bottom: 1px solid var(--border2); flex-wrap: wrap; }
+.tab-btn { background: none; border: none; border-bottom: 2px solid transparent; padding: 10px 16px; font-family: 'Montserrat', sans-serif; font-size: 8px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted2); cursor: pointer; font-weight: 500; transition: all 0.25s; margin-bottom: -1px; white-space: nowrap; }
+.tab-btn:hover { color: var(--ink); }
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+.tab-pane { display: none; }
+.tab-pane.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* PROSE BOX */
+.prose-box { background: rgba(26,20,16,0.03); border: 1px solid var(--border); padding: 24px 28px; margin-bottom: 24px; }
+.prose-box p { font-size: 13px; color: var(--ink2); line-height: 1.9; font-weight: 400; }
+.prose-box p + p { margin-top: 14px; }
+.prose-box strong { color: var(--ink); font-weight: 500; }
+
+/* INSIGHT BOX */
+.insight-box { border: 1px solid var(--border); border-left: 3px solid var(--gold); padding: 20px 24px; margin: 24px 0; background: rgba(184,134,11,0.04); }
+.insight-label { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 10px; }
+.insight-text { font-size: 13px; color: var(--ink2); line-height: 1.8; font-weight: 400; }
+.insight-text strong { color: var(--ink); font-weight: 500; }
+
+/* EVENT TABLE */
+.event-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+.event-table tr { border-bottom: 1px solid var(--border2); }
+.event-table tr:last-child { border-bottom: none; }
+.event-table td { padding: 14px 8px; font-size: 12px; vertical-align: top; }
+.event-table td:first-child { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 600; width: 36%; padding-top: 16px; }
+.tag-miss { display: inline-block; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--red2); border: 1px solid rgba(192,57,43,0.25); padding: 2px 7px; font-weight: 600; }
+.tag-beat { display: inline-block; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--green); border: 1px solid rgba(26,92,58,0.25); padding: 2px 7px; font-weight: 600; }
+.tag-inline { display: inline-block; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); border: 1px solid var(--border); padding: 2px 7px; font-weight: 600; }
+.tag-pending { display: inline-block; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border2); padding: 2px 7px; font-weight: 600; }
+.impact-row { display: flex; gap: 4px; margin-top: 4px; }
+.impact-dot { width: 7px; height: 7px; background: var(--red2); transform: rotate(45deg); }
+.impact-dot.empty { background: transparent; border: 1px solid rgba(192,57,43,0.3); }
+
+/* DATA TABLE */
+.data-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+.data-table thead tr { border-bottom: 1px solid var(--border); }
+.data-table th { font-size: 7px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-weight: 600; text-align: left; padding: 8px 10px; }
+.data-table tbody tr { border-bottom: 1px solid var(--border2); transition: background 0.2s; }
+.data-table tbody tr:hover { background: rgba(184,134,11,0.04); }
+.data-table tbody tr:last-child { border-bottom: none; }
+.data-table td { padding: 13px 10px; font-size: 12px; color: var(--muted); vertical-align: top; line-height: 1.4; }
+.data-table td:first-child { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+.dir-up { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--green); font-weight: 600; }
+.dir-dn { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--red2); font-weight: 600; }
+
+/* TRADE LOG */
+.trade-log { margin-bottom: 28px; }
+.trade-log-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+.trade-log-title { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.trade-log-net { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--green); }
+.trade-log-net.neg { color: var(--red2); }
+.trade-table { width: 100%; border-collapse: collapse; }
+.trade-table thead tr { border-bottom: 1px solid var(--border); }
+.trade-table th { font-size: 7px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-weight: 600; text-align: left; padding: 8px 10px; }
+.trade-table tbody tr { border-bottom: 1px solid var(--border2); transition: background 0.2s; }
+.trade-table tbody tr:hover { background: rgba(184,134,11,0.04); }
+.trade-table td { padding: 14px 10px; font-size: 12px; color: var(--muted); vertical-align: top; line-height: 1.5; }
+.trade-pair { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--ink); }
+.dir-long { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--green); font-weight: 600; border: 1px solid rgba(26,92,58,0.3); padding: 2px 7px; display: inline-block; }
+.dir-short { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--red2); font-weight: 600; border: 1px solid rgba(192,57,43,0.3); padding: 2px 7px; display: inline-block; }
+.result-win { color: var(--green); font-weight: 600; font-size: 11px; }
+.result-loss { color: var(--red2); font-weight: 600; font-size: 11px; }
+.result-open { color: var(--gold); font-weight: 600; font-size: 11px; }
+.pips-pos { color: var(--green); font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; }
+.pips-neg { color: var(--red2); font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; }
+.pips-open { color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; }
+.trade-note { font-size: 10px; color: var(--muted); margin-top: 4px; font-weight: 500; font-style: italic; line-height: 1.5; }
+.trade-footer { display: flex; align-items: center; gap: 20px; padding: 14px 10px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+.trade-footer-label { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.trade-net-total { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--gold); }
+.trade-win-rate { font-size: 10px; color: var(--muted); margin-left: auto; }
+.trade-win-rate strong { color: var(--ink); }
+
+/* SIGNAL CHECK */
+.signal-check { border: 1px solid var(--border2); margin-bottom: 24px; }
+.signal-row { display: flex; align-items: center; justify-content: space-between; padding: 11px 18px; border-bottom: 1px solid var(--border2); gap: 10px; flex-wrap: wrap; }
+.signal-row:last-child { border-bottom: none; }
+.signal-pair { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--ink); min-width: 80px; }
+.signal-price { font-size: 12px; color: var(--muted); min-width: 70px; }
+.signal-zone { font-size: 11px; color: var(--ink2); flex: 1; }
+.signal-status { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; padding: 3px 8px; border: 1px solid; white-space: nowrap; }
+.sig-at { color: var(--green); border-color: rgba(26,92,58,0.3); }
+.sig-above { color: var(--muted); border-color: var(--border2); }
+.sig-below { color: var(--muted); border-color: var(--border2); }
+.sig-watch { color: var(--gold); border-color: var(--border); }
+
+/* PAIR CARDS */
+.pair-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 28px; }
+.pair-card { padding: 22px 24px; border: 1px solid var(--border2); background: var(--cream); position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.pair-card-bg { position: absolute; inset: 0; background: var(--ink); transform: translateX(-101%); transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1); z-index: 0; }
+.pair-card:hover .pair-card-bg { transform: translateX(0); }
+.pair-card-inner { position: relative; z-index: 1; }
+.pair-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.pair-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--ink); line-height: 1; transition: color 0.35s; }
+.pair-card:hover .pair-name { color: var(--cream); }
+.pair-price { font-family: 'Cormorant Garamond', serif; font-size: 13px; color: var(--muted); font-style: italic; transition: color 0.35s; margin-top: 2px; }
+.pair-card:hover .pair-price { color: rgba(245,240,232,0.5); }
+.badge-pair { font-size: 7px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; border: 1px solid; font-weight: 600; transition: all 0.35s; }
+.badge-pair.bull { color: var(--green); border-color: rgba(26,92,58,0.3); }
+.badge-pair.bear { color: var(--red2); border-color: rgba(192,57,43,0.3); }
+.badge-pair.caution { color: var(--gold); border-color: var(--border); }
+.pair-card:hover .badge-pair { border-color: rgba(212,160,23,0.4); color: var(--gold2); }
+.pair-divider { border: none; border-top: 1px solid var(--border2); margin: 12px 0; transition: border-color 0.35s; }
+.pair-card:hover .pair-divider { border-color: rgba(245,240,232,0.1); }
+.pair-row { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.pair-key { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 600; transition: color 0.35s; }
+.pair-card:hover .pair-key { color: rgba(212,160,23,0.7); }
+.pair-val { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 600; color: var(--ink); transition: color 0.35s; }
+.pair-card:hover .pair-val { color: var(--cream); }
+.pair-val.res { color: var(--red2); }
+.pair-val.sup { color: var(--green); }
+.pair-card:hover .pair-val.res, .pair-card:hover .pair-val.sup { color: var(--gold2); }
+.pair-note { font-size: 11px; color: var(--ink2); line-height: 1.7; font-weight: 400; margin-top: 10px; transition: color 0.35s; }
+.pair-card:hover .pair-note { color: rgba(245,240,232,0.55); }
+
+/* SCENARIO MATRIX */
+.scenario-grid { display: grid; grid-template-columns: 1fr; gap: 2px; margin-bottom: 24px; }
+.scenario-card { padding: 22px 26px; border: 1px solid var(--border2); background: var(--cream); }
+.scenario-card.base { border-left: 3px solid var(--gold); }
+.scenario-card.bull { border-left: 3px solid var(--green); }
+.scenario-card.bear { border-left: 3px solid var(--red2); }
+.scenario-label { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; margin-bottom: 6px; }
+.scenario-card.base .scenario-label { color: var(--gold); }
+.scenario-card.bull .scenario-label { color: var(--green); }
+.scenario-card.bear .scenario-label { color: var(--red2); }
+.scenario-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 6px; line-height: 1.2; }
+.scenario-prob { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 12px; }
+.scenario-body { font-size: 12px; color: var(--ink2); line-height: 1.8; font-weight: 400; }
+
+/* PRIORITY LIST */
+.priority-list { margin-bottom: 28px; }
+.priority-item { padding: 18px 0; border-bottom: 1px solid var(--border2); }
+.priority-item:last-child { border-bottom: none; }
+.priority-header { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; flex-wrap: wrap; }
+.priority-pair { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--ink); }
+.priority-score { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; border: 1px solid var(--border); padding: 3px 8px; }
+.priority-dir { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; padding: 3px 8px; border: 1px solid; }
+.priority-dir.short { color: var(--red2); border-color: rgba(192,57,43,0.3); }
+.priority-dir.long { color: var(--green); border-color: rgba(26,92,58,0.3); }
+.priority-dir.neutral { color: var(--gold); border-color: var(--border); }
+.priority-levels { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 8px; font-size: 10px; color: var(--muted); font-weight: 600; letter-spacing: 1px; }
+.priority-text { font-size: 11px; color: var(--ink2); line-height: 1.7; font-weight: 400; }
+
+/* SCHEDULE */
+.schedule { border: 1px solid var(--border2); margin-bottom: 24px; }
+.schedule-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid var(--border2); gap: 12px; flex-wrap: wrap; }
+.schedule-row:last-child { border-bottom: none; }
+.schedule-date { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 600; min-width: 180px; }
+.schedule-event { font-size: 12px; color: var(--ink2); flex: 1; font-weight: 400; line-height: 1.4; }
+.schedule-impact { font-size: 7px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; padding: 3px 8px; border: 1px solid; white-space: nowrap; }
+.impact-max { color: var(--red2); border-color: rgba(192,57,43,0.3); }
+.impact-high { color: var(--gold); border-color: var(--border); }
+.impact-mod { color: var(--muted); border-color: var(--border2); }
+
+/* COT BOX */
+.cot-box { background: rgba(26,20,16,0.03); border: 1px solid var(--border); padding: 24px 28px; margin-bottom: 24px; }
+.cot-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 16px; }
+.cot-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.cot-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 600; min-width: 80px; }
+.cot-bar { flex: 1; height: 10px; background: var(--border2); position: relative; overflow: hidden; }
+.cot-fill { height: 100%; font-size: 0; }
+.cot-fill.long { background: var(--green); }
+.cot-fill.short { background: var(--red2); }
+.cot-note { font-size: 9px; color: var(--muted); min-width: 260px; font-weight: 500; line-height: 1.4; }
+
+/* STAT BOXES */
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-bottom: 24px; }
+.stat-box { padding: 18px 20px; border: 1px solid var(--border2); background: var(--cream); }
+.stat-label { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px; }
+.stat-value { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--ink); }
+
+/* PERF BAR */
+.perf-section { margin-bottom: 24px; }
+.perf-row { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
+.perf-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 600; min-width: 80px; }
+.perf-bar { flex: 1; height: 10px; background: var(--border2); position: relative; }
+.perf-fill { height: 100%; background: var(--gold); display: flex; align-items: center; padding-left: 8px; font-size: 9px; color: var(--ink2); font-weight: 600; white-space: nowrap; overflow: visible; }
+
+/* FOOTER */
+.footer { padding: 28px 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.footer-disc { font-size: 10px; color: var(--muted); line-height: 1.7; font-weight: 500; max-width: 480px; }
+.footer-disc strong { color: var(--gold); font-weight: 600; }
+.footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--ink2); opacity: 0.3; white-space: nowrap; }
+
+@media (max-width: 600px) {
+  .topbar, .main, .footer, .strip { padding-left: 20px; padding-right: 20px; }
+  .pair-cards { grid-template-columns: 1fr; }
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<div class="page">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-left">HipMarvin FX &nbsp;/&nbsp; Intraday Premium · Post-Event Session Brief</div>
+    <div class="topbar-right">
+      <span class="topbar-date">Friday, 29 May 2026</span>
+      <span class="badge-premium">✦ Premium Access</span>
+      <span class="badge-bull">USD Cautious · Ceasefire Pending</span>
+    </div>
+  </header>
+
+  <!-- STRIP — Section 1 data -->
+  <div class="strip">
+    <div class="strip-item"><span class="strip-label">DXY</span><span class="strip-val gold">99.28 ◆</span></div>
+    <div class="strip-item"><span class="strip-label">XAU/USD</span><span class="strip-val bull">4,503 ▲</span></div>
+    <div class="strip-item"><span class="strip-label">EUR/USD</span><span class="strip-val gold">1.1650 ◆</span></div>
+    <div class="strip-item"><span class="strip-label">GBP/USD</span><span class="strip-val bear">1.3450 ▼</span></div>
+    <div class="strip-item"><span class="strip-label">USD/JPY</span><span class="strip-val bull">159.39 ▲</span></div>
+    <div class="strip-item"><span class="strip-label">AUD/USD</span><span class="strip-val bear">0.7130 ▼</span></div>
+    <div class="strip-item"><span class="strip-label">USD/CAD</span><span class="strip-val bear">1.3800 ▼</span></div>
+    <div class="strip-item"><span class="strip-label">NZD/USD</span><span class="strip-val bull">0.5910 ▲</span></div>
+    <div class="strip-item"><span class="strip-label">USD/CHF</span><span class="strip-val bear">0.7868 ▼</span></div>
+    <div class="strip-item"><span class="strip-label">EUR/JPY</span><span class="strip-val bull">185.68 ▲</span></div>
+    <div class="strip-item"><span class="strip-label">GBP/JPY</span><span class="strip-val bull">214.10 ▲</span></div>
+    <div class="strip-item"><span class="strip-label">AUD/JPY</span><span class="strip-val bull">113.82 ▲</span></div>
+    <div class="strip-item"><span class="strip-label">NZD/JPY</span><span class="strip-val bull">94.20 ▲</span></div>
+    <div class="strip-item"><span class="strip-label">GBP/AUD</span><span class="strip-val bear">1.8863 ▼</span></div>
+    <div class="strip-item"><span class="strip-label">EUR/AUD</span><span class="strip-val bear">1.6340 ▼</span></div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HERO -->
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Intraday Session Brief · Premium Edition · 29 May 2026</span></div>
+    <h1 class="hero-title">Session<br><em>Brief</em></h1>
+    <div class="hero-sub">Friday 29 May 2026 · Post-PCE Open</div>
+    <div class="hero-meta">
+      <span class="hero-meta-item">Analyst · Elijah Agom</span>
+      <span class="hero-meta-dot"></span>
+      <span class="hero-meta-item">29 May 2026</span>
+      <span class="hero-meta-dot"></span>
+      <span class="hero-meta-item">Premium Edition</span>
+    </div>
+
+    <!-- TABS -->
+    <div class="tab-row">
+      <button class="tab-btn active" onclick="showTab('overview',this)">Overview</button>
+      <button class="tab-btn" onclick="showTab('tradelog',this)">Live Trade Log</button>
+      <button class="tab-btn" onclick="showTab('pairs',this)">Pair Watch</button>
+      <button class="tab-btn" onclick="showTab('scenarios',this)">Scenarios</button>
+      <button class="tab-btn" onclick="showTab('priority',this)">Trade Priority</button>
+      <button class="tab-btn" onclick="showTab('calendar',this)">Calendar</button>
+      <button class="tab-btn" onclick="showTab('cot',this)">COT &amp; Flow</button>
+    </div>
+
+    <!-- TAB: OVERVIEW — Section 2 prose -->
+    <div class="tab-pane active" id="tab-overview">
+      <div class="section-label">Session Macro Brief — 29 May 2026</div>
+      <div class="prose-box">
+        <p>The session's dominant driver has shifted: <strong>Thursday's core PCE printed +0.2% MoM (3.3% YoY)</strong> — softer than the feared 0.3% — delivering partial relief to a market priced for a hawkish Fed hold. That data, combined with the Axios/Reuters report of a tentative 60-day US-Iran ceasefire extension, drove S&amp;P 500 and Nasdaq 100 to fresh record highs overnight, pressured WTI toward $87, and pushed Gold back above the $4,500 psychological level after hitting a two-month low on Thursday.</p>
+        <p>The ceasefire MOU is real but unconfirmed: four Reuters sources confirm a 60-day extension with Hormuz shipping resumption, but <strong>Trump has not approved</strong> and Iran's Tasnim agency has not confirmed the text is finalised. That ambiguity is keeping DXY anchored at 99.28 rather than breaking lower — the market wants the deal but will not price it fully until Trump tweets approval. GBP/USD is defensively holding 1.3450 ahead of Governor Bailey's speech at 9:20am ET, with the BoE at 3.75% (8-1 hold, April) carrying a cautious wait-and-watch bias.</p>
+        <p><strong>Primary session watch:</strong> Bailey's tone at 9:20am ET (14:20 WAT) is the morning's clearest directional catalyst — a neutral-to-dovish tilt opens the GBP/USD short toward 1.3300; a hawkish surprise squeezes Cable to 1.3520 and invalidates the setup. CAD GDP m/m prints at 1:30pm ET (forecast 0.1% vs prev 0.2%) — a miss triggers USD/CAD long from 1.3800 zone; a beat extends the flush toward 1.3720.</p>
+        <p><strong>Key signal:</strong> JPY net-short positioning among large speculators remains at its most bearish since July 2024, with USD/JPY trading 159.39 — now only 61 pips from the 160.00 level where the Finance Ministry previously intervened and where two rounds of BoJ intervention totalling more than $60 billion were deployed in late April and early May.</p>
+        <p>Keep USD/JPY longs sized conservatively and maintain hard stops below 158.85. If Trump confirms the Iran MOU today, expect a sharp risk-on rotation: EUR/USD through 1.1700, Gold above 4,527, and USD/JPY retreat toward 158.50 as safe-haven demand unwinds simultaneously — that scenario invalidates multiple setups in a single session.</p>
+      </div>
+
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line right"></div></div>
+
+      <div class="section-label">Signal Check — Price vs Entry Zone</div>
+      <div class="signal-check">
+        <div class="signal-row">
+          <span class="signal-pair">EUR/USD</span>
+          <span class="signal-price">1.1650</span>
+          <span class="signal-zone">Entry Zone 1.1630–1.1660</span>
+          <span class="signal-status sig-at">✓ At Zone</span>
+        </div>
+        <div class="signal-row">
+          <span class="signal-pair">USD/JPY</span>
+          <span class="signal-price">159.39</span>
+          <span class="signal-zone">Entry Zone 158.90–159.10 — above zone</span>
+          <span class="signal-status sig-above">✗ Above Zone</span>
+        </div>
+        <div class="signal-row">
+          <span class="signal-pair">GBP/USD</span>
+          <span class="signal-price">1.3450</span>
+          <span class="signal-zone">Entry Zone 1.3450–1.3480 — open trade</span>
+          <span class="signal-status sig-at">✓ At Zone</span>
+        </div>
+        <div class="signal-row">
+          <span class="signal-pair">USD/CAD</span>
+          <span class="signal-price">1.3800</span>
+          <span class="signal-zone">Entry Zone 1.3790–1.3820 — await GDP print</span>
+          <span class="signal-status sig-watch">⧗ Data Event</span>
+        </div>
+        <div class="signal-row">
+          <span class="signal-pair">AUD/USD</span>
+          <span class="signal-price">0.7130</span>
+          <span class="signal-zone">Entry Zone 0.7175–0.7185 — below zone</span>
+          <span class="signal-status sig-below">✗ Below Zone</span>
+        </div>
+        <div class="signal-row">
+          <span class="signal-pair">NZD/USD</span>
+          <span class="signal-price">0.5910</span>
+          <span class="signal-zone">Entry Zone 0.5910–0.5925 — RBNZ thesis intact</span>
+          <span class="signal-status sig-at">✓ At Zone</span>
+        </div>
+        <div class="signal-row">
+          <span class="signal-pair">EUR/JPY</span>
+          <span class="signal-price">185.68</span>
+          <span class="signal-zone">Entry Zone 184.90–185.20 — above zone</span>
+          <span class="signal-status sig-above">✗ Above Zone</span>
+        </div>
+        <div class="signal-row">
+          <span class="signal-pair">GBP/JPY</span>
+          <span class="signal-price">214.10</span>
+          <span class="signal-zone">Entry Zone 213.20–213.60 — above zone</span>
+          <span class="signal-status sig-above">✗ Above Zone</span>
+        </div>
+        <div class="signal-row">
+          <span class="signal-pair">AUD/JPY</span>
+          <span class="signal-price">113.82</span>
+          <span class="signal-zone">Entry Zone 113.50–113.80 — at zone top</span>
+          <span class="signal-status sig-watch">⧗ Monitor</span>
+        </div>
+        <div class="signal-row">
+          <span class="signal-pair">GBP/AUD</span>
+          <span class="signal-price">1.8863</span>
+          <span class="signal-zone">Entry Zone 1.8820–1.8860 — await Bailey</span>
+          <span class="signal-status sig-at">✓ At Zone</span>
+        </div>
+        <div class="signal-row">
+          <span class="signal-pair">EUR/AUD</span>
+          <span class="signal-price">1.6340</span>
+          <span class="signal-zone">Entry Zone 1.6310–1.6350 — at zone</span>
+          <span class="signal-status sig-at">✓ At Zone</span>
+        </div>
+        <div class="signal-row">
+          <span class="signal-pair">XAU/USD</span>
+          <span class="signal-price">4,503</span>
+          <span class="signal-zone">Short Zone 4,490–4,527 — within zone</span>
+          <span class="signal-status sig-at">✓ Within Zone</span>
+        </div>
+      </div>
+
+      <div class="insight-box">
+        <div class="insight-label">Active Entries This Session</div>
+        <div class="insight-text"><strong>GBP/USD</strong> (open, running) · <strong>EUR/USD</strong> (at zone top, confirmed entry) · <strong>XAU/USD</strong> (within short zone — await Iran MOU clarity before entering). NZD/USD at zone support — watch only until pullback confirms. All other setups above entry zones — do not chase.</div>
+      </div>
+
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line right"></div></div>
+
+      <div class="section-label">What Drove the Session — Event Log</div>
+      <div class="event-table">
+        <table style="width:100%; border-collapse:collapse;">
+          <tr style="border-bottom:1px solid var(--border2)">
+            <td style="padding:14px 8px; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; width:36%; vertical-align:top; padding-top:16px;">
+              US PCE Price Index (Apr) — 28 May<br>
+              <div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot"></div></div>
+            </td>
+            <td style="padding:14px 8px; font-size:12px; color:var(--ink2); line-height:1.6; font-weight:400;">
+              Core PCE +0.2% MoM (forecast 0.3%, prev 0.3%) — softer than feared; annual core 3.3%. Headline PCE +0.4% MoM, +3.8% YoY — 3-year high driven by Iran war energy shock. <span class="tag-miss">Miss · Softer</span><br>
+              FX reaction: DXY held 99.28; EUR/USD drifted higher toward 1.1650; Gold recovered from 2-month low above $4,500. Net: mild USD softness but insufficient to unwind hawkish positioning.
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border2)">
+            <td style="padding:14px 8px; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; vertical-align:top; padding-top:16px;">
+              US-Iran 60-Day Ceasefire MOU — 28 May<br>
+              <div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot"></div></div>
+            </td>
+            <td style="padding:14px 8px; font-size:12px; color:var(--ink2); line-height:1.6; font-weight:400;">
+              Reuters (4 sources) and Axios confirm US-Iran agreed 60-day ceasefire extension with Hormuz traffic resumption — <strong>Trump has not yet approved; Iran's Tasnim says text is not finalised.</strong> <span class="tag-inline">Unconfirmed</span><br>
+              FX reaction: S&amp;P 500 + Nasdaq to record highs; WTI fell to $87.20; Gold recovered to $4,500; DXY dipped then rebounded to 99.28 on residual uncertainty.
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border2)">
+            <td style="padding:14px 8px; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; vertical-align:top; padding-top:16px;">
+              BoE Gov Bailey Speaks — 29 May<br>
+              <div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot empty"></div><div class="impact-dot empty"></div></div>
+            </td>
+            <td style="padding:14px 8px; font-size:12px; color:var(--ink2); line-height:1.6; font-weight:400;">
+              Speech at 9:20 AM EDT (14:20 WAT). BoE held at 3.75% (8-1 vote, April) with cautious wait-and-watch bias amid UK CPI 3.3% and Middle East energy uncertainty. <span class="tag-pending">Pending</span><br>
+              FX reaction: pending — monitor GBP/USD at 1.3450 for directional break. Neutral-to-dovish tone confirms short; hawkish surprise invalidates.
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:14px 8px; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; vertical-align:top; padding-top:16px;">
+              CAD GDP m/m — 29 May<br>
+              <div class="impact-row"><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot"></div><div class="impact-dot empty"></div></div>
+            </td>
+            <td style="padding:14px 8px; font-size:12px; color:var(--ink2); line-height:1.6; font-weight:400;">
+              Forecast 0.1% (prev 0.2%); result pending at 1:30 PM EDT (18:30 WAT). <span class="tag-pending">Pending</span><br>
+              FX reaction: binary trigger for USD/CAD. Miss (≤0.0%) → long toward 1.3869. Beat (≥0.2%) → flush toward 1.3720. Do not pre-position.
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB: LIVE TRADE LOG — Section 4 -->
+    <div class="tab-pane" id="tab-tradelog">
+      <div class="section-label">Live Trade Log — 29 May 2026 · Session Open</div>
+      <div class="trade-log">
+        <div class="trade-log-header">
+          <span class="trade-log-title">Premium Trade Log · Elijah Agom · Week starting 26 May 2026</span>
+          <span class="trade-log-net">Net: +0 pips (2 open)</span>
+        </div>
+        <table class="trade-table">
+          <thead>
+            <tr><th>Pair</th><th>Dir</th><th>Entry</th><th>Target</th><th>Stop</th><th>Exit</th><th>Status</th><th>Pips</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="trade-pair">GBP/USD</span>
+                <div class="trade-note">Short from 1.3450 resistance zone. BoE 8-1 hold at 3.75%; GBP COT shorts rising ~19k combined; Bailey speech at 9:20am ET is live catalyst — neutral-to-dovish tone confirms downside toward 1.3300. Trail stop to 1.3490 once 1.3420 breaks.</div>
+              </td>
+              <td><span class="dir-short">Short</span></td>
+              <td>1.3450</td><td>1.3300</td><td>1.3520</td><td>—</td>
+              <td><span class="result-open">⟳ Open</span></td>
+              <td><span class="pips-open">+0</span></td>
+            </tr>
+            <tr>
+              <td>
+                <span class="trade-pair">EUR/USD</span>
+                <div class="trade-note">Short from 1.1650 resistance ceiling. EUR COT longs cut 3rd consecutive week; post-PCE USD floor at 99.28 DXY; ceasefire ambiguity capping EUR upside. Enter on failed rally into 1.1650–1.1660 zone. Primary risk: Trump ceasefire approval squeezes EUR/USD toward 1.1700 — have exit ready.</div>
+              </td>
+              <td><span class="dir-short">Short</span></td>
+              <td>1.1650</td><td>1.1480</td><td>1.1705</td><td>—</td>
+              <td><span class="result-open">⟳ Open</span></td>
+              <td><span class="pips-open">+0</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="trade-footer">
+          <span class="trade-footer-label">Week Open Net</span>
+          <span class="trade-net-total">+0 pips</span>
+          <span class="trade-win-rate">Win Rate: <strong>—</strong> &nbsp;·&nbsp; 2 open · 0 closed</span>
+        </div>
+      </div>
+
+      <div class="insight-box">
+        <div class="insight-label">Execution Notes — Session Open</div>
+        <div class="insight-text">Two entries confirmed at the open: <strong>GBP/USD short from 1.3450</strong> and <strong>EUR/USD short from 1.1650</strong> — both at resistance ceilings with USD floor anchored at DXY 99.28 post-PCE. The session binary is Bailey's tone at 9:20am ET: hawkish closes both shorts immediately; neutral-to-dovish confirms both. <strong>XAU/USD at 4,503</strong> is within the 4,490–4,527 short zone but do not enter before Iran MOU confirmation — a Trump sign-off would suppress safe-haven demand and compress Gold 100–150 pips from current levels rapidly. <strong>USD/CAD long thesis</strong> (GDP miss trigger) remains valid at 1:30pm ET — do not pre-position.</div>
+      </div>
+    </div>
+
+    <!-- TAB: PAIR WATCH — Section 5 -->
+    <div class="tab-pane" id="tab-pairs">
+      <div class="section-label">Pair Watch — Live Levels · 29 May 2026</div>
+      <div class="pair-cards">
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">EUR/USD</div><div class="pair-price">1.1650</div></div>
+              <span class="badge-pair bear">Bear</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">1.1670</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">1.1565</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">1.1630–1.1660</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">1.1480</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">1.1705</span></div>
+            <div class="pair-note">EUR COT longs cut three consecutive weeks while DXY holds above 99 on residual hawkish Fed pricing. Short from 1.1630–1.1660 targets 1.1480 for 2.3:1 R:R. Key risk today: confirmed Trump approval of the US-Iran MOU would squeeze EUR/USD toward 1.1700 before resuming lower.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">USD/JPY</div><div class="pair-price">159.39</div></div>
+              <span class="badge-pair bull">Bull</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">160.00</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">158.85</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">158.85–159.10</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">159.90</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">158.40</span></div>
+            <div class="pair-note">JPY net-short positioning at most extreme since July 2024; USD/JPY only 61 pips from 160.00 where BoJ deployed $60B+ in prior interventions. Long from 158.85–159.10 only — do not chase at 159.39. Size at 50%. A ceasefire confirmation would flush 150–200 pips lower instantly.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">GBP/USD</div><div class="pair-price">1.3450</div></div>
+              <span class="badge-pair bear">Bear</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">1.3480</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">1.3400</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">1.3450–1.3480</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">1.3300</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">1.3520</span></div>
+            <div class="pair-note">GBP COT combined shorts increased ~19k; BoE 8-1 hold at 3.75% signals caution. Already entered at zone bottom. Bailey's speech at 9:20am ET is the live confirmation — hawkish surprise exits immediately. Trail stop to 1.3490 once 1.3420 breaks.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">USD/CHF</div><div class="pair-price">0.7868</div></div>
+              <span class="badge-pair bear">Bear</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">0.7900</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">0.7840</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">—</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">—</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">—</span></div>
+            <div class="pair-note">Scores 2/5 this week — below the 3+ threshold for an active setup. CHF net-shorts elevated but no tier-1 catalyst today creates a clean entry. Monitor for a sustained break above 0.7900 as the trigger to reassess for next week.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">USD/CAD</div><div class="pair-price">1.3800</div></div>
+              <span class="badge-pair caution">Data Event</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">1.3869</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">1.3760</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">1.3790–1.3820</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">1.3869</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">1.3750</span></div>
+            <div class="pair-note">CAD GDP m/m prints at 1:30pm ET — forecast 0.1% vs prior 0.2% — with CAD COT shorts at a 17-week high. Miss (≤0.0%) triggers long toward 1.3869 for 2.3:1 R:R; beat (≥0.2%) invalidates and risks flush to 1.3720. Data-event trade only — do not enter before the print.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">AUD/USD</div><div class="pair-price">0.7130</div></div>
+              <span class="badge-pair bear">Bear</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">0.7185</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">0.7100</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">0.7155–0.7175</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">0.7060</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">0.7210</span></div>
+            <div class="pair-note">AUD COT asset managers near a multi-year record net-long extreme while price has retreated from 4-year highs. Short from a bounce to 0.7155–0.7175 targets 0.7060 for 2.1:1 R:R. Price is below the entry zone at 0.7130 — wait for a failed bounce into zone, do not chase lower.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">NZD/USD</div><div class="pair-price">0.5910</div></div>
+              <span class="badge-pair bull">Bull</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">0.5960</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">0.5910</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">0.5910–0.5925</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">0.6000</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">0.5875</span></div>
+            <div class="pair-note">RBNZ hawkish pivot — split 3-3 hold, terminal rate revised to 3.25% by early 2027 — is the clearest central bank repricing catalyst. NZD COT shorts at 11-week high represent positioning fuel for a squeeze. Long here targets 0.6000 for 2.1:1 R:R with stop below 0.5875.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">EUR/JPY</div><div class="pair-price">185.68</div></div>
+              <span class="badge-pair bull">Bull</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">186.20</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">184.90</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">184.90–185.20</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">186.80</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">184.20</span></div>
+            <div class="pair-note">Price above the 184.90–185.20 entry zone at 185.68 — only enter on a pullback to zone, do not chase. A Trump-confirmed ceasefire today would spike JPY and could flush this pair 100+ pips lower as a stop-hunt event. Wait for the catalyst to clear first.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">GBP/JPY</div><div class="pair-price">214.10</div></div>
+              <span class="badge-pair bull">Bull</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">214.80</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">213.20</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">213.20–213.60</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">215.50</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">212.40</span></div>
+            <div class="pair-note">Dual catalyst risk today: Bailey's speech drives the GBP leg; USD/JPY proximity to 160.00 keeps BoJ intervention live on the JPY leg. Price above entry zone at 214.10 — do not chase. Only enter on a Bailey-driven pullback to 213.20–213.60. Stand aside until both catalysts clear.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">AUD/JPY</div><div class="pair-price">113.82</div></div>
+              <span class="badge-pair bull">Bull</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">114.80</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">113.50</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">113.50–113.80</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">115.20</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">112.80</span></div>
+            <div class="pair-note">AUD COT near record net-long extreme + JPY shorts most extreme since July 2024 — dual positioning momentum. Price testing top of entry zone at 113.82. A daily close below 113.50 is the exit signal. BoJ intervention risk on USD/JPY could break the stop before the AUD thesis plays out — size conservatively.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">NZD/JPY</div><div class="pair-price">94.20</div></div>
+              <span class="badge-pair bull">Bull</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">95.00</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">93.80</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">93.80–94.10</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">95.60</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">93.20</span></div>
+            <div class="pair-note">RBNZ hawkish pivot provides NZD floor; JPY short exposure at 11-week high adds positioning momentum. Price above entry zone at 94.20 — wait for pullback to 93.80–94.10 before entering. Size at half until USD/JPY confirms below 159.60 — ceasefire confirmation would spike JPY and break the stop.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">GBP/AUD</div><div class="pair-price">1.8863</div></div>
+              <span class="badge-pair bear">Bear</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">1.8940</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">1.8720</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">1.8860–1.8940</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">1.8580</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">1.9000</span></div>
+            <div class="pair-note">GBP COT shorts +19k combined + AUD asset managers near record net-long. Price has entered the short zone at 1.8863. Await Bailey's speech to confirm neutral-to-dovish GBP tone before entering — hawkish Bailey surprise temporarily invalidates. Short targets 1.8580 for 2.0:1 R:R.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">EUR/AUD</div><div class="pair-price">1.6340</div></div>
+              <span class="badge-pair bear">Bear</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">1.6390</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">1.6180</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">1.6310–1.6390</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">1.6060</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">1.6450</span></div>
+            <div class="pair-note">EUR COT longs cut 3rd consecutive week + AUD asset managers near record net-long. Price at 1.6340 is within the entry zone. Short targets 1.6060 for 2.1:1 R:R. Reduce size if AUD/USD breaks down sharply — an accelerated AUD unwind initially benefits this trade but then compresses the R:R.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">DXY</div><div class="pair-price">99.28</div></div>
+              <span class="badge-pair caution">Caution</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">99.55</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">98.68</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">—</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">—</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">—</span></div>
+            <div class="pair-note">Soft core PCE (0.2%) but annual headline at 3.8% — the highest since May 2023. DXY consolidating at 99.28. A confirmed Trump ceasefire breaks below 98.68; MOU collapse re-energises safe-haven demand toward 99.55. Use as a directional read for majors, not a direct trade today.</div>
+          </div>
+        </div>
+
+        <div class="pair-card">
+          <div class="pair-card-bg"></div>
+          <div class="pair-card-inner">
+            <div class="pair-card-header">
+              <div><div class="pair-name">XAU/USD</div><div class="pair-price">4,503</div></div>
+              <span class="badge-pair bear">Bear</span>
+            </div>
+            <hr class="pair-divider"/>
+            <div class="pair-row"><span class="pair-key">Resistance</span><span class="pair-val res">4,527</span></div>
+            <div class="pair-row"><span class="pair-key">Support</span><span class="pair-val sup">4,440</span></div>
+            <div class="pair-row"><span class="pair-key">Entry Zone</span><span class="pair-val">4,490–4,527</span></div>
+            <div class="pair-row"><span class="pair-key">Target</span><span class="pair-val">4,350</span></div>
+            <div class="pair-row"><span class="pair-key">Stop</span><span class="pair-val">4,570</span></div>
+            <div class="pair-note">Recovering from Thursday's 2-month low as ceasefire optimism + softer PCE combine to reduce safe-haven premium. Within the 4,490–4,527 short zone. Do not hold shorts through a confirmed Trump ceasefire approval — that single headline sends Gold above 4,527 on risk-on surge and negates the setup entirely.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB: SCENARIOS — Section 6 -->
+    <div class="tab-pane" id="tab-scenarios">
+      <div class="section-label">Scenario Matrix — 29 May 2026</div>
+      <div class="scenario-grid">
+
+        <div class="scenario-card base">
+          <div class="scenario-label">Base Case · ~45%</div>
+          <div class="scenario-title">Cautious Hold — Bailey Neutral · MOU Pending · DXY 99.00–99.40</div>
+          <div class="scenario-prob">Most likely outcome</div>
+          <div class="scenario-body">Bailey delivers a neutral-to-cautious tone consistent with the April 8-1 hold at 3.75%, offering no new dovish signal. Trump does not officially approve the Iran MOU today, leaving ceasefire ambiguity intact. DXY consolidates 99.00–99.40 as soft core PCE (0.2%) is offset by hot headline inflation (3.8% YoY). GBP/USD drifts lower from 1.3450 toward 1.3400; EUR/USD stays capped at 1.1650–1.1670; USD/JPY holds 159.00–159.55 range; Gold holds $4,490–$4,527. CAD GDP inline at 0.1% leaves USD/CAD rangebound at 1.3780–1.3830.</div>
+        </div>
+
+        <div class="scenario-card bull">
+          <div class="scenario-label">Bull Case · ~25%</div>
+          <div class="scenario-title">Risk-On Surge — Trump Approves MOU · EUR/USD 1.1700 · Gold 4,550</div>
+          <div class="scenario-prob">Session invalidation scenario for USD longs</div>
+          <div class="scenario-body">If Trump confirms the 60-day ceasefire extension today, markets reprice the Middle East risk premium: WTI falls toward $84, DXY breaks below 98.68 support, EUR/USD surges through 1.1700, GBP/USD squeezes to 1.3520 (stopping out the short), and Gold initially spikes toward 4,550 on risk-on before reversing as safe-haven demand collapses. NZD/USD extends above 0.5960 on RBNZ positioning unwind, USD/JPY retreats to 158.50. All USD-long setups stop out in this scenario.</div>
+        </div>
+
+        <div class="scenario-card bear">
+          <div class="scenario-label">Bear Case · ~30%</div>
+          <div class="scenario-title">Risk-Off Shock — MOU Collapses + Bailey Hawkish · USD/JPY 160</div>
+          <div class="scenario-prob">Confirms all USD-long and short-risk setups simultaneously</div>
+          <div class="scenario-body">If Iran officially rejects the MOU text and fresh military exchanges occur, safe-haven demand returns: DXY surges toward 99.55, Gold reclaims 4,527, USD/JPY approaches 160.00 triggering BoJ intervention risk, and GBP/USD short accelerates toward 1.3350. A hawkish Bailey surprise in this risk-off environment compounds GBP selling. If CAD GDP prints ≤0.0% simultaneously, USD/CAD spikes from 1.3800 toward 1.3870+. This validates GBP/USD and EUR/USD shorts while forcing XAU/USD shorts to be covered immediately above 4,527.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB: TRADE PRIORITY — Section 7 -->
+    <div class="tab-pane" id="tab-priority">
+      <div class="section-label">Trade Priority List — 29 May 2026 · Ranked by Conviction</div>
+      <div class="priority-list">
+
+        <div class="priority-item">
+          <div class="priority-header">
+            <span class="priority-pair">GBP/USD</span>
+            <span class="priority-score">5/5</span>
+            <span class="priority-dir short">Short</span>
+          </div>
+          <div class="priority-levels">
+            <span>Entry: 1.3450</span><span>TP1: 1.3400</span><span>TP2: 1.3300</span><span>Stop: 1.3520</span><span>R:R: 1:2.1</span>
+          </div>
+          <div class="priority-text">Scores 5/5: at 1.3450–1.3480 resistance zone (T.Str); BoE 8-1 hold at 3.75% with cautious bias, Bailey speech today (Fund); GBP COT shorts increased ~19k combined (COT); liquid major (Liq); 1.3300 targets 2.1:1 R:R (R:R). Already entered. Bailey speech is the live confirmation — hawkish surprise exits immediately. Trail stop to 1.3490 once 1.3420 breaks.</div>
+        </div>
+
+        <div class="priority-item">
+          <div class="priority-header">
+            <span class="priority-pair">EUR/USD</span>
+            <span class="priority-score">5/5</span>
+            <span class="priority-dir short">Short</span>
+          </div>
+          <div class="priority-levels">
+            <span>Entry: 1.1650</span><span>TP1: 1.1565</span><span>TP2: 1.1480</span><span>Stop: 1.1705</span><span>R:R: 1:2.3</span>
+          </div>
+          <div class="priority-text">Scores 5/5: at 1.1650 resistance ceiling with price already at entry zone (T.Str); Fed hawkish hold — core PCE 0.2% softer but annual 3.3% supports no-cut stance (Fund); EUR COT longs cutting 3rd week (COT); liquid major (Liq); 1.1480 target gives 2.3:1 R:R (R:R). Already entered. Primary risk: Trump ceasefire approval triggers USD unwind toward 1.1700 — have exit plan ready for that event.</div>
+        </div>
+
+        <div class="priority-item">
+          <div class="priority-header">
+            <span class="priority-pair">USD/JPY</span>
+            <span class="priority-score">5/5</span>
+            <span class="priority-dir short">Short</span>
+          </div>
+          <div class="priority-levels">
+            <span>Entry: 159.55</span><span>TP1: 158.85</span><span>TP2: 158.00</span><span>Stop: 159.75</span><span>R:R: 1:2.8</span>
+          </div>
+          <div class="priority-text">Scores 5/5: at 159.39 near the 160.00 BoJ intervention threshold; two prior intervention rounds ($60B+) already absorbed (T.Str+Fund); JPY net-short near extreme — most bearish since Jul 2024 (COT); liquid major (Liq). Fade toward 159.55 session high with tight stop. Do NOT hold above 160.00 — intervention risk makes this the most dangerous single level on the board. Reduce size by 50% near that level.</div>
+        </div>
+
+        <div class="priority-item">
+          <div class="priority-header">
+            <span class="priority-pair">USD/CAD</span>
+            <span class="priority-score">5/5</span>
+            <span class="priority-dir neutral">Data Event</span>
+          </div>
+          <div class="priority-levels">
+            <span>Entry: 1.3810</span><span>TP1: 1.3869</span><span>TP2: 1.3950</span><span>Stop: 1.3760</span><span>R:R: 1:1.7</span>
+          </div>
+          <div class="priority-text">Scores 5/5: at entry zone 1.3790–1.3820 with CAD GDP m/m due 1:30pm ET (forecast 0.1%, prev 0.2%) (T.Str+Fund); CAD COT shorts at 17-week high (COT); liquid major (Liq). Long bias on miss (≤0.0%) targets 1.3869. Beat (≥0.2%) invalidates entirely. Data-event trade only — do not pre-position before the print.</div>
+        </div>
+
+        <div class="priority-item">
+          <div class="priority-header">
+            <span class="priority-pair">EUR/JPY</span>
+            <span class="priority-score">5/5</span>
+            <span class="priority-dir short">Short</span>
+          </div>
+          <div class="priority-levels">
+            <span>Entry: 185.70</span><span>TP1: 184.90</span><span>TP2: 184.00</span><span>Stop: 186.20</span><span>R:R: 1:1.6</span>
+          </div>
+          <div class="priority-text">Scores 5/5: at 185.68 near 186.00 weekly resistance (T.Str); BoJ intervention risk near 160 USD/JPY + ECB June ambiguity (Fund); JPY near extreme + EUR COT cutting 3rd week (COT); liquid cross (Liq). Await a failed push toward 185.80–186.00 before shorting. Ceasefire confirmation spikes JPY and drives this 100+ pips lower rapidly — size at half and pre-set stops.</div>
+        </div>
+
+        <div class="priority-item">
+          <div class="priority-header">
+            <span class="priority-pair">XAU/USD</span>
+            <span class="priority-score">4/5</span>
+            <span class="priority-dir short">Short</span>
+          </div>
+          <div class="priority-levels">
+            <span>Entry: 4,503</span><span>TP1: 4,440</span><span>TP2: 4,350</span><span>Stop: 4,570</span><span>R:R: 1:2.0</span>
+          </div>
+          <div class="priority-text">Scores 4/5: within 4,490–4,527 short zone recovering from 2-month low (T.Str); soft core PCE + ceasefire optimism reducing safe-haven premium (Fund); no direct COT this session (COT:0); liquid (Liq); 4,350 gives 2.0:1 from 4,503 entry (R:R). Primary invalidation: Trump approves MOU today — Gold above 4,527 in that scenario signals immediate exit. Do not hold shorts if ceasefire news breaks.</div>
+        </div>
+
+        <div class="priority-item">
+          <div class="priority-header">
+            <span class="priority-pair">GBP/JPY</span>
+            <span class="priority-score">5/5</span>
+            <span class="priority-dir short">Short</span>
+          </div>
+          <div class="priority-levels">
+            <span>Entry: 214.50</span><span>TP1: 213.20</span><span>TP2: 212.00</span><span>Stop: 215.00</span><span>R:R: 1:2.5</span>
+          </div>
+          <div class="priority-text">Scores 5/5: near 214.50–214.80 weekly resistance (T.Str); Bailey speech + BoJ intervention dual catalyst (Fund); GBP COT rising shorts + JPY near extreme short (COT); liquid cross (Liq). Wait for Bailey tone confirmation at 9:20am ET and USD/JPY to confirm below 159.60 before entering — any combination of hawkish Bailey + intervention spike makes this the most dangerous pair today.</div>
+        </div>
+
+        <div class="priority-item">
+          <div class="priority-header">
+            <span class="priority-pair">NZD/USD</span>
+            <span class="priority-score">4/5</span>
+            <span class="priority-dir long">Long</span>
+          </div>
+          <div class="priority-levels">
+            <span>Entry: 0.5910</span><span>TP1: 0.5960</span><span>TP2: 0.6000</span><span>Stop: 0.5875</span><span>R:R: 1:2.1</span>
+          </div>
+          <div class="priority-text">Scores 4/5: RBNZ hawkish pivot (split 3-3; terminal rate revised to 3.25% by early 2027) is this week's tier-1 catalyst (Fund); NZD COT shorts at 11-week high — squeeze potential on repositioning (COT); price testing 0.5910–0.5925 entry zone (T.Str+R:R); liquid major (Liq). RBNZ COT repositioning not yet in data — next Friday's COT release may add fuel. Size cautiously until that print.</div>
+        </div>
+
+        <div class="priority-item">
+          <div class="priority-header">
+            <span class="priority-pair">GBP/AUD</span>
+            <span class="priority-score">4/5</span>
+            <span class="priority-dir short">Short</span>
+          </div>
+          <div class="priority-levels">
+            <span>Entry: 1.8880</span><span>TP1: 1.8720</span><span>TP2: 1.8580</span><span>Stop: 1.9000</span><span>R:R: 1:1.5</span>
+          </div>
+          <div class="priority-text">Scores 4/5: GBP COT shorts rising ~19k + AUD COT near record long (COT+T.Str); Bailey speech today (Fund); price at 1.8863 within entry zone (live); less-liquid cross (Liq:0). Await Bailey confirmation before entering — hawkish surprise is the primary invalidation here.</div>
+        </div>
+
+        <div class="priority-item">
+          <div class="priority-header">
+            <span class="priority-pair">AUD/USD</span>
+            <span class="priority-score">4/5</span>
+            <span class="priority-dir short">Short</span>
+          </div>
+          <div class="priority-levels">
+            <span>Entry: 0.7155</span><span>TP1: 0.7100</span><span>TP2: 0.7060</span><span>Stop: 0.7210</span><span>R:R: 1:1.7</span>
+          </div>
+          <div class="priority-text">Scores 4/5: pulling back from 4-year high with near-record AUD COT longs — contrarian short signal (T.Str+COT); no tier-1 AUD catalyst today (Fund:0); liquid major (Liq). Lower-conviction on Fund:0 — reduce size 30% vs score-5 setups. Enter on a failed bounce into 0.7155–0.7175 only, not at current 0.7130.</div>
+        </div>
+
+        <div class="priority-item">
+          <div class="priority-header">
+            <span class="priority-pair">EUR/AUD</span>
+            <span class="priority-score">4/5</span>
+            <span class="priority-dir short">Short</span>
+          </div>
+          <div class="priority-levels">
+            <span>Entry: 1.6340</span><span>TP1: 1.6180</span><span>TP2: 1.6060</span><span>Stop: 1.6450</span><span>R:R: 1:2.1</span>
+          </div>
+          <div class="priority-text">Scores 4/5: EUR COT longs cutting 3rd week + AUD COT near record long (COT+T.Str); ECB June ambiguity vs RBA at 4.35% hawkish (Fund); price at 1.6340 within entry zone (live); less-liquid cross (Liq:0). Lowest conviction of score-4 setups — smallest position size. Confirm EUR/USD direction first before entering.</div>
+        </div>
+
+        <div class="priority-item">
+          <div class="priority-header">
+            <span class="priority-pair">AUD/JPY</span>
+            <span class="priority-score">4/5</span>
+            <span class="priority-dir long">Long</span>
+          </div>
+          <div class="priority-levels">
+            <span>Entry: 113.80</span><span>TP1: 114.50</span><span>TP2: 115.20</span><span>Stop: 112.80</span><span>R:R: 1:2.3</span>
+          </div>
+          <div class="priority-text">Scores 4/5: AUD COT near record long + JPY extreme short — dual alignment (COT+T.Str); no AUD catalyst today (Fund:0); liquid cross (Liq). Price at 113.82 testing entry zone top — live confirmation. Keep BoJ intervention risk in mind: a spike on USD/JPY hits this stop before the AUD thesis plays out.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB: CALENDAR — Section 8 -->
+    <div class="tab-pane" id="tab-calendar">
+      <div class="section-label">Session Calendar — 29 May 2026</div>
+      <div class="schedule">
+        <div class="schedule-row">
+          <div class="schedule-date">Fri 29 May · 09:20 ET / 14:20 WAT</div>
+          <div class="schedule-event">BoE Gov Bailey Speaks · Forecast: N/A · Prior: N/A · Actual: Pending (speech tone) — GBP directional catalyst</div>
+          <div class="schedule-impact impact-high">HIGH</div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-date">Fri 29 May · 13:30 ET / 18:30 WAT</div>
+          <div class="schedule-event">GDP m/m · CAD · Forecast: 0.1% · Prior: 0.2% · Actual: Pending — binary trigger for USD/CAD direction</div>
+          <div class="schedule-impact impact-high">HIGH</div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-date">Thu 28 May · 12:30 ET / 17:30 WAT</div>
+          <div class="schedule-event">Core PCE Price Index m/m · USD · Forecast: 0.3% · Prior: 0.3% · Actual: 0.2% ✓ Miss — softer than feared; annual 3.3%</div>
+          <div class="schedule-impact impact-max">MAX</div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-date">Thu 28 May · Evening ET</div>
+          <div class="schedule-event">US-Iran 60-Day Ceasefire MOU · Geopolitical · Actual: Agreement reached (Reuters 4 sources) — Trump not yet confirmed</div>
+          <div class="schedule-impact impact-max">MAX</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: COT & FLOW — Section 9 -->
+    <div class="tab-pane" id="tab-cot">
+      <div class="section-label">COT Positioning Data — W/E 20 May 2026</div>
+      <div class="cot-box">
+        <div class="cot-title">Commitment of Traders — Net Positions &amp; Bias</div>
+
+        <div class="cot-row">
+          <span class="cot-label">EUR</span>
+          <div class="cot-bar"><div class="cot-fill long" style="width:38%;"></div></div>
+          <span class="cot-note">Net Long (declining) · cutting longs 3rd consecutive week · bearish divergence building · as of 20 May</span>
+        </div>
+        <div class="cot-row">
+          <span class="cot-label">GBP</span>
+          <div class="cot-bar"><div class="cot-fill short" style="width:42%;"></div></div>
+          <span class="cot-note">Net Short (rising) · shorts increased ~19k combined · BoE 3.75% hold reinforcing · as of 20 May</span>
+        </div>
+        <div class="cot-row">
+          <span class="cot-label">JPY</span>
+          <div class="cot-bar"><div class="cot-fill short" style="width:48%;"></div></div>
+          <span class="cot-note">Net Short · MOST BEARISH SINCE JUL 2024 · NEAR EXTREME · BoJ intervention risk active · as of 20 May</span>
+        </div>
+        <div class="cot-row">
+          <span class="cot-label">AUD</span>
+          <div class="cot-bar"><div class="cot-fill long" style="width:55%;"></div></div>
+          <span class="cot-note">Net Long · NEAR RECORD EXTREME · asset mgrs multi-year high · crowded long unwind risk · as of 20 May</span>
+        </div>
+        <div class="cot-row">
+          <span class="cot-label">NZD</span>
+          <div class="cot-bar"><div class="cot-fill short" style="width:40%;"></div></div>
+          <span class="cot-note">Net Short · 11-wk high in shorts · rising 4 consecutive weeks · RBNZ hawkish pivot not yet in data · as of 20 May</span>
+        </div>
+        <div class="cot-row">
+          <span class="cot-label">CAD</span>
+          <div class="cot-bar"><div class="cot-fill short" style="width:44%;"></div></div>
+          <span class="cot-note">Net Short · 17-wk HIGH in large spec shorts · rising 4 consecutive weeks · as of 20 May</span>
+        </div>
+        <div class="cot-row">
+          <span class="cot-label">CHF</span>
+          <div class="cot-bar"><div class="cot-fill short" style="width:35%;"></div></div>
+          <span class="cot-note">Net Short · 5-wk high · rising shorts · USD safe-haven demand headwind · as of 20 May</span>
+        </div>
+        <div class="cot-row">
+          <span class="cot-label">USD Index</span>
+          <div class="cot-bar"><div class="cot-fill long" style="width:42%;"></div></div>
+          <span class="cot-note">Net Long (declining) · sentiment peak likely · core PCE miss (0.2%) adding modest pressure · as of 20 May</span>
+        </div>
+        <div class="cot-row">
+          <span class="cot-label">EUR/JPY</span>
+          <div class="cot-bar"><div class="cot-fill long" style="width:40%;"></div></div>
+          <span class="cot-note">EUR long cutting + JPY short near extreme · dual-leg momentum higher until intervention · as of 20 May</span>
+        </div>
+        <div class="cot-row">
+          <span class="cot-label">GBP/JPY</span>
+          <div class="cot-bar"><div class="cot-fill long" style="width:40%;"></div></div>
+          <span class="cot-note">GBP shorts rising + JPY shorts elevated · dual catalyst risk · Bailey + BoJ today · as of 20 May</span>
+        </div>
+        <div class="cot-row">
+          <span class="cot-label">AUD/JPY</span>
+          <div class="cot-bar"><div class="cot-fill long" style="width:52%;"></div></div>
+          <span class="cot-note">AUD extreme long + JPY extreme short · DUAL EXTREME ALIGNMENT · highest COT confluence · as of 20 May</span>
+        </div>
+        <div class="cot-row">
+          <span class="cot-label">NZD/JPY</span>
+          <div class="cot-bar"><div class="cot-fill short" style="width:40%;"></div></div>
+          <span class="cot-note">NZD short 11-wk high + JPY short extreme · RBNZ hawkish catalyst vs BoJ risk · as of 20 May</span>
+        </div>
+        <div class="cot-row">
+          <span class="cot-label">GBP/AUD</span>
+          <div class="cot-bar"><div class="cot-fill short" style="width:45%;"></div></div>
+          <span class="cot-note">GBP shorts rising + AUD near record long · strong downside alignment · as of 20 May</span>
+        </div>
+        <div class="cot-row">
+          <span class="cot-label">EUR/AUD</span>
+          <div class="cot-bar"><div class="cot-fill short" style="width:43%;"></div></div>
+          <span class="cot-note">EUR longs cutting + AUD near extreme long · compounding downside thesis · as of 20 May</span>
+        </div>
+      </div>
+
+      <div class="insight-box">
+        <div class="insight-label">Elijah's COT Reading — 29 May 2026</div>
+        <div class="insight-text">The two most important COT signals this session: <strong>AUD/JPY dual extreme alignment</strong> (AUD near record long + JPY near most extreme short since July 2024) is the highest COT confluence score on the board — this pair has the most positioning fuel behind it. And <strong>NZD shorts at an 11-week high</strong> with the RBNZ hawkish pivot not yet in the data — the next COT release may confirm a significant positioning squeeze that adds momentum to the NZD/USD long setup. Both are live setups today at entry zones. Watch carefully.</div>
+      </div>
+
+      <!-- Week start stats — Section 9 stats -->
+      <div class="section-label">Week Performance Tracker — W/C 26 May 2026</div>
+      <div class="stat-grid">
+        <div class="stat-box">
+          <div class="stat-label">Week Net Pips</div>
+          <div class="stat-value">—</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Win Rate %</div>
+          <div class="stat-value">—</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Wins / Losses / Partials</div>
+          <div class="stat-value">— / — / —</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Trades Taken</div>
+          <div class="stat-value">2 open</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Best Trade</div>
+          <div class="stat-value">—</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Average R:R</div>
+          <div class="stat-value">—</div>
+        </div>
+      </div>
+      <div class="perf-section">
+        <div class="perf-row">
+          <div class="perf-label">Wk 26 May</div>
+          <div class="perf-bar"><div class="perf-fill" style="width:0%;">— pips (2 open, week start)</div></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer-disc"><strong>⚠ Educational Use Only.</strong> All content is strictly for informational purposes only and does not constitute financial advice. Premium members only — do not share or redistribute. HipMarvin FX · Analyst: Elijah Agom · 29 May 2026. Market data sourced as of 29 May 2026 session open.</p>
+    <div class="footer-brand">HipMarvin FX</div>
+  </footer>
+
+</div>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+const cursor = document.getElementById('cursor');
+const ring   = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx - 4 + 'px'; cursor.style.top = my - 4 + 'px';
+});
+function animRing() {
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+  ring.style.left = rx - 16 + 'px'; ring.style.top = ry - 16 + 'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+document.querySelectorAll('.pair-card').forEach(c => {
+  c.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2)'; ring.style.transform = 'scale(1.5)'; });
+  c.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; ring.style.transform = 'scale(1)'; });
+});
+</script>
+</body>
+</html>
